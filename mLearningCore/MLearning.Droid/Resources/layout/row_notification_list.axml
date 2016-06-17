@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="horizontal"
+    p1:layout_width="match_parent"
+    p1:layout_height="wrap_content"
+    p1:id="@+id/row_notification_list">
+    <ImageView
+        p1:layout_width="wrap_content"
+        p1:layout_height="match_parent"
+        p1:layout_gravity="center_horizontal"
+        p1:id="@+id/imageView_Row_NL" />
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:weightSum="100"
+        p1:id="@+id/info_Row_NL"
+        p1:background="#00ffffff"
+        p1:layout_gravity="center_vertical">
+        <TextView
+            p1:text="Text"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:layout_weight="50"
+            p1:layout_gravity="bottom"
+            p1:id="@+id/textView_date_NL" />
+        <TextView
+            p1:text="Text"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:layout_weight="50"
+            p1:layout_gravity="top"
+            p1:id="@+id/textView_comment_NL" />
+    </LinearLayout>
+</LinearLayout>

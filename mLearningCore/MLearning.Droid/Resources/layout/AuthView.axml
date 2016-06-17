@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <Button
+         android:text="Facebook"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/button1"
+         local:MvxBind="Click FacebookLoginCommand" />
+
+  <Button
+        android:text="Twitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        local:MvxBind="Click TwitterLoginCommand" />
+  
+ <Button
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        local:MvxBind="Click AppAccountLoginCommand" />
+
+ <Button
+        android:text="SignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        local:MvxBind="Click SignUpCommand" />
+    
+</LinearLayout>

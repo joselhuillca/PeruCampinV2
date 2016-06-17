@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        local:MvxBind="Text Username"
+        android:text="a" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        local:MvxBind="Text Password"
+        android:text="1" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_marginBottom="16.0dp"
+        local:MvxBind="Text StatusLabel" />
+    <Button
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        local:MvxBind="Click LoginCommand" />
+  <Button
+       android:text="Administration"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/button1"
+       local:MvxBind="Click NavigateToManagerCommand" />
+    <Button
+       android:text="PictureChoose"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/button1"
+       local:MvxBind="Click ChoosePictureFromLibraryCommand" />
+
+
+</LinearLayout>

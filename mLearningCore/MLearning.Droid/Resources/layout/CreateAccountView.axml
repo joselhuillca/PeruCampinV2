@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        local:MvxBind="Text Username"
+        android:text="" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        local:MvxBind="Text Password"
+        android:text="" />
+  <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView1"
+      local:MvxBind="Text Name"
+      android:text="" />
+  <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView2"
+      local:MvxBind="Text Lastname"
+      android:text="" />
+
+  <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/textView2"
+       local:MvxBind="Text Email"
+       android:text="" />
+  
+    <Button
+        android:text="Test ValidateUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        local:MvxBind="Click TestUsernameCommand" />
+
+
+  <Button
+       android:text="Create User"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/button1"
+       local:MvxBind="Click CreateAccountCommand" />
+  <Button
+      android:text="Test Go to Login"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/button1"
+      local:MvxBind="Click NavigateToLoginCommand" />
+
+  
+</LinearLayout>

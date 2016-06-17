@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="horizontal"
+    p1:layout_width="match_parent"
+    p1:layout_height="wrap_content"
+    p1:id="@+id/row_template_list">
+    <ImageView
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:layout_gravity="center"
+        p1:id="@+id/imageView_Row_TemplateList" />
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:weightSum="100"
+        p1:id="@+id/info_Row_TemplateList_LinearLayout"
+        p1:background="#00ffffff"
+        p1:layout_gravity="start">
+        <LinearLayout
+            p1:orientation="horizontal"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:layout_weight="30"
+            p1:layout_gravity="center"
+            p1:id="@+id/info_Row_TemplateList_LinearLayout_INFO">
+            <ImageView
+                p1:layout_width="wrap_content"
+                p1:layout_height="wrap_content"
+                p1:layout_gravity="center_vertical"
+                p1:id="@+id/imageView_point_TemplateList" />
+            <TextView
+                p1:text="   "
+                p1:layout_width="wrap_content"
+                p1:layout_height="wrap_content"
+                p1:layout_gravity="center_vertical"
+                p1:id="@+id/textView_space1_TemplateList" />
+            <TextView
+                p1:text="Name"
+                p1:layout_width="wrap_content"
+                p1:layout_height="wrap_content"
+                p1:layout_gravity="center_vertical"
+                p1:id="@+id/textView_name_TemplateList" />
+            <TextView
+                p1:text="   "
+                p1:layout_width="wrap_content"
+                p1:layout_height="wrap_content"
+                p1:layout_gravity="center_vertical"
+                p1:id="@+id/textView_space2_TemplateList" />
+            <TextView
+                p1:text="Date"
+                p1:layout_width="wrap_content"
+                p1:layout_height="wrap_content"
+                p1:layout_gravity="center_vertical"
+                p1:id="@+id/textView_date_TemplateList" />
+        </LinearLayout>
+        <TextView
+            p1:text="Commet"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:layout_weight="70"
+            p1:layout_gravity="top"
+            p1:id="@+id/textView_comment_TemplateList" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <!--<Mvx.MvxListView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      local:MvxBind="ItemsSource StacksList"
+      local:MvxItemTemplate="@layout/item_group_page"
+      android:id="@+id/mvx.MvxListView1" />
+      -->
+
+  <TextView
+        
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:id="@+id/textView3"
+     local:MvxBind="Text IsLoaded"/>
+  
+</LinearLayout>
