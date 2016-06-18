@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiaCamping", "MLearning.Dr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLearning.Core", "MLearning.Core\MLearning.Core.csproj", "{5A3B79A2-507C-489B-9DEB-4710A75677F3}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TaskySharedCode", "TaskySharedCode\TaskySharedCode.shproj", "{579BD547-2865-4254-B242-8EB4DDB25288}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

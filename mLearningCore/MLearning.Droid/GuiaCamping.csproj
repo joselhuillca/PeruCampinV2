@@ -158,6 +158,8 @@
     <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.22.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Data.Sqlite" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncStorage\DroidAsyncStorageService.cs" />
@@ -247,6 +249,9 @@
     <Compile Include="Views\LinearLayoutLO.cs" />
     <Compile Include="Views\JustifiedTextView.cs" />
     <Compile Include="Resources\AddResources.cs" />
+    <Compile Include="Views\NotasItemScreen.cs" />
+    <Compile Include="Views\NotasItemListAdapter.cs" />
+    <Compile Include="Views\NotasScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -333,6 +338,9 @@
     <AndroidResource Include="Resources\drawable\transparent.png" />
     <AndroidResource Include="Resources\drawable\splash.png" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\layout\TaskDetails.xml" />
+    <AndroidResource Include="Resources\layout\TaskListItem.xml" />
+    <AndroidResource Include="Resources\layout\NotasScreen.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -353,6 +361,7 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <Import Project="..\TaskySharedCode\TaskySharedCode.projitems" Label="Shared" Condition="Exists('..\TaskySharedCode\TaskySharedCode.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

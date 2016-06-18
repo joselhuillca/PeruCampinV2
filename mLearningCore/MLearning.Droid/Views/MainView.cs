@@ -863,6 +863,7 @@ namespace MLearning.Droid.Views
 			{
                 //showHome ();
                 showCifras();//COSTA
+				Toast.MakeText (this, "COSTA", ToastLength.Short).Show();
 			}
 			else if(e.Position == 1)//rutas
 			{
@@ -871,7 +872,7 @@ namespace MLearning.Droid.Views
 				} else {
                     //showRutas ();
                     showCifras();//SIERRA
-
+					Toast.MakeText (this, "SIERRA", ToastLength.Short).Show();
                 }
 			}
 
@@ -886,6 +887,7 @@ namespace MLearning.Droid.Views
 				} else {
                     //showServicios ();
                     showCifras();//SELVA
+					Toast.MakeText (this, "SELVA", ToastLength.Short).Show();
 				}
 			}
 			else if(e.Position == 1)//silvestre
@@ -894,19 +896,24 @@ namespace MLearning.Droid.Views
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
 				} else {
                     //showGuiaSilvestre ();
-					showFavoritos ();
+					showFavoritos ();//Favoritos
+					Toast.MakeText (this, "Favoritos", ToastLength.Short).Show();
                 }
 			}
 			else if(e.Position == 2)//cifras
-			{
+			{	Toast.MakeText (this, "Notas__", ToastLength.Short).Show();
+				if (_currentCurso == 3) {
+					mDrawerLayout.CloseDrawer (mLeftDrawer);
+				} 
+				StartActivity(typeof(NotasScreen));
+				/*
 				if (_currentCurso == 3) {
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
 				} else {
+					showGuiaSilvestre ();//NOTAS
+					Toast.MakeText (this, "Notas", ToastLength.Short).Show();
 
-					showCifras ();
-					//showGuiaSilvestre ();
-
-				}
+				}*/
 			}
 			else if(e.Position == 3)//otros
 			{
@@ -954,7 +961,7 @@ namespace MLearning.Droid.Views
 
 			guiaServicios.Name = "Mis Favoritos";//"La palabra del experto";
             guiaSilvestre.Name = "Selva";//"Preparando la partida";
-			rutas.Name = "Los 50 mejores campamentos";
+			rutas.Name = "Notas";//"Los 50 mejores campamentos";
 			salir.Name = "Salir";
 
 			guiaServicios.Asset = "icons/iconservicios.png";
@@ -965,7 +972,7 @@ namespace MLearning.Droid.Views
 
 			_tasksBotton.Add (guiaSilvestre);
 			_tasksBotton.Add (guiaServicios);
-			//_tasksBotton.Add (rutas);
+			_tasksBotton.Add (rutas);
 			//_tasksBotton.Add (salir);
 
 			_listTasksBotton.Adapter = new TaskAdapter (this, _tasksBotton);
