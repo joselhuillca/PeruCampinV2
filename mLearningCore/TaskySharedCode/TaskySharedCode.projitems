@@ -13,5 +13,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)TodoItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TodoItemManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TodoItemRepositoryADO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MisFavoritos\FavoritosItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MisFavoritos\FavoritosItemRepositoryADO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MisFavoritos\FavoritosItemManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)MisFavoritos\" />
   </ItemGroup>
 </Project>

@@ -17,11 +17,18 @@ using Java.Util.Logging;
 using System.Threading;
 using MLearning.Core;
 using MLearning.Core.Configuration;
+using Tasky.Shared;
 
 namespace MLearning.Droid
 {
 	public class WallView: RelativeLayout
 	{
+		//Tabla Favoritos Item
+		FavoritosItem task = new FavoritosItem();
+		string Titulo = "";
+		string Descripcion = "";
+		int Id_Unidad;
+
 		MainViewModel vm;
 		public VerticalScrollView _scrollSpace;
 		public LinearLayout header;
@@ -920,6 +927,22 @@ namespace MLearning.Droid
 			popupBuilder.SetNeutralButton("Volver", delegate {  });
 			//popupBuilder.Show();
 
+
+			int id = (int)fav.Tag;
+			/*Marcadores prefs = Constants.GetMarkers(Constants.MarkersFileName);
+			prefs.PutString(Constants.MarkerTitleKey, _listUnidades[id].Title);
+			prefs.PutString(Constants.MarkerInfoKey,_listUnidades[id].Description);
+			prefs.PutString(Constants.MarkerIdKey, String.Format("{0}",_listUnidades[id].Id));
+
+			prefs.Commit();*/
+			//------------------------Utilizando TodList para la Tabla Favoritos ------------------------------------------------------------------
+			Titulo =  _listUnidades[id].Title;
+			Descripcion = _listUnidades [id].Description;
+			Id_Unidad = _listUnidades [id].Id;
+
+			SaveFav ();
+
+			//Dialog------------------------------------------
 			Dialog dial = popupBuilder.Create ();
 			dial.Show ();
 			new Thread(() =>
@@ -935,15 +958,18 @@ namespace MLearning.Droid
 
 			//linearContenido.RemoveView (favorit);
 
-			int id = (int)fav.Tag;
-			Marcadores prefs = Constants.GetMarkers(Constants.MarkersFileName);
-			prefs.PutString(Constants.MarkerTitleKey, _listUnidades[id].Title);
-			prefs.PutString(Constants.MarkerInfoKey,_listUnidades[id].Description);
-			prefs.PutString(Constants.MarkerIdKey, String.Format("{0}",_listUnidades[id].Id));
 
-			prefs.Commit();
 		}
 
+		//Trabajar con la BD - Tabla Favoritos
+		void SaveFav()
+		{
+			task.Titulo = Titulo;
+			task.Descripcion = Descripcion;
+			task.Id_unidad = Id_Unidad;
+
+			FavoritosItemManager.SaveTask(task);
+		}
 
 	}
 }

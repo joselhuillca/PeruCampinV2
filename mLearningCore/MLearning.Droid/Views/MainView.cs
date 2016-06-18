@@ -896,7 +896,8 @@ namespace MLearning.Droid.Views
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
 				} else {
                     //showGuiaSilvestre ();
-					showFavoritos ();//Favoritos
+					//showFavoritos ();//Favoritos
+					StartActivity(typeof(FavoritosScreen));
 					Toast.MakeText (this, "Favoritos", ToastLength.Short).Show();
                 }
 			}

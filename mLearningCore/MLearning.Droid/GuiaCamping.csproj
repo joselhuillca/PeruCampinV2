@@ -252,6 +252,8 @@
     <Compile Include="Views\NotasItemScreen.cs" />
     <Compile Include="Views\NotasItemListAdapter.cs" />
     <Compile Include="Views\NotasScreen.cs" />
+    <Compile Include="Views\FavoritosScreen.cs" />
+    <Compile Include="Views\FavoritosItemListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -341,6 +343,8 @@
     <AndroidResource Include="Resources\layout\TaskDetails.xml" />
     <AndroidResource Include="Resources\layout\TaskListItem.xml" />
     <AndroidResource Include="Resources\layout\NotasScreen.xml" />
+    <AndroidResource Include="Resources\layout\FavoritosListItem.xml" />
+    <AndroidResource Include="Resources\layout\FavoritoScreen.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
