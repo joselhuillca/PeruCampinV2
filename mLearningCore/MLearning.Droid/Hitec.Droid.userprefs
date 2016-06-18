@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="Hitec.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.4C3AWN154L014669" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views\LoginView.cs">
+    <Files>
+      <File FileName="Views\LoginView.cs" Line="86" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

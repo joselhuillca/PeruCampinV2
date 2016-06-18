@@ -80,9 +80,6 @@ $RECYCLE.BIN/
 /project.properties
 *.DS_Store
 *._.DS_Store
-*.userprefs
-*.csproj
-*.sln
 
 packages/
 [Bb]uild/
@@ -106,5 +103,3 @@ mLearningCore/MLearning.Core/obj/
 mLearningCore/MLearning.Droid/Resources/Resource.Designer.cs
 
 mLearningCore/MLearning.Droid/Resources/Resource.Designer.cs
-
-*.userprefs
