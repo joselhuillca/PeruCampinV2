@@ -760,6 +760,7 @@ namespace MLearning.Droid
 			for (int i = 0; i < numUnidades; i++) 
 			{
 				LinearLayoutLO linearUnidad = new LinearLayoutLO (context);
+				linearUnidad.content = _listUnidades[i];
 				linearUnidad.LayoutParameters = new LinearLayout.LayoutParams (-1, -2);
 				linearUnidad.Orientation = Orientation.Vertical;
 				linearUnidad.SetGravity (Android.Views.GravityFlags.CenterVertical);

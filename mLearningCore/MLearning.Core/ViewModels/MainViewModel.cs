@@ -721,8 +721,21 @@ namespace MLearning.Core.ViewModels
 			}
 		}
 
+		public List<int> bookmarks { get; set; }
 
-        async void DoOpenLOCommand(lo_by_circle_wrapper learningobj)
+		//Open - Download LO
+		MvxCommand<lo_by_circle_wrapper> _DoOpenFavs;
+		public System.Windows.Input.ICommand OpenFavs
+		{
+			get
+			{
+				_DoOpenFavs = _DoOpenFavs ?? new MvxCommand<lo_by_circle_wrapper>(DoOpenFavs);
+				return _DoOpenFavs;
+			}
+		}
+
+
+		async void DoOpenLOCommand(lo_by_circle_wrapper learningobj)
         {
             //await  _mLearningService.OpenLearningObject(learningobj.lo.id,learningobj.lo.url_package,UserID);
 
@@ -851,6 +864,72 @@ namespace MLearning.Core.ViewModels
 
 		}
 
+		async void DoOpenFavs(lo_by_circle_wrapper learningobj__ )
+		{
+			//await  _mLearningService.OpenLearningObject(learningobj.lo.id,learningobj.lo.url_package,UserID);
+
+			try
+			{
+
+
+				//Download all the data of the selected LO
+
+				foreach (var item in LearningOjectsList)
+				{
+ 
+						var list = await _mLearningService.GetPagesByIDS( null );
+
+						//Page result = await this._mLearningService.GetFirstSlidePageByLOSection(item.lo.id); 
+						if (list != null)
+						{
+							Debug.WriteLine("indexList", "result...: " + list.Count);
+
+
+							var indexTmp = new Dictionary<int, IList<Page>>();
+							foreach (var page in list)
+							{
+								if ( this.bookmarks.Contains (page.id )) {
+
+									IList<Page> resultTmp;
+									if (!indexTmp.TryGetValue((int)page.LOsection_id, out resultTmp))
+									{
+										var ls = new List<Page>();
+										ls.Add(page);
+
+										indexTmp[(int)page.LOsection_id] = ls;
+									}
+									else {
+										resultTmp.Add(page);
+									}
+								}
+
+							}
+
+							ContentByUnit = new ObservableDictionary<int, IList<Page>>(indexTmp);
+						}
+					 
+				}
+			}
+			catch (WebException e)
+			{
+
+				ConnectionOK = false;
+			}
+			catch (HttpRequestException e)
+			{
+
+				ConnectionOK = false;
+			}
+			catch (MobileServiceInvalidOperationException e)
+			{
+				Mvx.Trace("MobileServiceInvalidOperationException " + e.Message);
+				OperationOK = false;
+			}
+
+
+
+
+		}
 		async void DoOpenFirstSlidePage(lo_by_circle_wrapper learningobj)
 		{
 			//await  _mLearningService.OpenLearningObject(learningobj.lo.id,learningobj.lo.url_package,UserID);

@@ -1,28 +1,55 @@
-﻿<Properties StartupItem="MLearning.Droid\GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.3004d5aa35e32200" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Core\Session\Marcadores.cs">
+﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/MainView.cs">
     <Files>
-      <File FileName="MLearning.Droid\Views\MainView.cs" Line="1500" Column="42" />
-      <File FileName="MLearning.Droid\Views\WallView.cs" Line="940" Column="71" />
-      <File FileName="MLearning.Droid\Views\LOView.cs" Line="551" Column="52" />
-      <File FileName="MLearning.Droid\DataSource\LOSlideSource.cs" Line="249" Column="33" />
-      <File FileName="MLearning.Core\ViewModels\RegisterViewModel.cs" Line="317" Column="6" />
-      <File FileName="MLearning.Core\ViewModels\LoginViewModel.cs" Line="441" Column="21" />
-      <File FileName="MLearning.Core\Session\SharedPreferences.cs" Line="14" Column="26" />
-      <File FileName="MLearning.Core\Session\Marcadores.cs" Line="81" Column="4" />
-      <File FileName="MLearning.Droid\Views\UnidadItem.cs" Line="10" Column="30" />
-      <File FileName="MLearning.Droid\Views\LoginView.cs" Line="112" Column="43" />
-      <File FileName="MLearning.Core\Configuration\Constants.cs" Line="42" Column="48" />
-      <File FileName="MLearning.Core\DownloadCache\CacheService.cs" Line="180" Column="40" />
-      <File FileName="MLearning.Core\Session\SessionService.cs" Line="61" Column="39" />
-      <File FileName="MLearning.Core\Classes\PageParser.cs" Line="57" Column="102" />
-      <File FileName="MLearning.Core\DownloadCache\IncrementalDownload.cs" Line="92" Column="38" />
-      <File FileName="MLearning.Core\ViewModels\LOViewModel.cs" Line="718" Column="4" />
-      <File FileName="MLearning.Core\ViewModels\MainViewModel.cs" Line="1236" Column="8" />
+      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="775" Column="1" />
+      <File FileName="MLearning.Core/Services/IMLearningService.cs" Line="300" Column="33" />
+      <File FileName="MLearning.Core/Services/MLearningAzureService.cs" Line="610" Column="24" />
+      <File FileName="MLearning.Droid/Views/MainView.cs" Line="24" Column="19" />
+      <File FileName="MLearning.Droid/Views/WallView.cs" Line="795" Column="1" />
+      <File FileName="MLearning.Droid/Views/LinearLayoutLO.cs" Line="23" Column="29" />
+      <File FileName="MLearning.Droid/Views/UnidadItem.cs" Line="11" Column="19" />
+      <File FileName="MLearning.Core/Entities/Page.cs" Line="16" Column="26" />
+      <File FileName="MLearning.Droid/Views/MapView.cs" Line="490" Column="4" />
+      <File FileName="MLearning.Droid/Views/PlaceItem.cs" Line="5" Column="15" />
+      <File FileName="MLearning.Core/ViewModels/LOViewModel.cs" Line="194" Column="15" />
+      <File FileName="MLearning.Droid/Views/LOView.cs" Line="755" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MLearning" expanded="True">
+            <Node name="GuiaCamping" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="MainView.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>learningobj.lo.id</Value>
+          <Value>_currentCurso</Value>
+          <Value>_currentUnidad</Value>
+          <Value>_currentSection</Value>
+          <Value>list</Value>
+          <Value>item.content</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Core/ViewModels/MainViewModel.cs" line="744" column="14" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MapView.cs" line="488" column="1" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Core/ViewModels/MainViewModel.cs" line="775" column="1" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1396" column="20" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1364" column="3" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1348" column="3" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1331" column="3" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.Nexus 4 (Lollipop)" />
 </Properties>

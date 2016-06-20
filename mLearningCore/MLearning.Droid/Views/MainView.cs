@@ -1364,7 +1364,37 @@ namespace MLearning.Droid.Views
 
 			var imView = sender as ImageLOView;
 			_currentUnidad = imView.index;
-			vm.OpenLOCommand.Execute(vm.LearningOjectsList[_currentUnidad]);
+
+			var item = sender as LinearLayoutLO;
+			if (this.lo.isFavoritos)
+			{
+				int indexLO = -1;
+				for (int i = 0; i < vm.LearningOjectsList.Count; i++)
+				{
+					if (vm.LearningOjectsList[i].lo.id == item.content.LO_ID)
+						indexLO = i;
+				}
+
+
+				int indexSection = -1;
+				for (int i = 0; i < vm.LOsectionList.Count; i++)
+				{
+					if (vm.LOsectionList[i].id == item.content.CurrentSection)
+						indexSection = i;
+				}
+				vm._currentUnidad = indexLO;
+				vm._currentCurso = _currentCurso;
+				vm._currentSection = indexSection;
+			}
+			else {
+				vm._currentUnidad = _currentUnidad;
+				vm._currentCurso = _currentCurso;
+				vm._currentSection = item.index;
+
+			}
+			var lobj = vm.LearningOjectsList[_currentUnidad];
+
+			//vm.OpenLOCommand.Execute(vm.LearningOjectsList[_currentUnidad]);
 			Console.WriteLine ("Lo_ImagenLO_Click()");
 
 		}
@@ -1378,12 +1408,17 @@ namespace MLearning.Droid.Views
 
 				foreach (var pair in vm.ContentByUnit) {
 
-					lo._listUnidades.Add (new UnidadItem { 
-						Title = pair.Value [0].title,
-						Description = pair.Value [0].description,
-						ImageUrl = pair.Value [0].url_img,
-						Id = pair.Value [0].id
-					});
+					lo._listUnidades.Add(new UnidadItem
+					{
+						Title = pair.Value[0].title,
+						Description = pair.Value[0].description,
+						ImageUrl = pair.Value[0].url_img,
+						Id = pair.Value[0].id,
+						LO_ID =  pair.Value[0].lo_id,
+						CurrentSection = pair.Value[0].LOsection_id
+
+
+				});
 				}
 				 
 				  
@@ -1399,9 +1434,9 @@ namespace MLearning.Droid.Views
 						lo._listLinearUnidades [i].Click += lo_item_click;
 					}
 
-					for (int i = 0; i < lo._listIconVerMap.Count; i++) {
+					/*for (int i = 0; i < lo._listIconVerMap.Count; i++) {
 						lo._listIconVerMap [i].Click += map_item_click;
-					}
+					}*/
 
 				}
 
@@ -1421,11 +1456,34 @@ namespace MLearning.Droid.Views
 		{
 			_dialogDownload.Show ();
 			var item = sender as LinearLayoutLO;
-			vm._currentUnidad = _currentUnidad;
-			vm._currentCurso = _currentCurso;
-			vm._currentSection = item.index;
-			vm.OpenLOCommand.Execute(vm.LearningOjectsList[_currentUnidad]);
+			var lobj = vm.LearningOjectsList[_currentUnidad];
+			if ( this.lo.isFavoritos) {
+				int indexLO = -1;
+				for (int i = 0; i < vm.LearningOjectsList.Count; i++  ) {
+					if (vm.LearningOjectsList[i].lo.id == item.content.LO_ID)
+						indexLO = i; 
+				}
 
+
+				int indexSection = -1;
+				for (int i = 0; i < vm.LOsectionList.Count; i++)
+				{
+					if (vm.LOsectionList[i].id == item.content.CurrentSection)
+						indexSection = i;
+				}
+
+
+				vm._currentUnidad = indexLO;
+				vm._currentCurso = _currentCurso;
+				vm._currentSection = indexSection;
+			}else {
+				vm._currentUnidad = _currentUnidad;
+				vm._currentCurso = _currentCurso;
+				vm._currentSection = item.index;
+
+			}
+
+			vm.OpenLOCommand.Execute(lobj);
 
 		}
 
@@ -1551,7 +1609,21 @@ namespace MLearning.Droid.Views
 				MLearning.Core.ViewModels.MainViewModel.lo_by_circle_wrapper currentLearningObject = vm.LearningOjectsList [_currentUnidad];
 				int circleID = currentLearningObject.lo.Circle_id;
 
-				vm.OpenFirstSlidePageCommand.Execute (currentLearningObject);
+				if ( this.lo.isFavoritos) {
+
+					List<int> lst = new List<int>();
+					lst.Add(581);
+					lst.Add(583);
+					lst.Add(573);
+					lst.Add(568);
+					vm.bookmarks = lst;
+					// sql 
+					vm.OpenFavs.Execute(  currentLearningObject  );
+
+				}
+				else {
+					vm.OpenFirstSlidePageCommand.Execute (currentLearningObject);
+				}
 
 			}
 
@@ -1618,7 +1690,7 @@ namespace MLearning.Droid.Views
 		private void RegisterWithGCM()
 		{
 
-
+			/*
 			if (!GcmClient.IsRegistered(this))
 			{
 				GcmClient.CheckDevice(this);
@@ -1627,7 +1699,7 @@ namespace MLearning.Droid.Views
 			
 				System.Diagnostics.Debug.WriteLine("Registering...");
 				GcmClient.Register(this, Core.Configuration.Constants.SenderID);
-			}
+			} */
 		}
 
 

@@ -493,6 +493,8 @@ namespace MLearning.Droid
 				var item = _currentPlaces [i];
 
 				LinearLayoutLO linearItem = new LinearLayoutLO (context);
+				//linearItem.content = _currentPlaces[i];
+
 				linearItem.index = i;
 				TextView txtName = new TextView (context);
 				ImageView imgIcon = new ImageView (context);

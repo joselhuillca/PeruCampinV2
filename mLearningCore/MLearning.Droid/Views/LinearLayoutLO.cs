@@ -20,11 +20,11 @@ namespace MLearning.Droid
 	public class LinearLayoutLO : LinearLayout
 	{
 		Context context;
-
+		public UnidadItem content; 
 
 		public int index;
 
-	
+		
 
 		public LinearLayoutLO (Context context) :
 		base (context)

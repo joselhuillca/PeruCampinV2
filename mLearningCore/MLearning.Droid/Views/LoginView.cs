@@ -86,7 +86,7 @@ namespace MLearning.Droid.Views
 
 			//START PARA COPIAR LA BASE DE DATOS LOCAL
 
-			//copyDataBase ();
+			copyDataBase ();
 
 			//END
 		
@@ -110,7 +110,7 @@ namespace MLearning.Droid.Views
 		{
 
 			Stream iStream = Assets.Open("database/cache.db");
-			var oStream = new FileOutputStream ("/data/data/hitec.Droid/files/cache.db");
+			var oStream = new FileOutputStream ("/data/data/camping.Droid/files/cache.db");
 			byte[] buffer = new byte[2048];
 			int length = 2048;
 			//    length = Convert.ToInt16(length2);

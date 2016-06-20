@@ -338,54 +338,10 @@ namespace Core.Repositories
 		{
 			List<T> result;
 
-			try
-			{
+	 		result = SearchForLocalTable<T>(predicate);
 
-				//If want to cache result
-
-				if (cacheResult)
-				{
-
-					//Check synchronization dates
-					DateTime lastSync =  await TableHasUpdate<T>();
-
-					if (lastSync != DateTime.MaxValue)
-					{
-						//Have Update
-						//Get results from lastSyncDate and save them to DB if cacheResult its true
-						//TODO: Filter with predicate
-						await SyncLocalTable<T>(lastSync, getID);
-
-					}
-
-
-					//No Update, use local
-					result = SearchForLocalTable<T>(predicate);
-
-				}
-				else
-				{
-					result = await MobileService.GetTable<T>().Take(_takeNRows).Where(predicate).ToListAsync();
-
-
-				}
-
-
-
-
-			}
-			catch (WebException e)
-			{
-				if (UseLocalDBWhenOffline)
-				{
-					result = SearchForLocalTable<T>(predicate);
-				}
-				else
-				{
-					throw e;
-				}
-			}
-
+			 
+			 
 
 			return result;
 
@@ -399,55 +355,14 @@ namespace Core.Repositories
 		//If cacheResult is true, save the results in localDB and use synchronization 
 		public async Task<T> SearchForFirstAsync<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate, Func<T, DateTime> getLastUpdate,Func<T,int> getID, bool cacheResult) where T : new()
 		{
+
 			List<T> result;
 
-			try
-			{
-
-				//If want to cache result
-
-				if (cacheResult)
-				{
-
-					//Check synchronization dates
-					DateTime lastSync =  await TableHasUpdate<T>();
-
-					if (lastSync != DateTime.MaxValue)
-					{
-						//Have Update
-						//Get results from lastSyncDate and save them to DB if cacheResult its true
-						//TODO: Filter with predicate
-						await SyncLocalTable<T>(lastSync, getID);
-
-					}
-					//No Update, use local
-					result = SearchForLocalTable<T>(predicate);
-
-				}
-				else
-				{
-					result = await MobileService.GetTable<T>().Take(_takeNRows).Where(predicate).ToListAsync();
-
-					int c = result.Count;
-
-
-				}
+			result = SearchForLocalTable<T>(predicate);
 
 
 
-
-			}
-			catch (WebException e)
-			{
-				if (UseLocalDBWhenOffline)
-				{
-					result = SearchForLocalTable<T>(predicate);
-				}
-				else
-				{
-					throw e;
-				}
-			}
+			 
 
 
 			return result.FirstOrDefault();
@@ -463,51 +378,8 @@ namespace Core.Repositories
 		{
 			List<T> result;
 
-			try
-			{
+			result = SearchForLocalTable<T>(predicate);
 
-				//If want to cache result
-
-				if (cacheResult)
-				{
-
-					//Check synchronization dates
-					DateTime lastSync =  await TableHasUpdate<T>();
-
-					if (lastSync != DateTime.MaxValue)
-					{
-						//Have Update
-						//Get results from lastSyncDate and save them to DB if cacheResult its true
-						//TODO: Filter with predicate
-						await SyncLocalTable<T>(lastSync, getID);
-
-					}
-
-					//No Update, use local
-					result = SearchForLocalTable<T>(predicate,parameters);
-
-				}
-				else
-				{
-					result = await MobileService.GetTable<T>().Take(1000).Where(predicate).WithParameters(parameters).IncludeTotalCount().ToListAsync();
-
-				}
-
-
-
-
-			}
-			catch (WebException e)
-			{
-				if (UseLocalDBWhenOffline)
-				{
-					result = SearchForLocalTable<T>(predicate);
-				}
-				else
-				{
-					throw e;
-				}
-			}
 
 
 			return result;
@@ -522,15 +394,14 @@ namespace Core.Repositories
 
 
 
-		public async Task<List<T>> SearchForAsync<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate, Dictionary<string, string> parameters, bool cacheResult)
+		public async Task<List<T>> SearchForAsync<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate, Dictionary<string, string> parameters, bool cacheResult) where T : new()
 		{
 
 
-
-			List<T> toReturn ;
+			List<T> toReturn = null;
 			try
 			{
-				toReturn = await MobileService.GetTable<T>().Take(1000).Where(predicate).WithParameters(parameters).IncludeTotalCount().ToListAsync();
+				toReturn = await MobileService.GetTable<T>().Where(predicate).WithParameters(parameters).ToListAsync();
 			}
 			catch (Exception e)
 			{
@@ -553,52 +424,12 @@ namespace Core.Repositories
 		public async Task<List<T>> SearchForAsync<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate, Func<T, DateTime> getLastUpdate, Func<T, int> getID, bool cacheResult,int skip,int take) where T : new()
 		{
 			List<T> result;
-
-			try
-			{
-
-				//If want to cache result
-
-				if (cacheResult)
-				{
-
-					//Check synchronization dates
-					DateTime lastSync = await TableHasUpdate<T>();
-
-					if (lastSync != DateTime.MaxValue)
-					{
-						//Have Update
-						//Get results from lastSyncDate and save them to DB if cacheResult its true
-						//TODO: Filter with predicate
-						await SyncLocalTable<T>(lastSync, getID);
-
-					}
+ 
 
 					//No Update, use local
 					result = SearchForLocalTable<T>(predicate,skip,take);
 
-				}
-				else
-				{
-					result = await MobileService.GetTable<T>().Take(_takeNRows).Where(predicate).ToListAsync();
-
-				}
-
-
-
-
-			}
-			catch (WebException e)
-			{
-				if (UseLocalDBWhenOffline)
-				{
-					result = SearchForLocalTable<T>(predicate);
-				}
-				else
-				{
-					throw e;
-				}
-			}
+			 
 
 
 			return result;

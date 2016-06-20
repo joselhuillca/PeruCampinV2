@@ -28,7 +28,7 @@ namespace MLearning.Core.Services
 
         // Recommendend
         //Validate user credentials
-        Task<LoginOperationResult<T>> ValidateLogin<T>(T account, Expression<Func<T, bool>> validation, Func<T, int> getID, Func<T, int> getType);
+        Task<LoginOperationResult<T>> ValidateLogin<T>(T account, Expression<Func<T, bool>> validation, Func<T, int> getID, Func<T, int> getType) where T : new(); 
          
         //Deprecated
         //Validate Consumer Credentials
@@ -295,6 +295,9 @@ namespace MLearning.Core.Services
 
 
         Task<List<Page>> GetPagesByLO(int lo_id);
+
+
+		Task<List<Page>> GetPagesByIDS(List<int> ids);
 
 
         /// <summary>

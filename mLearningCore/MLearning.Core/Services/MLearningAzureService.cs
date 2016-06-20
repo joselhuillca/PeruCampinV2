@@ -41,7 +41,7 @@ namespace MLearning.Core.Services
         }
 
         // Serverside: if login OK, sets field is_online to TRUE
-        public async Task<LoginOperationResult<T>> ValidateLogin<T>(T account, Expression<Func<T, bool>> validation, Func<T, int> getID, Func<T, int> getType)
+        public async Task<LoginOperationResult<T>> ValidateLogin<T>(T account, Expression<Func<T, bool>> validation, Func<T, int> getID, Func<T, int> getType) where T : new()
         {
             var list = await _repositoryService.SearchForAsync<T>(validation, new Dictionary<string, string> { { "login", "1" } }, false);
 
@@ -631,6 +631,13 @@ namespace MLearning.Core.Services
             return await _repositoryService.SearchForAsync<Page>(p => p.lo_id == lo_id, p => p.updated_at, p => p.id, true);
 #endif
         }
+
+		public async Task<List<Page>> GetPagesByIDS(List<int> ids)
+		{
+
+          	var ret =   await _repositoryService.SearchForAsync<Page>(p => true, p => p.updated_at, p => p.id, true);
+			return ret;
+		}
 
 		public async Task<List<LOsection>> GetSectionsByLO(int lo_id)
 		{

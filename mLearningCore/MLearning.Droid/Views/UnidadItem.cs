@@ -8,6 +8,8 @@ namespace MLearning.Droid
 		public string Description { get; set; }
 		public string ImageUrl { get; set;}
 		public int Id { get; set; }
+		public int LO_ID { get; set; }
+		public int CurrentSection { get; set; }
 
 	}
 }

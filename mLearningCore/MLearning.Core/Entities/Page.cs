@@ -26,7 +26,7 @@ namespace MLearningDB
         public System.DateTime created_at { get; set; }
         public System.DateTime updated_at { get; set; }
         public string title { get; set; }
-        public int? LOsection_id { get; set; }
+        public int LOsection_id { get; set; }
     
     }
 
