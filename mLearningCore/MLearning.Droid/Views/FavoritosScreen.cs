@@ -29,6 +29,7 @@ namespace MLearning.Droid
 			//Find our controls
 			taskListView = FindViewById<ListView> (Resource.Id.FavoritosList);
 
+
 			// wire up task click handler
 			/*if(taskListView != null) {
 				taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
@@ -50,6 +51,19 @@ namespace MLearning.Droid
 
 			//Hook up our adapter to our ListView
 			taskListView.Adapter = taskList;
+			taskListView.ItemClick += listView_ItemClick;
+
+		}
+
+		void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+		{
+			//Get our item from the list adapter
+			var item = this.taskList[ e.Position ];
+
+			//Make a toast with the item name just to show it was clicked
+			Toast.MakeText(this, item.Titulo + " Clicked!", ToastLength.Short).Show();
+
+
 		}
 	}
 }

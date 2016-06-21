@@ -28,7 +28,7 @@ namespace Tasky.Shared
 		{
 			get 
 			{ 
-				var sqliteFilename = "TaskDatabase.db3";
+				var sqliteFilename = "cache.db";
 				#if NETFX_CORE
 				var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, sqliteFilename);
 				#else

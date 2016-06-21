@@ -28,8 +28,23 @@ using System.Diagnostics;
 
 
 
+ using System.IO;
+ 
 namespace Core.Repositories
 {
+
+	public class TodoItem
+	{
+		public TodoItem()
+		{
+		}
+
+		public int ID { get; set; }
+		public string Name { get; set; }
+		public string Notes { get; set; }
+		public bool Done { get; set; }  // TODO: add this field to the user-interface
+	}
+
 	public class WAMSRepositoryService : IRepositoryService
 	{
 
@@ -66,6 +81,8 @@ namespace Core.Repositories
 
 
 		}
+ 
+
 		public WAMSRepositoryService()
 		{
 

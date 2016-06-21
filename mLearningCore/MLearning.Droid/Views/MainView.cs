@@ -29,6 +29,7 @@ using Core.DownloadCache;
 using Core.Session;
 using Com.Telerik.Widget.List;
 using Android.Support.V7.App;
+using Tasky.Shared;
 
 namespace MLearning.Droid.Views
 {
@@ -896,8 +897,8 @@ namespace MLearning.Droid.Views
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
 				} else {
                     //showGuiaSilvestre ();
-					//showFavoritos ();//Favoritos
-					StartActivity(typeof(FavoritosScreen));
+					showFavoritos ();//Favoritos
+					//StartActivity(typeof(FavoritosScreen));
 					Toast.MakeText (this, "Favoritos", ToastLength.Short).Show();
                 }
 			}
@@ -1376,6 +1377,7 @@ namespace MLearning.Droid.Views
 				}
 
 
+
 				int indexSection = -1;
 				for (int i = 0; i < vm.LOsectionList.Count; i++)
 				{
@@ -1415,10 +1417,10 @@ namespace MLearning.Droid.Views
 						ImageUrl = pair.Value[0].url_img,
 						Id = pair.Value[0].id,
 						LO_ID =  pair.Value[0].lo_id,
-						CurrentSection = pair.Value[0].LOsection_id
+						CurrentSection = pair.Value[0].LOsection_id,
+						PageID = pair.Value[0].id
 
-
-				});
+					});
 				}
 				 
 				  
@@ -1460,12 +1462,15 @@ namespace MLearning.Droid.Views
 			if ( this.lo.isFavoritos) {
 				int indexLO = -1;
 				for (int i = 0; i < vm.LearningOjectsList.Count; i++  ) {
-					if (vm.LearningOjectsList[i].lo.id == item.content.LO_ID)
-						indexLO = i; 
+					if (vm.LearningOjectsList[i].lo.id == item.content.LO_ID) {
+						indexLO = i;
+						lobj = vm.LearningOjectsList[i];
+					}
 				}
 
+				vm.OpenLOSectionListCommand.Execute(lobj);
 
-				int indexSection = -1;
+				int indexSection = 0;
 				for (int i = 0; i < vm.LOsectionList.Count; i++)
 				{
 					if (vm.LOsectionList[i].id == item.content.CurrentSection)
@@ -1611,13 +1616,13 @@ namespace MLearning.Droid.Views
 
 				if ( this.lo.isFavoritos) {
 
-					List<int> lst = new List<int>();
-					lst.Add(581);
-					lst.Add(583);
-					lst.Add(573);
-					lst.Add(568);
-					vm.bookmarks = lst;
-					// sql 
+					var tasks = FavoritosItemManager.GetTasks();
+
+					List<int> items = new List<int>();
+					foreach (var task in tasks ) {
+						items.Add(task.Id_unidad);
+					}
+					vm.bookmarks = items;
 					vm.OpenFavs.Execute(  currentLearningObject  );
 
 				}

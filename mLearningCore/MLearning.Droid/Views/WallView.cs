@@ -28,6 +28,7 @@ namespace MLearning.Droid
 		string Titulo = "";
 		string Descripcion = "";
 		int Id_Unidad;
+		int Id_section;
 
 		MainViewModel vm;
 		public VerticalScrollView _scrollSpace;
@@ -939,8 +940,9 @@ namespace MLearning.Droid
 			//------------------------Utilizando TodList para la Tabla Favoritos ------------------------------------------------------------------
 			Titulo =  _listUnidades[id].Title;
 			Descripcion = _listUnidades [id].Description;
-			Id_Unidad = _listUnidades [id].Id;
-
+			Id_Unidad = _listUnidades [id].PageID;
+			Id_section =  _listUnidades[id].CurrentSection;
+ 
 			SaveFav ();
 
 			//Dialog------------------------------------------
@@ -968,6 +970,9 @@ namespace MLearning.Droid
 			task.Titulo = Titulo;
 			task.Descripcion = Descripcion;
 			task.Id_unidad = Id_Unidad;
+
+			task.Unit_Index = Id_Unidad;
+			task.Section_Index = Id_section;
 
 			FavoritosItemManager.SaveTask(task);
 		}

@@ -18,6 +18,7 @@ using Cirrious.CrossCore;
 using Java.IO;
 using System.IO;
 using Android.Content;
+using Android.Net;
 
 namespace MLearning.Droid.Views
 {
@@ -110,21 +111,33 @@ namespace MLearning.Droid.Views
 		{
 
 			Stream iStream = Assets.Open("database/cache.db");
-			var oStream = new FileOutputStream ("/data/data/camping.Droid/files/cache.db");
-			byte[] buffer = new byte[2048];
-			int length = 2048;
-			//    length = Convert.ToInt16(length2);
+			string dbPath = "/data/data/camping.Droid/files/cache.db";
+			    	//path  "/data/data/camping.Droid/files/cache.db"   
 
+			var oStream = new FileOutputStream (dbPath);
 
+			bool exists = System.IO.File.Exists(dbPath);
+			long size = 0;
+			Android.Net.Uri uri = Android.Net.Uri.FromFile(new Java.IO.File(dbPath));
 
-			while (iStream.Read(buffer, 0, length) > 0)
-			{
-				oStream.Write(buffer, 0, length);
+			using (var fd = ContentResolver.OpenFileDescriptor(uri, "r"))
+				size = fd.StatSize;
+
+			if ( size == 0 ) {
+				byte[] buffer = new byte[2048];
+				int length = 2048;
+				//    length = Convert.ToInt16(length2);
+				 
+				while (iStream.Read(buffer, 0, length) > 0)
+				{
+					oStream.Write(buffer, 0, length);
+				}
+				oStream.Flush();
+				oStream.Close();
+				iStream.Close();
+
 			}
-			oStream.Flush();
-			oStream.Close();
-			iStream.Close();
-			
+
 		
 
 		}

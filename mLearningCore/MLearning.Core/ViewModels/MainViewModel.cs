@@ -769,8 +769,8 @@ namespace MLearning.Core.ViewModels
 
                 }
 
-
-                string serialized = JsonConvert.SerializeObject(list);
+ 
+				string serialized = JsonConvert.SerializeObject(list);
 
 				ShowViewModel<LOViewModel>(new { lo_id = learningobj.lo.id, 
 					serialized_los_in_circle = serialized, 
@@ -888,20 +888,23 @@ namespace MLearning.Core.ViewModels
 							var indexTmp = new Dictionary<int, IList<Page>>();
 							foreach (var page in list)
 							{
-								if ( this.bookmarks.Contains (page.id )) {
+								
+								foreach ( var bookmark in bookmarks) {
 
-									IList<Page> resultTmp;
-									if (!indexTmp.TryGetValue((int)page.LOsection_id, out resultTmp))
-									{
-										var ls = new List<Page>();
-										ls.Add(page);
+									if (bookmark ==  page.id ) {
+										IList<Page> resultTmp;
+										if (!indexTmp.TryGetValue((int)page.LOsection_id, out resultTmp))
+										{
+											var ls = new List<Page>();
+											ls.Add(page);
 
-										indexTmp[(int)page.LOsection_id] = ls;
+											indexTmp[(int)page.LOsection_id] = ls;
+										}
+										else {
+											resultTmp.Add(page);
+										}
 									}
-									else {
-										resultTmp.Add(page);
-									}
-								}
+							    }
 
 							}
 

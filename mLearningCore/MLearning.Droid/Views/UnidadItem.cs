@@ -11,6 +11,9 @@ namespace MLearning.Droid
 		public int LO_ID { get; set; }
 		public int CurrentSection { get; set; }
 
+		public int PageID { get; set; }
+
+
 	}
 }
 

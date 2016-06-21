@@ -29,33 +29,7 @@ namespace Tasky.Shared
 			// create the tables
 			bool exists = File.Exists (dbPath);
 
-			if (!exists) {
-				connection = new SqliteConnection ("Data Source=" + dbPath);
-
-				connection.Open ();
-				//Creamos la tabla para NOTAS
-				var commands = new[] {
-					"CREATE TABLE [Items] (_id INTEGER PRIMARY KEY ASC, Name NTEXT, Notes NTEXT, Done INTEGER);"
-				};
-				foreach (var command in commands) {
-					using (var c = connection.CreateCommand ()) {
-						c.CommandText = command;
-						c.ExecuteNonQuery ();
-					}
-				}
-				//Creamos la tabla para Favoritos
-				var commands2 = new[] {
-					"CREATE TABLE [Favoritos] (_id INTEGER PRIMARY KEY ASC, Title NTEXT, Description NTEXT, Id_Unid INTEGER);"
-				};
-				foreach (var command in commands2) {
-					using (var c = connection.CreateCommand ()) {
-						c.CommandText = command;
-						c.ExecuteNonQuery ();
-					}
-				}
-			} else {
-				// already exists, do nothing. 
-			}
+			 
 		}
 
 		/// <summary>Convert from DataReader to Task object</summary>
