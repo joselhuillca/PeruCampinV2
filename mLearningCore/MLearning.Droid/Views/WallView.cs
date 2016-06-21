@@ -30,6 +30,16 @@ namespace MLearning.Droid
 		int Id_Unidad;
 		int Id_section;
 
+
+ 	 
+		IList<FavoritosItem> listFavorites;
+
+		public NotasItemListAdapter taskList;
+		public IList<TodoItem> tasks;
+		Button addTaskButton;
+		public ListView taskListView;
+
+
 		MainViewModel vm;
 		public VerticalScrollView _scrollSpace;
 		public LinearLayout header;
@@ -53,6 +63,7 @@ namespace MLearning.Droid
 		public Bitmap iconInfo;
 		public Bitmap iconFavorito;
 		public bool isFavoritos;
+		public bool isNotas = false;
 
 		private ImageView favorit;
 
@@ -758,6 +769,43 @@ namespace MLearning.Droid
 			_listIconMap.Clear ();
 			_listIconVerMap.Clear ();
 			int numUnidades = _listUnidades.Count;
+
+
+			if (isNotas)
+			{
+				_mainSpace.RemoveAllViews();
+				taskListView = new ListView(context);
+				taskListView.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(1000));
+
+				addTaskButton = new Button(context);
+				addTaskButton.Text = "Añadir Nota";
+				addTaskButton.LayoutParameters = new LinearLayout.LayoutParams(-1, -2);
+
+				_mainSpace.AddView(addTaskButton);
+				_mainSpace.AddView(taskListView);
+
+				if (addTaskButton != null)
+				{
+					addTaskButton.Click += (sender, e) =>
+					{
+						//layoutSave.Visibility = Android.Views.ViewStates.Visible;
+						context.StartActivity(typeof(NotasItemScreen));
+					};
+				}
+
+				// wire up task click handler
+				if (taskListView != null)
+				{
+					taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
+					{
+						var taskDetails = new Intent(context, typeof(NotasItemScreen));
+						taskDetails.PutExtra("TaskID", tasks[e.Position].ID);
+						context.StartActivity(taskDetails);
+					};
+				}
+				return;
+			}
+
 			for (int i = 0; i < numUnidades; i++) 
 			{
 				LinearLayoutLO linearUnidad = new LinearLayoutLO (context);

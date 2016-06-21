@@ -3,18 +3,19 @@ using Android.App;
 using System.Collections.Generic;
 using Tasky.Shared;
 using Android.Widget;
+using Android.Content;
 
 namespace MLearning.Droid
 {
 	/// <summary>
 	/// Adapter that presents Tasks in a row-view
 	/// </summary>
-	public class NotasItemListAdapter : BaseAdapter<TodoItem> 
+	public class NotasItemListAdapter : BaseAdapter<TodoItem>
 	{
-		Activity context = null;
+		Context context = null;
 		IList<TodoItem> tasks = new List<TodoItem>();
 
-		public NotasItemListAdapter (Activity context, IList<TodoItem> tasks) : base ()
+		public NotasItemListAdapter(Context context, IList<TodoItem> tasks) : base()
 		{
 			this.context = context;
 			this.tasks = tasks;
@@ -25,7 +26,7 @@ namespace MLearning.Droid
 			get { return tasks[position]; }
 		}
 
-		public override long GetItemId (int position)
+		public override long GetItemId(int position)
 		{
 			return position;
 		}
@@ -35,10 +36,10 @@ namespace MLearning.Droid
 			get { return tasks.Count; }
 		}
 
-		public override Android.Views.View GetView (int position, Android.Views.View convertView, Android.Views.ViewGroup parent)
+		public override Android.Views.View GetView(int position, Android.Views.View convertView, Android.Views.ViewGroup parent)
 		{
 			// Get our object for position
-			var item = tasks[position];			
+			var item = tasks[position];
 
 			//Try to reuse convertView if it's not  null, otherwise inflate it from our item layout
 			// gives us some performance gains by not always inflating a new view
@@ -58,11 +59,11 @@ namespace MLearning.Droid
 
 			// TODO: use this code to populate the row, and remove the above view
 			var view = (convertView ??
-				context.LayoutInflater.Inflate(
+				((Activity)(context)).LayoutInflater.Inflate(
 					Android.Resource.Layout.SimpleListItemChecked,
 					parent,
 					false)) as CheckedTextView;
-			view.SetText (item.Name==""?"<new task>":item.Name, TextView.BufferType.Normal);
+			view.SetText(item.Name == "" ? "<new task>" : item.Name, TextView.BufferType.Normal);
 			view.Checked = item.Done;
 
 

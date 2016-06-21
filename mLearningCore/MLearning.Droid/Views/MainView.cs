@@ -149,6 +149,23 @@ namespace MLearning.Droid.Views
 			return (activeConnection != null) && activeConnection.IsConnected;
 		}
 
+
+		protected override void OnResume()
+		{	
+			base.OnResume();
+			if (lo.isNotas)
+			{
+				lo.tasks = TodoItemManager.GetTasks();
+
+				// create our adapter
+				lo.taskList = new NotasItemListAdapter(this, lo.tasks);
+
+				//Hook up our adapter to our ListView
+				lo.taskListView.Adapter = lo.taskList;
+			}
+
+		}
+
 		protected override void OnCreate(Bundle bundle)
 		{
 			
@@ -907,7 +924,9 @@ namespace MLearning.Droid.Views
 				if (_currentCurso == 3) {
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
 				} 
-				StartActivity(typeof(NotasScreen));
+				showNotas();//NOTAS
+
+
 				/*
 				if (_currentCurso == 3) {
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
@@ -1084,8 +1103,22 @@ namespace MLearning.Droid.Views
 		public void showRutas()			{showCurso (0);lo.header.SetBackgroundDrawable (headersDR[0]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#FFBF00"));}
 		public void showServicios()		{showCurso (1);lo.header.SetBackgroundDrawable (headersDR[1]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#00FFFF"));}
 		public void showGuiaSilvestre()	{showCurso (2);lo.header.SetBackgroundDrawable (headersDR[2]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#74DF00"));}
-		public void showCifras()		{lo.isFavoritos = false;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#f5ac10"));}
-		public void showFavoritos()		{lo.isFavoritos = true;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);}
+		public void showCifras()		{lo.isNotas = false;  lo.isFavoritos = false;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#f5ac10"));}
+		public void showFavoritos()		{lo.isNotas = false; lo.isFavoritos = true;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);}
+		public void showNotas() { lo.isNotas = true; showCurso(3); lo.header.SetBackgroundDrawable(headersDR[3]);
+		
+ 			if (lo.isNotas)
+			{
+				lo.tasks = TodoItemManager.GetTasks();
+
+				// create our adapter
+				lo.taskList = new NotasItemListAdapter(this, lo.tasks);
+
+				//Hook up our adapter to our ListView
+				lo.taskListView.Adapter = lo.taskList;
+			}
+		}
+
 
 		public void test_Telerik(){
 			//RadListView listview = new RadListView ();
