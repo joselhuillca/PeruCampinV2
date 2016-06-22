@@ -158,8 +158,8 @@
     <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.22.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Data.Sqlite" />
     <Reference Include="System.Data" />
+    <Reference Include="Mono.Data.Sqlite" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncStorage\DroidAsyncStorageService.cs" />
@@ -356,10 +356,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <XamarinComponentReference Include="GCMClient">
-      <Version>1.0</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
     <XamarinComponentReference Include="urlimageviewhelper">
       <Version>1.0.4.1</Version>
       <Visible>False</Visible>

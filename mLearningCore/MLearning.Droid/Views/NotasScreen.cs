@@ -12,11 +12,11 @@ namespace MLearning.Droid
 	/// <summary>
 	/// Main ListView screen displays a list of tasks, plus an [Add] button
 	/// </summary>
-	[Activity (Label = "Tasky",  
+	[Activity (Label = "Tasky")/*,  
 		Icon="@drawable/icon",
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
-		ScreenOrientation = ScreenOrientation.Portrait)]
+		ScreenOrientation = ScreenOrientation.Portrait)*/]
 	public class NotasScreen : Activity 
 	{
 		NotasItemListAdapter taskList;

@@ -1,58 +1,14 @@
-﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/LoginView.cs">
+﻿<Properties StartupItem="MLearning.Droid\GuiaCamping.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TaskySharedCode\TodoDatabaseADO.cs">
     <Files>
-      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="758" Column="57" />
-      <File FileName="MLearning.Core/Services/IMLearningService.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core/Services/MLearningAzureService.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Views/MainView.cs" Line="897" Column="13" />
-      <File FileName="MLearning.Droid/Views/WallView.cs" Line="976" Column="1" />
-      <File FileName="MLearning.Droid/Views/LinearLayoutLO.cs" Line="29" Column="23" />
-      <File FileName="MLearning.Droid/Views/UnidadItem.cs" Line="12" Column="14" />
-      <File FileName="MLearning.Core/Entities/Page.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Views/MapView.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Views/PlaceItem.cs" Line="5" Column="15" />
-      <File FileName="MLearning.Core/ViewModels/LOViewModel.cs" Line="194" Column="15" />
-      <File FileName="MLearning.Droid/Views/LOView.cs" Line="755" Column="1" />
-      <File FileName="MLearning.Core/Repositories/IRepositoryService.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core/ViewModels/LoginViewModel.cs" Line="43" Column="3" />
-      <File FileName="MLearning.Droid/Views/LoginView.cs" Line="126" Column="3" />
-      <File FileName="TaskySharedCode/TodoItemManager.cs" Line="1" Column="1" />
-      <File FileName="TaskySharedCode/TodoItemRepositoryADO.cs" Line="25" Column="4" />
-      <File FileName="TaskySharedCode/TodoDatabaseADO.cs" Line="28" Column="14" />
-      <File FileName="TaskySharedCode/MisFavoritos/FavoritosItem.cs" Line="5" Column="23" />
-      <File FileName="TaskySharedCode/MisFavoritos/FavoritosItemManager.cs" Line="9" Column="15" />
-      <File FileName="TaskySharedCode/MisFavoritos/FavoritosItemRepositoryADO.cs" Line="31" Column="32" />
-      <File FileName="TaskySharedCode/TodoItem.cs" Line="18" Column="3" />
-      <File FileName="MLearning.Core/Configuration/Constants.cs" Line="40" Column="49" />
-      <File FileName="MLearning.Core/Repositories/WAMSRepositoryService.cs" Line="350" Column="4" />
-      <File FileName="MLearning.Droid/Views/FavoritosItemListAdapter.cs" Line="26" Column="4" />
-      <File FileName="MLearning.Droid/Views/FavoritosScreen.cs" Line="16" Column="15" />
-      <File FileName="MLearning.Droid/Views/NotasScreen.cs" Line="39" Column="16" />
+      <File FileName="TaskySharedCode\TodoDatabaseADO.cs" Line="4" Column="7" />
+      <File FileName="TaskySharedCode\TodoItem.cs" Line="1" Column="1" />
+      <File FileName="TaskySharedCode\TodoItemManager.cs" Line="1" Column="1" />
+      <File FileName="TaskySharedCode\TodoItemRepositoryADO.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Droid\MyActionBarDrawerToggle.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="MLearning" expanded="True">
-            <Node name="GuiaCamping" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="LoginView.cs" selected="True" />
-              </Node>
-            </Node>
-            <Node name="MLearning.Core" expanded="True">
-              <Node name="ViewModels" expanded="True" />
-            </Node>
-            <Node name="TaskySharedCode" expanded="True">
-              <Node name="MisFavoritos" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.3004d5aa35e32200" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MapView.cs" line="488" column="1" />

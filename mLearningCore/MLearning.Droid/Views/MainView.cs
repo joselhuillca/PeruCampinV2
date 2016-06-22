@@ -1104,8 +1104,10 @@ namespace MLearning.Droid.Views
 		public void showServicios()		{showCurso (1);lo.header.SetBackgroundDrawable (headersDR[1]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#00FFFF"));}
 		public void showGuiaSilvestre()	{showCurso (2);lo.header.SetBackgroundDrawable (headersDR[2]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#74DF00"));}
 		public void showCifras()		{lo.isNotas = false;  lo.isFavoritos = false;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#f5ac10"));}
-		public void showFavoritos()		{lo.isNotas = false; lo.isFavoritos = true;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);}
-		public void showNotas() { lo.isNotas = true; showCurso(3); lo.header.SetBackgroundDrawable(headersDR[3]);
+		public void showFavoritos()		{
+			lo.isNotas = false; lo.isFavoritos = true;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);
+			loadSection ();}
+		public void showNotas() { lo.isNotas = true;lo.isFavoritos = false; showCurso(3); lo.header.SetBackgroundDrawable(headersDR[3]);
 		
  			if (lo.isNotas)
 			{

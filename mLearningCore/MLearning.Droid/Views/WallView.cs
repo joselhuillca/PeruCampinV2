@@ -62,6 +62,7 @@ namespace MLearning.Droid
 		public Bitmap iconPlay;
 		public Bitmap iconInfo;
 		public Bitmap iconFavorito;
+		public Bitmap iconFavorito_BN;
 		public bool isFavoritos;
 		public bool isNotas = false;
 
@@ -321,6 +322,9 @@ namespace MLearning.Droid
 
 		void Initialize ()
 		{
+			//Sacar la lista de Favoritos
+			listFavorites = FavoritosItemManager.GetTasks();
+			//-----------------------------
 			var metrics = Resources.DisplayMetrics;
 			widthInDp = ((int)metrics.WidthPixels);
 			heightInDp = ((int)metrics.HeightPixels);
@@ -332,7 +336,8 @@ namespace MLearning.Droid
 			//iconMap = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/iconmap.png"), Configuration.getWidth (60), Configuration.getWidth (80), true);
 			iconPlay = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/playc.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
 			iconInfo = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/info.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
-			iconFavorito = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/favoritos_BN.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
+			iconFavorito_BN = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos_BN.png"), Configuration.getWidth(60), Configuration.getWidth(60), true);
+			iconFavorito = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos.png"), Configuration.getWidth(60), Configuration.getWidth(60), true);
 			ini ();
 
 
@@ -740,6 +745,7 @@ namespace MLearning.Droid
 
 			//_mainLayout.SetBackgroundDrawable (dr);
 			_mainLayout.AddView(header);
+
 			//dr = null;
 
 
@@ -769,18 +775,22 @@ namespace MLearning.Droid
 			_listIconMap.Clear ();
 			_listIconVerMap.Clear ();
 			int numUnidades = _listUnidades.Count;
-
+			_mainSpace.SetY (Configuration.getHeight (0));
 
 			if (isNotas)
 			{
 				_mainSpace.RemoveAllViews();
 				taskListView = new ListView(context);
-				taskListView.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(1000));
+				taskListView.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(850));
 
 				addTaskButton = new Button(context);
 				addTaskButton.Text = "Añadir Nota";
 				addTaskButton.LayoutParameters = new LinearLayout.LayoutParams(-1, -2);
 
+				_mainSpace.SetY (Configuration.getHeight (20));
+
+				//addTaskButton.SetY (Configuration.getHeight (130));
+				//_mainLayout.AddView(addTaskButton);
 				_mainSpace.AddView(addTaskButton);
 				_mainSpace.AddView(taskListView);
 
@@ -900,16 +910,27 @@ namespace MLearning.Droid
 						info.SetImageBitmap (iconInfo);
 						info.SetX (Configuration.getWidth(450));
 						info.SetY (Configuration.getHeight (10));
+
+						ImageView favorit_ = new ImageView(context);
+						favorit_.Tag = i;
+						favorit_.SetX(Configuration.getWidth(450));
+						favorit_.SetY(Configuration.getHeight(150));
+						favorit_.Click += delegate {
+							funcFavoritos(favorit_);
+						};
 						//Colocando icono de Favoritos
 						if(!isFavoritos){
-							ImageView favorit_ = new ImageView (context);
-							favorit_.Tag = i;
-							favorit_.SetImageBitmap (iconFavorito);
-							favorit_.SetX (Configuration.getWidth(450));
-							favorit_.SetY (Configuration.getHeight (150));
-							favorit_.Click += delegate {
-								funcFavoritos (favorit_);
-							};
+							
+							int id_auto = 0;
+							if (isListFavorites(_listUnidades[i].Id)!=-1)
+							{
+								favorit_.SetImageBitmap(iconFavorito);
+							}
+							else
+							{
+								favorit_.SetImageBitmap(iconFavorito_BN);
+							}
+
 
 							linearContenido.AddView (favorit_);
 						}
@@ -918,6 +939,8 @@ namespace MLearning.Droid
 							/*_mainSpace.RemoveView(_contentScrollView_S2);
 							_mainSpace.RemoveView (_fondo2);*/
 							_mainSpace.RemoveAllViews ();
+							favorit_.SetImageBitmap(iconFavorito);
+							linearContenido.AddView (favorit_);
 							_mainSpace.AddView (_spaceUnidades);
 							removido = false;
 						}
@@ -986,13 +1009,27 @@ namespace MLearning.Droid
 
 			prefs.Commit();*/
 			//------------------------Utilizando TodList para la Tabla Favoritos ------------------------------------------------------------------
-			Titulo =  _listUnidades[id].Title;
-			Descripcion = _listUnidades [id].Description;
-			Id_Unidad = _listUnidades [id].PageID;
-			Id_section =  _listUnidades[id].CurrentSection;
- 
-			SaveFav ();
+			//------------------------Utilizando TodList para la Tabla Favoritos ------------------------------------------------------------------
+			//Sacar la lista de Favoritos
+			listFavorites.Clear();
+			listFavorites = FavoritosItemManager.GetTasks();
+			//-----------------------------
+			int id_auto = isListFavorites(_listUnidades[id].Id);
+			if (id_auto==-1)
+			{
+				Titulo = _listUnidades[id].Title;
+				Descripcion = _listUnidades[id].Description;
+				Id_Unidad = _listUnidades[id].Id;
 
+				fav.SetImageBitmap(iconFavorito);
+				SaveFav();
+			}
+			else
+			{
+				FavoritosItemManager.DeleteTask(id_auto);
+				popupBuilder.SetMessage("Se elimino de Favoritos!");
+				fav.SetImageBitmap(iconFavorito_BN);
+			}
 			//Dialog------------------------------------------
 			Dialog dial = popupBuilder.Create ();
 			dial.Show ();
@@ -1004,8 +1041,7 @@ namespace MLearning.Droid
 				}).Start();
 
 
-			Bitmap iconFavorito_ = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/favoritos.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
-			fav.SetImageBitmap (iconFavorito_);
+
 
 			//linearContenido.RemoveView (favorit);
 
@@ -1023,6 +1059,20 @@ namespace MLearning.Droid
 			task.Section_Index = Id_section;
 
 			FavoritosItemManager.SaveTask(task);
+		}
+
+		//Verificar si esta en la lista de favoritos
+		public int isListFavorites(int _id)
+		{
+			int tam = listFavorites.Count;
+			for (int i = 0; i < tam; i++)
+			{
+				if (listFavorites[i].Id_unidad == _id)
+				{
+					return listFavorites [i].ID;;
+				}
+			}
+			return -1;
 		}
 
 	}
