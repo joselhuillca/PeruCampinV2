@@ -493,6 +493,8 @@
     <AndroidAsset Include="Assets\icons\favoritos.png" />
     <AndroidAsset Include="Assets\icons\favoritos_BN.png" />
     <AndroidAsset Include="Assets\images\fondoBlanco.png" />
+    <AndroidAsset Include="Assets\icons\notas.png" />
+    <AndroidAsset Include="Assets\icons\face_icon.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MLearning.Core\MLearning.Core.csproj">

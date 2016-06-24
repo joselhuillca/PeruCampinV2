@@ -336,8 +336,8 @@ namespace MLearning.Droid
 			//iconMap = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/iconmap.png"), Configuration.getWidth (60), Configuration.getWidth (80), true);
 			iconPlay = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/playc.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
 			iconInfo = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/info.png"), Configuration.getWidth (50), Configuration.getWidth (50), true);
-			iconFavorito_BN = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos_BN.png"), Configuration.getWidth(50), Configuration.getWidth(50), true);
-			iconFavorito = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos.png"), Configuration.getWidth(50), Configuration.getWidth(50), true);
+			iconFavorito_BN = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos_BN.png"), Configuration.getWidth(70), Configuration.getWidth(70), true);
+			iconFavorito = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos.png"), Configuration.getWidth(70), Configuration.getWidth(70), true);
 			ini ();
 
 
@@ -916,16 +916,16 @@ namespace MLearning.Droid
 				if (indexCurso == 3) {
 					if (indexUnidad != 3) {
 
-						ImageView info = new ImageView (context);
+						/*ImageView info = new ImageView (context);
 						info.Tag = i;
 						info.SetImageBitmap (iconInfo);
 						info.SetX (Configuration.getWidth(450));
-						info.SetY (Configuration.getHeight (10));
+						info.SetY (Configuration.getHeight (10));*/
 
 						ImageView favorit_ = new ImageView(context);
 						favorit_.Tag = i;
 						favorit_.SetX(Configuration.getWidth(450));
-						favorit_.SetY(Configuration.getHeight(70));
+						favorit_.SetY(Configuration.getHeight(50));
 						favorit_.Click += delegate {
 							funcFavoritos(favorit_);
 						};
@@ -968,7 +968,7 @@ namespace MLearning.Droid
 						}
 
 
-						linearContenido.AddView (info);
+						//linearContenido.AddView (info);
 
 					} else {
 						titleUnidad.SetTextSize (textFormat,Configuration.getHeight(55));
