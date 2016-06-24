@@ -36,13 +36,11 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MapView.cs" line="488" column="1" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1395" column="20" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1613" column="1" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="899" column="6" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Core/ViewModels/LOViewModel.cs" line="663" column="2" />
-    </BreakpointStore>
+    <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MapView.cs" line="488" column="1" />
+    <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1395" column="20" />
+    <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1613" column="1" />
+    <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="899" column="6" />
+    <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Core/ViewModels/LOViewModel.cs" line="663" column="2" />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.Nexus 4 (Lollipop)" />
