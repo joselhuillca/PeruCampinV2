@@ -254,6 +254,13 @@
     <Compile Include="Views\NotasScreen.cs" />
     <Compile Include="Views\FavoritosScreen.cs" />
     <Compile Include="Views\FavoritosItemListAdapter.cs" />
+    <Compile Include="TodoDB\TodoDatabaseADO.cs" />
+    <Compile Include="TodoDB\TodoItem.cs" />
+    <Compile Include="TodoDB\TodoItemManager.cs" />
+    <Compile Include="TodoDB\TodoItemRepositoryADO.cs" />
+    <Compile Include="TodoDB\MisFavoritos\FavoritosItem.cs" />
+    <Compile Include="TodoDB\MisFavoritos\FavoritosItemManager.cs" />
+    <Compile Include="TodoDB\MisFavoritos\FavoritosItemRepositoryADO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -361,7 +368,6 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
-  <Import Project="..\TaskySharedCode\TaskySharedCode.projitems" Label="Shared" Condition="Exists('..\TaskySharedCode\TaskySharedCode.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

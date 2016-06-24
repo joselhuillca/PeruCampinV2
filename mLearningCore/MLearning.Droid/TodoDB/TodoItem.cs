@@ -15,5 +15,7 @@ namespace Tasky.Shared
 		public string Name { get; set; }
 		public string Notes { get; set; }
 		public bool Done { get; set; }	// TODO: add this field to the user-interface
+
+		public int Id_Page { get; set;  }
 	}
 }

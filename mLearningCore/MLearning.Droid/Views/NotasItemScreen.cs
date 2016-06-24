@@ -18,6 +18,7 @@ namespace MLearning.Droid
 		EditText nameTextEdit;
 		Button saveButton;
 		CheckBox doneCheckbox;
+		int Id_page = 0;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -25,7 +26,23 @@ namespace MLearning.Droid
 
 			int taskID = Intent.GetIntExtra("TaskID", 0);
 			if(taskID > 0) {
+
 				task = TodoItemManager.GetTask(taskID);
+				 
+			}
+			else {
+
+				Id_page = Intent.GetIntExtra("PageID", 0);
+
+				if (Id_page > 0)
+				{
+					var ret = TodoItemManager.GetTasks();
+					foreach (var item in ret)
+					{
+						if (item.Id_Page == Id_page)
+							task = item;
+					}
+				}
 			}
 
 			// set our layout to be the home screen
@@ -58,7 +75,7 @@ namespace MLearning.Droid
 			task.Notes = notesTextEdit.Text;
 			//TODO: 
 			task.Done = doneCheckbox.Checked;
-
+			task.Id_Page = Id_page;
 			TodoItemManager.SaveTask(task);
 			Finish();
 		}

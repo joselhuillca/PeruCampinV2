@@ -881,7 +881,7 @@ namespace MLearning.Droid.Views
 			{
                 //showHome ();
                 showCifras();//COSTA
-				Toast.MakeText (this, "COSTA", ToastLength.Short).Show();
+				Toast.MakeText (this, "Preparando la partida", ToastLength.Short).Show();
 			}
 			else if(e.Position == 1)//rutas
 			{
@@ -890,7 +890,7 @@ namespace MLearning.Droid.Views
 				} else {
                     //showRutas ();
                     showCifras();//SIERRA
-					Toast.MakeText (this, "SIERRA", ToastLength.Short).Show();
+					Toast.MakeText (this, "Los mejores 50 campamentos", ToastLength.Short).Show();
                 }
 			}
 
@@ -905,7 +905,7 @@ namespace MLearning.Droid.Views
 				} else {
                     //showServicios ();
                     showCifras();//SELVA
-					Toast.MakeText (this, "SELVA", ToastLength.Short).Show();
+					Toast.MakeText (this, "Mis mejores campamentos", ToastLength.Short).Show();
 				}
 			}
 			else if(e.Position == 1)//silvestre
@@ -916,10 +916,10 @@ namespace MLearning.Droid.Views
                     //showGuiaSilvestre ();
 					showFavoritos ();//Favoritos
 					//StartActivity(typeof(FavoritosScreen));
-					Toast.MakeText (this, "Favoritos", ToastLength.Short).Show();
+					Toast.MakeText (this, "La palabra del experto", ToastLength.Short).Show();
                 }
 			}
-			else if(e.Position == 2)//cifras
+			/*else if(e.Position == 2)//cifras
 			{	Toast.MakeText (this, "Notas__", ToastLength.Short).Show();
 				if (_currentCurso == 3) {
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
@@ -927,15 +927,14 @@ namespace MLearning.Droid.Views
 				showNotas();//NOTAS
 
 
-				/*
-				if (_currentCurso == 3) {
-					mDrawerLayout.CloseDrawer (mLeftDrawer);
-				} else {
-					showGuiaSilvestre ();//NOTAS
-					Toast.MakeText (this, "Notas", ToastLength.Short).Show();
+			 //	if (_currentCurso == 3) {
+			//		mDrawerLayout.CloseDrawer (mLeftDrawer);
+			//	} else {
+			//		showGuiaSilvestre ();//NOTAS
+				//	Toast.MakeText (this, "Notas", ToastLength.Short).Show();
 
-				}*/
-			}
+				//}
+			} */
 			else if(e.Position == 3)//otros
 			{
 				LogOut();

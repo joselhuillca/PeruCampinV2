@@ -33,7 +33,7 @@ namespace MLearning.Droid.Views
 		Bitmap bm_user;
 		Bitmap bmLike;
 		Drawable drBack;
-
+		int page_id = 0;
 
 		ProgressDialog _dialogDownload;
 		//	LinearLayout layoutPanelScroll;
@@ -163,12 +163,13 @@ namespace MLearning.Droid.Views
 		public void funcFavoritos(ImageView favorit_)
 		{
 			AlertDialog.Builder popupBuilder = new AlertDialog.Builder(this);
-			popupBuilder.SetTitle("Mis Favoritos");
+			popupBuilder.SetTitle("Editar Nota");
 			popupBuilder.SetCancelable(false);
-			popupBuilder.SetMessage("Ir a mis favoritos");
-			popupBuilder.SetNeutralButton("Volver", delegate {  });
+			popupBuilder.SetMessage("....");
+			//popupBuilder.SetNeutralButton(" ", delegate {  });
 			//popupBuilder.Show();
 
+		 
 			//linearContenido.RemoveView (favorit);
 			Dialog dial = popupBuilder.Create ();
 			dial.Show ();
@@ -177,7 +178,12 @@ namespace MLearning.Droid.Views
 					Thread.Sleep(1000);
 					dial.Dismiss();
 
-				}).Start();
+				}).Start();  
+			 
+			var taskDetails = new Intent(this, typeof(NotasItemScreen));
+			taskDetails.PutExtra("PageID",   this.page_id );
+
+			this.StartActivity(taskDetails);
 			
 		}
 
@@ -472,6 +478,8 @@ namespace MLearning.Droid.Views
 
 				int j = vm._currentSection;
 				//	for (int j = 0; j < s_listp.Count; j++) {						
+
+				page_id = s_listp[j].PagesList[0].page.id;
 
 						for (int k = 0; k < s_listp [j].PagesList.Count; k++) {
 

@@ -16,7 +16,12 @@ namespace Tasky.Shared
 		{
 			return TodoItemRepositoryADO.GetTask(id);
 		}
-		
+
+		public static TodoItem GetTaskByPageID(int id)
+		{
+			return TodoItemRepositoryADO.GetTaskByPageID(id);
+		}
+
 		public static IList<TodoItem> GetTasks ()
 		{
 			return new List<TodoItem>(TodoItemRepositoryADO.GetTasks());

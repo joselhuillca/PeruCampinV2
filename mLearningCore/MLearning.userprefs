@@ -1,23 +1,47 @@
-﻿<Properties StartupItem="MLearning.Droid\GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="TaskySharedCode\TodoDatabaseADO.cs">
+﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/MainView.cs">
     <Files>
-      <File FileName="TaskySharedCode\TodoDatabaseADO.cs" Line="4" Column="7" />
-      <File FileName="TaskySharedCode\TodoItem.cs" Line="1" Column="1" />
-      <File FileName="TaskySharedCode\TodoItemManager.cs" Line="1" Column="1" />
-      <File FileName="TaskySharedCode\TodoItemRepositoryADO.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid\MyActionBarDrawerToggle.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="47" Column="3" />
+      <File FileName="MLearning.Droid/Views/WallView.cs" Line="916" Column="14" />
+      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="822" Column="14" />
+      <File FileName="MLearning.Droid/Views/LOView.cs" Line="186" Column="1" />
+      <File FileName="MLearning.Droid/Views/NotasItemScreen.cs" Line="17" Column="26" />
+      <File FileName="MLearning.Droid/TodoDB/TodoItemManager.cs" Line="32" Column="38" />
+      <File FileName="MLearning.Droid/TodoDB/TodoItemRepositoryADO.cs" Line="77" Column="22" />
+      <File FileName="MLearning.Core/ViewModels/LOViewModel.cs" Line="189" Column="35" />
+      <File FileName="MLearning.Droid/TodoDB/TodoItem.cs" Line="19" Column="21" />
+      <File FileName="MLearning.Droid/Views/MainView.cs" Line="890" Column="13" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MLearning" expanded="True">
+            <Node name="GuiaCamping" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="MainView.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>ret</Value>
+          <Value>r.ToString()</Value>
+          <Value>r["Name"]</Value>
+          <Value>r["Id_Page"]</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.3004d5aa35e32200" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MapView.cs" line="488" column="1" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1396" column="20" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1364" column="3" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/WallView.cs" line="873" column="33" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1614" column="1" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1395" column="20" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1613" column="1" />
       <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="899" column="6" />
-      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Core/ViewModels/MainViewModel.cs" line="775" column="9" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Core/ViewModels/LOViewModel.cs" line="663" column="2" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Tasky.Shared 
 {
@@ -58,6 +59,12 @@ namespace Tasky.Shared
 		public static TodoItem GetTask(int id)
 		{
 			return me.db.GetItem(id);
+		}
+
+
+		public static TodoItem GetTaskByPageID(int id)
+		{
+			return me.db.GetItems().Where( (o) => o.Id_Page == id).FirstOrDefault();
 		}
 
 		public static IEnumerable<TodoItem> GetTasks ()

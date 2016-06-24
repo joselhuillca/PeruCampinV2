@@ -40,6 +40,8 @@ namespace Tasky.Shared
 			t.Name = r ["Name"].ToString ();
 			t.Notes = r ["Notes"].ToString ();
 			t.Done = Convert.ToInt32 (r ["Done"]) == 1 ? true : false;
+			if ( ! ( r["Id_Page"] is DBNull ) )
+				t.Id_Page = Convert.ToInt32(r["Id_Page"]);
 			return t;
 		}
 
@@ -50,7 +52,7 @@ namespace Tasky.Shared
 			t.ID = Convert.ToInt32 (r ["_id"]);
 			t.Titulo = r ["Title"].ToString ();
 			t.Descripcion = r ["Description"].ToString ();
-			t.Id_unidad = Convert.ToInt32 (r ["Id_Unid"]);
+			t.Id_unidad = Convert.ToInt32 (r ["Id_unidad"]);
 			return t;
 		}
 
@@ -62,7 +64,7 @@ namespace Tasky.Shared
 				connection = new SqliteConnection ("Data Source=" + path);
 				connection.Open ();
 				using (var contents = connection.CreateCommand ()) {
-					contents.CommandText = "SELECT [_id], [Name], [Notes], [Done] from [Items]";
+					contents.CommandText = "SELECT [_id], [Name], [Notes], [Done], [Id_Page] from [Items]";
 					var r = contents.ExecuteReader ();
 					while (r.Read ()) {
 						tl.Add (FromReader(r));
@@ -82,7 +84,7 @@ namespace Tasky.Shared
 				connection = new SqliteConnection ("Data Source=" + path);
 				connection.Open ();
 				using (var contents = connection.CreateCommand ()) {
-					contents.CommandText = "SELECT [_id], [Title], [Description], [Id_Unid] from [Favoritos]";
+					contents.CommandText = "SELECT [_id], [Title], [Description], [Id_unidad] from [Favoritos]";
 					var r = contents.ExecuteReader ();
 					while (r.Read ()) {
 						tl.Add (FromReaderFav(r));
@@ -100,7 +102,7 @@ namespace Tasky.Shared
 				connection = new SqliteConnection ("Data Source=" + path);
 				connection.Open ();
 				using (var command = connection.CreateCommand ()) {
-					command.CommandText = "SELECT [_id], [Name], [Notes], [Done] from [Items] WHERE [_id] = ?";
+					command.CommandText = "SELECT [_id], [Name], [Notes], [Done], [Id_Page] from [Items] WHERE [_id] = ?";
 					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id });
 					var r = command.ExecuteReader ();
 					while (r.Read ()) {
@@ -121,7 +123,7 @@ namespace Tasky.Shared
 				connection = new SqliteConnection ("Data Source=" + path);
 				connection.Open ();
 				using (var command = connection.CreateCommand ()) {
-					command.CommandText = "SELECT [_id], [Title], [Description], [Id_Unid] from [Favoritos] WHERE [_id] = ?";
+					command.CommandText = "SELECT [_id], [Title], [Description], [Id_unidad] from [Favoritos] WHERE [_id] = ?";
 					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id });
 					var r = command.ExecuteReader ();
 					while (r.Read ()) {
@@ -142,11 +144,13 @@ namespace Tasky.Shared
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "UPDATE [Items] SET [Name] = ?, [Notes] = ?, [Done] = ? WHERE [_id] = ?;";
+						command.CommandText = "UPDATE [Items] SET [Name] = ?, [Notes] = ?, [Done] = ?, [Id_Page] = ? WHERE [_id] = ?;";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Name });
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Notes });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
-						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.ID });
+						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Id_Page });
+						command.Parameters.Add (new SqliteParameter(DbType.Int32) { Value = item.ID });
+
 						r = command.ExecuteNonQuery ();
 					}
 					connection.Close ();
@@ -155,10 +159,11 @@ namespace Tasky.Shared
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "INSERT INTO [Items] ([Name], [Notes], [Done]) VALUES (? ,?, ?)";
+						command.CommandText = "INSERT INTO [Items] ([Name], [Notes], [Done], [Id_Page]) VALUES (? ,?, ?, ?)";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Name });
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Notes });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
+						command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.Id_Page });
 						r = command.ExecuteNonQuery ();
 					}
 					connection.Close ();
@@ -177,7 +182,7 @@ namespace Tasky.Shared
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "UPDATE [Favoritos] SET [Title] = ?, [Description] = ?, [Id_Unid] = ? WHERE [_id] = ?;";
+						command.CommandText = "UPDATE [Favoritos] SET [Title] = ?, [Description] = ?, [Id_unidad] = ? WHERE [_id] = ?;";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Titulo });
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Descripcion });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Id_unidad });
@@ -190,7 +195,7 @@ namespace Tasky.Shared
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "INSERT INTO [Favoritos] ([Title], [Description], [Id_Unid]) VALUES (? ,?, ?)";
+						command.CommandText = "INSERT INTO [Favoritos] ([Title], [Description], [Id_unidad]) VALUES (? ,?, ?)";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Titulo });
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Descripcion });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Id_unidad });

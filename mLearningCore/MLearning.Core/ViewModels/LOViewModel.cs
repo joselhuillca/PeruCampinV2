@@ -412,7 +412,8 @@ namespace MLearning.Core.ViewModels
 
 		async private Task UpdateExtraInfo(int _loCurrentIndex)
 		{
-			Title = LOsInCircle[_loCurrentIndex].lo.title;
+
+ 			Title = LOsInCircle[_loCurrentIndex].lo.title;
 			Description = LOsInCircle[_loCurrentIndex].lo.description;
 			if (LOsInCircle[_loCurrentIndex].stack.StacksList[0].PagesList[0].cover_bytes==null )
 			{
