@@ -22,6 +22,7 @@ using System.Threading;
 using Android.Graphics.Drawables;
 using Android.Text;
 using Android.Util;
+using Tasky.Shared;
 
 namespace MLearning.Droid.Views
 {
@@ -33,9 +34,10 @@ namespace MLearning.Droid.Views
 		Bitmap bm_user;
 		Bitmap bmLike;
 		Drawable drBack;
-		int page_id = 0;
 
-		ProgressDialog _dialogDownload;
+        IList<Tasky.Shared.TodoItem> listNotas;
+
+        ProgressDialog _dialogDownload;
 		//	LinearLayout layoutPanelScroll;
 		RelativeLayout _mainLayout;
 		RelativeLayout mainLayoutIndice;
@@ -68,10 +70,12 @@ namespace MLearning.Droid.Views
 
 		async protected  override  void OnCreate(Bundle bundle)
 		{
-			
 
+            //Sacar la lista de Favoritos
+            listNotas = TodoItemManager.GetTasks();
+            //-----------------------------
 
-			this.Window.AddFlags(WindowManagerFlags.Fullscreen);
+            this.Window.AddFlags(WindowManagerFlags.Fullscreen);
 			base.OnCreate(bundle);
 			var metrics = Resources.DisplayMetrics;
 			widthInDp = ((int)metrics.WidthPixels);
@@ -163,13 +167,12 @@ namespace MLearning.Droid.Views
 		public void funcFavoritos(ImageView favorit_)
 		{
 			AlertDialog.Builder popupBuilder = new AlertDialog.Builder(this);
-			popupBuilder.SetTitle("Editar Nota");
+			popupBuilder.SetTitle("Mis Favoritos");
 			popupBuilder.SetCancelable(false);
-			popupBuilder.SetMessage("....");
-			//popupBuilder.SetNeutralButton(" ", delegate {  });
+			popupBuilder.SetMessage("Ir a mis favoritos");
+			popupBuilder.SetNeutralButton("Volver", delegate {  });
 			//popupBuilder.Show();
 
-		 
 			//linearContenido.RemoveView (favorit);
 			Dialog dial = popupBuilder.Create ();
 			dial.Show ();
@@ -178,12 +181,7 @@ namespace MLearning.Droid.Views
 					Thread.Sleep(1000);
 					dial.Dismiss();
 
-				}).Start();  
-			 
-			var taskDetails = new Intent(this, typeof(NotasItemScreen));
-			taskDetails.PutExtra("PageID",   this.page_id );
-
-			this.StartActivity(taskDetails);
+				}).Start();
 			
 		}
 
@@ -460,9 +458,26 @@ namespace MLearning.Droid.Views
 
 		}
 
+        //Verificar si esta en la lista de favoritos
+        public int isListNotas(String Titulo)
+        {
+            //Sacar la lista de Favoritos
+            listNotas.Clear();
+            listNotas = TodoItemManager.GetTasks();
+            //-----------------------------
+            int tam = listNotas.Count;
+            for (int i = 0; i < tam; i++)
+            {
+                if (listNotas[i].Name.Equals(Titulo))
+                {
+                    return listNotas[i].ID; ;
+                }
+            }
+            return -1;
+        }
 
 
-		void LoadPagesDataSource()
+        void LoadPagesDataSource()
 		{
 
 
@@ -478,8 +493,6 @@ namespace MLearning.Droid.Views
 
 				int j = vm._currentSection;
 				//	for (int j = 0; j < s_listp.Count; j++) {						
-
-				page_id = s_listp[j].PagesList[0].page.id;
 
 						for (int k = 0; k < s_listp [j].PagesList.Count; k++) {
 
@@ -547,21 +560,60 @@ namespace MLearning.Droid.Views
 							//separationLinear.SetPadding (0,0,0,50);
 
 					//Añadir mis-Favoritos-----------------------------------------------------------
-					iconFavorito = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/favoritos.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
+					iconFavorito = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/notas.png"), Configuration.getWidth (40), Configuration.getWidth (30), true);
 					//Colocando icono de Favoritos
 					ImageView favorit_ = new ImageView (this);
 					favorit_.Tag = j;
 					favorit_.SetImageBitmap (iconFavorito);
-					favorit_.SetX (Configuration.getWidth(550));
-					favorit_.SetY (Configuration.getHeight (0));
-					favorit_.Click += delegate{funcFavoritos(favorit_);};
+					favorit_.SetX (Configuration.getWidth(20));
+					favorit_.SetY (Configuration.getHeight (20));
+					//favorit_.Click += delegate{funcFavoritos(favorit_);};
 
-					RelativeLayout misFavoritos = new RelativeLayout (this);
+                    var iconFace = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/face_icon.jpg"), Configuration.getWidth(20), Configuration.getWidth(20), true);
+                    //Colocando icono de Favoritos
+                    ImageView faceicon = new ImageView(this);
+                    faceicon.Tag = j;
+                    faceicon.SetImageBitmap(iconFace);
+                    faceicon.SetX(Configuration.getWidth(30));
+                    faceicon.SetY(Configuration.getHeight(-7));
+                    //favorit_.Click += delegate { funcFavoritos(favorit_); };
+
+                    TextView shared_face = new TextView(this);
+                    shared_face.Text = "Cuentale a tus amigos de que pronto acamparas aqui!";
+                    shared_face.SetTextColor(Color.ParseColor("#1A237E"));
+                    shared_face.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(21));
+                    shared_face.SetX(Configuration.getWidth(60));
+                    shared_face.SetY(Configuration.getHeight(-7));
+
+                    TextView tomar_notas = new TextView(this);
+                    tomar_notas.Text = "Tomar notas";
+                    tomar_notas.SetTextColor(Color.ParseColor("#E65100"));
+                    tomar_notas.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(21));
+                    tomar_notas.SetX(Configuration.getWidth(60));
+                    tomar_notas.SetY(Configuration.getHeight(20));
+                    tomar_notas.Click += delegate
+                    {
+                        Bundle bundle = new Bundle();
+                        bundle.PutString("Titulo", front.Title);
+                        bundle.PutInt("TaskID", isListNotas(front.Title));
+
+                        //Intent nos permite enlazar dos actividades
+                        Intent intent = new Intent(this, typeof(NotasItemScreen));
+                   //añadir parametros
+                   intent.PutExtras( bundle );
+                   //ejuta intent
+                   StartActivity(intent );
+    };
+
+                        RelativeLayout misFavoritos = new RelativeLayout (this);
 					misFavoritos.LayoutParameters = new LinearLayout.LayoutParams (-1, Configuration.getHeight (60));
 					misFavoritos.SetX (Configuration.getWidth(0));
-					misFavoritos.SetY (Configuration.getHeight (-150));
-					misFavoritos.AddView (favorit_);
-					linearScroll.AddView (misFavoritos);
+					misFavoritos.SetY (Configuration.getHeight (0));
+                    misFavoritos.AddView(tomar_notas);
+                    misFavoritos.AddView (shared_face);
+                    misFavoritos.AddView(favorit_);
+                    misFavoritos.AddView(faceicon);
+                    linearScroll.AddView (misFavoritos);
 					//FIN FAVoritos-----------------------------------------------------------
 							linearScroll.AddView (descriptionLayout);
 							linearScroll.AddView (separationLinear);

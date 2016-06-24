@@ -32,7 +32,7 @@ namespace MLearning.Droid
 
 
  	 
-		IList<FavoritosItem> listFavorites;
+		public IList<FavoritosItem> listFavorites;
 
 		public NotasItemListAdapter taskList;
 		public IList<TodoItem> tasks;
@@ -335,9 +335,9 @@ namespace MLearning.Droid
 
 			//iconMap = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/iconmap.png"), Configuration.getWidth (60), Configuration.getWidth (80), true);
 			iconPlay = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/playc.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
-			iconInfo = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/info.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
-			iconFavorito_BN = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos_BN.png"), Configuration.getWidth(60), Configuration.getWidth(60), true);
-			iconFavorito = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos.png"), Configuration.getWidth(60), Configuration.getWidth(60), true);
+			iconInfo = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/info.png"), Configuration.getWidth (50), Configuration.getWidth (50), true);
+			iconFavorito_BN = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos_BN.png"), Configuration.getWidth(50), Configuration.getWidth(50), true);
+			iconFavorito = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos.png"), Configuration.getWidth(50), Configuration.getWidth(50), true);
 			ini ();
 
 
@@ -776,8 +776,19 @@ namespace MLearning.Droid
 			_listIconVerMap.Clear ();
 			int numUnidades = _listUnidades.Count;
 			_mainSpace.SetY (Configuration.getHeight (0));
+            try
+            {
+                _mainSpace.RemoveAllViews();
+                _mainSpace.AddView(_fondo2);
+                _mainSpace.AddView(_contentScrollView_S2);
+                _mainSpace.AddView(_spaceUnidades);
+            }
+            catch (Exception e)
+            {
+                //ya existe esos hijos
+            }
 
-			if (isNotas)
+            if (isNotas)
 			{
 				_mainSpace.RemoveAllViews();
 				taskListView = new ListView(context);
@@ -914,7 +925,7 @@ namespace MLearning.Droid
 						ImageView favorit_ = new ImageView(context);
 						favorit_.Tag = i;
 						favorit_.SetX(Configuration.getWidth(450));
-						favorit_.SetY(Configuration.getHeight(150));
+						favorit_.SetY(Configuration.getHeight(70));
 						favorit_.Click += delegate {
 							funcFavoritos(favorit_);
 						};
@@ -936,10 +947,11 @@ namespace MLearning.Droid
 						}
 						bool removido = true;
 						if(isFavoritos){
-							/*_mainSpace.RemoveView(_contentScrollView_S2);
+                            /*_mainSpace.RemoveView(_contentScrollView_S2);
 							_mainSpace.RemoveView (_fondo2);*/
+                            
 							_mainSpace.RemoveAllViews ();
-							favorit_.SetImageBitmap(iconFavorito);
+                            favorit_.SetImageBitmap(iconFavorito);
 							linearContenido.AddView (favorit_);
 							_mainSpace.AddView (_spaceUnidades);
 							removido = false;

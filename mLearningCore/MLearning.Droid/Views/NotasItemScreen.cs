@@ -18,7 +18,6 @@ namespace MLearning.Droid
 		EditText nameTextEdit;
 		Button saveButton;
 		CheckBox doneCheckbox;
-		int Id_page = 0;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -26,23 +25,7 @@ namespace MLearning.Droid
 
 			int taskID = Intent.GetIntExtra("TaskID", 0);
 			if(taskID > 0) {
-
 				task = TodoItemManager.GetTask(taskID);
-				 
-			}
-			else {
-
-				Id_page = Intent.GetIntExtra("PageID", 0);
-
-				if (Id_page > 0)
-				{
-					var ret = TodoItemManager.GetTasks();
-					foreach (var item in ret)
-					{
-						if (item.Id_Page == Id_page)
-							task = item;
-					}
-				}
 			}
 
 			// set our layout to be the home screen
@@ -61,11 +44,21 @@ namespace MLearning.Droid
 			// set the cancel delete based on whether or not it's an existing task
 			cancelDeleteButton.Text = (task.ID == 0 ? "Cancel" : "Delete");
 
-			nameTextEdit.Text = task.Name; 
-			notesTextEdit.Text = task.Notes;
+			nameTextEdit.Text = task.Name;
+            nameTextEdit.Enabled = false;
 
-			// button clicks 
-			cancelDeleteButton.Click += (sender, e) => { CancelDelete(); };
+            notesTextEdit.Text = task.Notes;
+
+            if (nameTextEdit.Text.Equals(""))
+            {
+                string text = Intent.GetStringExtra("Titulo") ?? "Data not available";
+                nameTextEdit.Text = text;
+            }
+            
+
+
+            // button clicks 
+            cancelDeleteButton.Click += (sender, e) => { CancelDelete(); };
 			saveButton.Click += (sender, e) => { Save(); };
 		}
 
@@ -75,7 +68,7 @@ namespace MLearning.Droid
 			task.Notes = notesTextEdit.Text;
 			//TODO: 
 			task.Done = doneCheckbox.Checked;
-			task.Id_Page = Id_page;
+
 			TodoItemManager.SaveTask(task);
 			Finish();
 		}
