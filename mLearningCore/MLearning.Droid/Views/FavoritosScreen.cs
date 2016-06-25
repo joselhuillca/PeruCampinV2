@@ -8,11 +8,11 @@ using Android.OS;
 
 namespace MLearning.Droid
 {
-	[Activity (Label = "Tasky",  
+	[Activity (Label = "Tasky")/*,  
 		Icon="@drawable/icon",
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
-		ScreenOrientation = ScreenOrientation.Portrait)]
+		ScreenOrientation = ScreenOrientation.Portrait)*/]
 	public class FavoritosScreen: Activity 
 	{
 		FavoritosItemListAdapter taskList;

@@ -9,7 +9,7 @@ namespace MLearning.Droid
 	/// <summary>
 	/// View/edit a Task
 	/// </summary>
-	[Activity (Label = "Tasky")]			
+	[Activity (Label = "Tasky1")]			
 	public class NotasItemScreen : Activity 
 	{
 		TodoItem task = new TodoItem();

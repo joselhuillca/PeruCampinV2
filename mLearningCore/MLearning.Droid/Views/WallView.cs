@@ -30,7 +30,8 @@ namespace MLearning.Droid
 		int Id_Unidad;
 		int Id_section;
 
-
+		public int currentcurso;
+		public int currentunidad;
  	 
 		public IList<FavoritosItem> listFavorites;
 
@@ -1005,11 +1006,12 @@ namespace MLearning.Droid
 
 		public void funcFavoritos(ImageView fav)
 		{
-			AlertDialog.Builder popupBuilder = new AlertDialog.Builder(context);
-			popupBuilder.SetTitle("Mis Favoritos");
-			popupBuilder.SetCancelable(false);
-			popupBuilder.SetMessage("Se añadio a mis favoritos!");
-			popupBuilder.SetNeutralButton("Volver", delegate {  });
+			//AlertDialog.Builder popupBuilder = new AlertDialog.Builder(context);
+			//popupBuilder.SetTitle("Mis Favoritos");
+			//popupBuilder.SetCancelable(false);
+			//popupBuilder.SetMessage("Se añadio a mis favoritos!");
+			String mensaje = "Se añadio a mis favoritos!";
+			//popupBuilder.SetNeutralButton("Volver", delegate {  });
 			//popupBuilder.Show();
 
 
@@ -1039,19 +1041,42 @@ namespace MLearning.Droid
 			else
 			{
 				FavoritosItemManager.DeleteTask(id_auto);
-				popupBuilder.SetMessage("Se elimino de Favoritos!");
+				//popupBuilder.SetMessage("Se elimino de Favoritos!");
+				mensaje = "Se elimino de Favoritos!";
+				if(isFavoritos){
+					
+					try{
+						MLearning.Core.ViewModels.MainViewModel.lo_by_circle_wrapper currentLearningObject = vm.LearningOjectsList [currentcurso];
+						int circleID = currentLearningObject.lo.Circle_id;
+						var tasks = FavoritosItemManager.GetTasks();
+
+						List<int> items = new List<int>();
+						foreach (var task in tasks ) {
+							items.Add(task.Id_unidad);
+						}
+						vm.bookmarks = items;
+						vm.OpenFavs.Execute(  currentLearningObject  );
+						_mainSpace.RemoveAllViews ();
+						initUnidades (currentcurso,currentunidad);
+					}catch(Exception e){
+						//
+					}
+
+				}
+				//_spaceUnidades.RemoveAllViews ();
+
 				fav.SetImageBitmap(iconFavorito_BN);
 			}
 			//Dialog------------------------------------------
-			Dialog dial = popupBuilder.Create ();
+			/*Dialog dial = popupBuilder.Create ();
 			dial.Show ();
 			new Thread(() =>
 				{
 					Thread.Sleep(1000);
 					dial.Dismiss();
 
-				}).Start();
-
+				}).Start();*/
+			Toast.MakeText (context, mensaje, ToastLength.Short).Show();
 
 
 

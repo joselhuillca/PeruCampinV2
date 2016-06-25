@@ -1105,6 +1105,7 @@ namespace MLearning.Droid.Views
 		public void showGuiaSilvestre()	{ lo.isNotas = false; lo.isFavoritos = false; showCurso(2);lo.header.SetBackgroundDrawable (headersDR[2]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#74DF00"));}
 		public void showCifras()		{lo.isNotas = false;  lo.isFavoritos = false;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);lo._contentScrollView_S2.SetBackgroundColor (Color.ParseColor ("#f5ac10"));}
 		public void showFavoritos()		{
+			lo.currentcurso = _currentCurso;lo.currentunidad = _currentUnidad;
 			lo.isNotas = false; lo.isFavoritos = true;showCurso (3);lo.header.SetBackgroundDrawable (headersDR[3]);
 			loadSection ();}
 		public void showNotas() { lo.isNotas = true;lo.isFavoritos = false; showCurso(3); lo.header.SetBackgroundDrawable(headersDR[3]);
@@ -1640,7 +1641,7 @@ namespace MLearning.Droid.Views
 			player.Reset ();
 		}
 
-		void loadSection(){
+		public void loadSection(){
 
 			if (vm.LOsectionList != null) 
 			{

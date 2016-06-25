@@ -12,7 +12,7 @@ namespace MLearning.Droid
 	/// <summary>
 	/// Main ListView screen displays a list of tasks, plus an [Add] button
 	/// </summary>
-	[Activity (Label = "Tasky")/*,  
+	[Activity (Label = "Tasky2")/*,  
 		Icon="@drawable/icon",
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,

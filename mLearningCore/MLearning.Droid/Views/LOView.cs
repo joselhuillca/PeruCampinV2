@@ -566,7 +566,7 @@ namespace MLearning.Droid.Views
 					favorit_.Tag = j;
 					favorit_.SetImageBitmap (iconFavorito);
 					favorit_.SetX (Configuration.getWidth(5));
-					favorit_.SetY (Configuration.getHeight (35));
+					favorit_.SetY (Configuration.getHeight (55));
 					//favorit_.Click += delegate{funcFavoritos(favorit_);};
 
                     var iconFace = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/face_icon.jpg"), Configuration.getWidth(30), Configuration.getWidth(30), true);
@@ -575,7 +575,7 @@ namespace MLearning.Droid.Views
                     faceicon.Tag = j;
                     faceicon.SetImageBitmap(iconFace);
                     faceicon.SetX(Configuration.getWidth(15));
-                    faceicon.SetY(Configuration.getHeight(-8));
+                    faceicon.SetY(Configuration.getHeight(0));
                     //favorit_.Click += delegate { funcFavoritos(favorit_); };
 
                     TextView shared_face = new TextView(this);
@@ -592,7 +592,7 @@ namespace MLearning.Droid.Views
                     tomar_notas.SetTextColor(Color.ParseColor("#E65100"));
                     tomar_notas.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(30));
                     tomar_notas.SetX(Configuration.getWidth(48));
-                    tomar_notas.SetY(Configuration.getHeight(35));
+                    tomar_notas.SetY(Configuration.getHeight(55));
                     tomar_notas.Click += delegate
                     {
                         Bundle bundle = new Bundle();
@@ -608,7 +608,7 @@ namespace MLearning.Droid.Views
 				    };
 
                         RelativeLayout misFavoritos = new RelativeLayout (this);
-					misFavoritos.LayoutParameters = new LinearLayout.LayoutParams (-1, Configuration.getHeight (72));
+					misFavoritos.LayoutParameters = new LinearLayout.LayoutParams (-1, Configuration.getHeight (122));
 					misFavoritos.SetX (Configuration.getWidth(0));
 					misFavoritos.SetY (Configuration.getHeight (0));
                     misFavoritos.AddView(tomar_notas);
