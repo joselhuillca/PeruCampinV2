@@ -41,6 +41,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ByteSmith.WindowsAzure.Messaging.Android">
@@ -352,6 +353,7 @@
     <AndroidResource Include="Resources\layout\NotasScreen.xml" />
     <AndroidResource Include="Resources\layout\FavoritosListItem.xml" />
     <AndroidResource Include="Resources\layout\FavoritoScreen.xml" />
+    <None Include="Assets\mapas\Playa_Colores.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
