@@ -1,34 +1,16 @@
-﻿<Properties StartupConfiguration="{FCFFF4C1-BCB0-4450-9EA0-18DF1B31B0DE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="FacebookSample.Android/Resources/values/Strings.xml">
+﻿<Properties StartupConfiguration="{FCFFF4C1-BCB0-4450-9EA0-18DF1B31B0DE}|Default" StartupItem="FacebookSample.Android\FacebookSample.Android.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FacebookSample.Android\MainActivity.cs">
     <Files>
-      <File FileName="FacebookSample.Android/FBWebViewAuthActivity.cs" Line="1" Column="1" />
-      <File FileName="FacebookSample.Android/MainActivity.cs" Line="62" Column="34" />
-      <File FileName="FacebookSample.Android/Resources/Resource.designer.cs" Line="1" Column="1" />
-      <File FileName="FacebookSample.Android/Resources/values/Strings.xml" Line="6" Column="13" />
-      <File FileName="FacebookSample.Android/Properties/AndroidManifest.xml" Line="7" Column="12" />
-      <File FileName="FacebookSample.Android/Properties/AssemblyInfo.cs" Line="14" Column="34" />
-      <File FileName="FacebookSample.Android/Resources/AboutResources.txt" Line="1" Column="1" />
+      <File FileName="FacebookSample.Android\FBWebViewAuthActivity.cs" Line="1" Column="1" />
+      <File FileName="FacebookSample.Android\MainActivity.cs" Line="9" Column="7" />
+      <File FileName="FacebookSample.Android\Resources\Resource.designer.cs" Line="1" Column="1" />
+      <File FileName="FacebookSample.Android\Resources\values\Strings.xml" Line="6" Column="13" />
+      <File FileName="FacebookSample.Android\Properties\AndroidManifest.xml" Line="1" Column="1" />
+      <File FileName="FacebookSample.Android\Properties\AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="FacebookSample.Android\Resources\AboutResources.txt" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="FacebookSample.Android" expanded="True">
-            <Node name="FacebookSample.Android" expanded="True">
-              <Node name="Properties" expanded="True" />
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
-                <Node name="layout" expanded="True" />
-                <Node name="values" expanded="True">
-                  <Node name="Strings.xml" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.3004d5aa35e32200" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
