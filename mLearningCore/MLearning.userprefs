@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/TodoDB/TodoDatabaseADO.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="101" Column="2" />
+      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="92" Column="6" />
+      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="293" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.Nexus 4 (Lollipop)" />
+  <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.Nexus 4 (Marshmallow)" />
 </Properties>

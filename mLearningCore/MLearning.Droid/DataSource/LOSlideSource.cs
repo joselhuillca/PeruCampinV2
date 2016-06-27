@@ -284,6 +284,9 @@ namespace DataSource
 		}
 
 		public Bitmap getBitmapFromAsset( String filePath) {
+			if (filePath.Contains("Playa_Colores.png"))
+				filePath = "mapas/Playa_Colores_El_Nuro.png";
+			
 			System.IO.Stream s = context.Assets.Open (filePath);
 			Bitmap bitmap = BitmapFactory.DecodeStream (s);
 
