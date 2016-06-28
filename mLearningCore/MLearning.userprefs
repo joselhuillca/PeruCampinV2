@@ -1,11 +1,18 @@
-﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="MLearning.Droid\GuiaCamping.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid\Views\MainView.cs">
     <Files>
-      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="92" Column="6" />
-      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="293" Column="18" />
+      <File FileName="MLearning.Droid\TodoDB\TodoDatabaseADO.cs" Line="92" Column="6" />
+      <File FileName="MLearning.Droid\DataSource\LOSlideSource.cs" Line="293" Column="18" />
+      <File FileName="MLearning.Droid\Views\FacebookLogin.cs" Line="85" Column="44" />
+      <File FileName="MLearning.Droid\Views\frontView.cs" Line="95" Column="3" />
+      <File FileName="MLearning.Droid\SplashScreen.cs" Line="27" Column="4" />
+      <File FileName="MLearning.Droid\Views\MainView.cs" Line="293" Column="14" />
+      <File FileName="MLearning.Droid\Views\WallView.cs" Line="982" Column="42" />
+      <File FileName="MLearning.Droid\Views\LOView.cs" Line="593" Column="45" />
+      <File FileName="MLearning.Droid\Views\FBWebViewAuthActivity.cs" Line="103" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.3004d5aa35e32200" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

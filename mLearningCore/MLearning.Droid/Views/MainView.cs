@@ -30,6 +30,7 @@ using Core.Session;
 using Com.Telerik.Widget.List;
 using Android.Support.V7.App;
 using Tasky.Shared;
+using Android.Preferences;
 
 namespace MLearning.Droid.Views
 {
@@ -173,6 +174,9 @@ namespace MLearning.Droid.Views
 			base.OnCreate(bundle);
 
 			SetContentView(Resource.Layout.MainView);
+
+
+
 			player = new Android.Media.MediaPlayer();
 			_currentCurso = 0;
 			_lectorOpen = false;
@@ -284,7 +288,19 @@ namespace MLearning.Droid.Views
 			viewPager = new ViewPager (this);
 			viewPager.SetOnPageChangeListener (new MyPageChangeListenerPager (this, listFrontPager));
 
-            showCifras();
+			showCifras();
+
+			ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences (this);
+			bool mBool = prefs.GetBoolean ("inicioSesion",false);
+			if(!mBool){
+				var intent = new Intent (this, typeof (FacebookLogin));
+				StartActivity(typeof (FacebookLogin));
+				//Finish ();
+			}
+			else{
+				//showCifras();
+			}
+            
 
 
 		}

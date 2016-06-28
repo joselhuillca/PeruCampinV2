@@ -23,6 +23,8 @@ using Android.Graphics.Drawables;
 using Android.Text;
 using Android.Util;
 using Tasky.Shared;
+using Facebook;
+using Android.Preferences;
 
 namespace MLearning.Droid.Views
 {
@@ -34,6 +36,8 @@ namespace MLearning.Droid.Views
 		Bitmap bm_user;
 		Bitmap bmLike;
 		Drawable drBack;
+
+		FacebookClient fb;
 
         IList<Tasky.Shared.TodoItem> listNotas;
 
@@ -476,6 +480,34 @@ namespace MLearning.Droid.Views
             return -1;
         }
 
+		public void HandlePostHiToWall (String titulo)
+		{
+			
+			ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences (this);
+			bool mBool = prefs.GetBoolean ("inicioSesion",false);
+			if (mBool) {
+				Toast.MakeText (this, "Loading...", ToastLength.Short).Show();
+				String accessToken = prefs.GetString ("AccessToken",null);
+				fb = new FacebookClient (accessToken);
+				fb.PostTaskAsync ("me/feed", new { message = "Vas a visitar " + titulo }).ContinueWith (t => {
+					if (!t.IsFaulted) {
+
+						var result = (IDictionary<string, object>)t.Result;
+						//lastMessageId = (string)result["id"];
+
+						RunOnUiThread ( ()=> {
+							//Alert ("Success", "You have posted \"Hi\" to your wall.", false, (res) => { });
+							Toast.MakeText (this, "Has hecho un post en tu muro de Facebook!!", ToastLength.Short).Show();
+						});
+					}else{
+						Toast.MakeText (this, "Error al hacer el post!!", ToastLength.Short).Show();
+					}
+				});
+			} else {
+				//Alert ("Not Logged In", "Please Log In First", false, (res) => { });
+				Toast.MakeText (this, "Primero iniciado Sesiòn!!", ToastLength.Short).Show();
+			}
+		}
 
         void LoadPagesDataSource()
 		{
@@ -586,6 +618,11 @@ namespace MLearning.Droid.Views
                     shared_face.SetX(Configuration.getWidth(48));
 					//shared_face.Gravity = GravityFlags.Right;
                     shared_face.SetY(Configuration.getHeight(-11));
+					shared_face.Click += delegate
+					{
+						HandlePostHiToWall( front.Title);
+					};
+
 
                     TextView tomar_notas = new TextView(this);
                     tomar_notas.Text = "Tomar notas";
