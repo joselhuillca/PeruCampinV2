@@ -505,7 +505,7 @@ namespace MLearning.Droid.Views
 				});
 			} else {
 				//Alert ("Not Logged In", "Please Log In First", false, (res) => { });
-				Toast.MakeText (this, "Primero iniciado Sesiòn!!", ToastLength.Short).Show();
+				Toast.MakeText (this, "Primero inicia sesiòn!!", ToastLength.Short).Show();
 			}
 		}
 
@@ -625,7 +625,7 @@ namespace MLearning.Droid.Views
 
 
                     TextView tomar_notas = new TextView(this);
-                    tomar_notas.Text = "Tomar notas";
+                    tomar_notas.Text = "Toma notas";
                     tomar_notas.SetTextColor(Color.ParseColor("#E65100"));
                     tomar_notas.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(30));
                     tomar_notas.SetX(Configuration.getWidth(48));
@@ -662,7 +662,7 @@ namespace MLearning.Droid.Views
 							var currentpage = s_listp [j].PagesList [k];
 
 				
-
+					bool is50Campamentos = false;
 
 							for (int m = 1; m < slides.Count; m++) {
 								LOSlideSource slidesource = new LOSlideSource (this);
@@ -688,8 +688,6 @@ namespace MLearning.Droid.Views
 									slidesource.VideoUrl = slides [m].lovideo;
 					
 								var c_slide = slides [m];
-
-
 								if (c_slide.loitemize != null) {
 									slidesource.Itemize = new ObservableCollection<LOItemSource> ();
 									var items = c_slide.loitemize.loitem;
@@ -712,9 +710,18 @@ namespace MLearning.Droid.Views
 								
 								slidesource.title_page = front.Title;
 								linearScroll.AddView (slidesource.getViewSlide ());//Toda la info menos la descripcion
-
+								if(slidesource.Title!=null){
+									if(slidesource.Title.Equals("Datos básicos")){
+										is50Campamentos = true;
+									}
+								}
 
 							} 
+
+					if(!is50Campamentos){
+						linearScroll.RemoveView (misFavoritos);
+					}
+
 
 							scrollPager.VerticalScrollBarEnabled = false;
 							if (k == 0) {

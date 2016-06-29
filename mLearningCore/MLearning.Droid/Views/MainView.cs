@@ -874,10 +874,10 @@ namespace MLearning.Droid.Views
 
 			TaskItem caminoCifras = new TaskItem ();
 
-            home.Name = "Preparando la Partida";//"Home";
+            home.Name = "Preparando la partida";//"Home";
 			fotos.Name = "Fotos";
 
-            caminoCifras.Name = "Los mejors 50 campamentos";//¿Cómo usar la guía?";
+            caminoCifras.Name = "Los mejores 50 campamentos";//¿Cómo usar la guía?";
 			home.Asset = "icons/iconhome.png";
 			fotos.Asset = "icons/iconcamara.png";
 			caminoCifras.Asset = "icons/iconcifras.png";
@@ -897,7 +897,7 @@ namespace MLearning.Droid.Views
 			{
                 //showHome ();
                 showServicios();//COSTA
-				Toast.MakeText (this, "preparando la Partida", ToastLength.Short).Show();
+				Toast.MakeText (this, "Preparando la partida", ToastLength.Short).Show();
 			}
 			else if(e.Position == 1)//rutas
 			{
@@ -996,7 +996,7 @@ namespace MLearning.Droid.Views
 			TaskItem rutas = new TaskItem ();
 			TaskItem salir = new TaskItem ();
 
-			guiaServicios.Name = "La palabra del Experto";//"La palabra del experto";
+			guiaServicios.Name = "La palabra del experto";//"La palabra del experto";
             guiaSilvestre.Name = "Mis mejores campamentos";//"Preparando la partida";
 			rutas.Name = "Notas";//"Los 50 mejores campamentos";
 			salir.Name = "Salir";

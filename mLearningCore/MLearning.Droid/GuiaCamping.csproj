@@ -505,6 +505,7 @@
     <AndroidAsset Include="Assets\images\fondoLogin.png" />
     <AndroidAsset Include="Assets\icons\loginFace.png" />
     <AndroidAsset Include="Assets\icons\toregister.png" />
+    <AndroidAsset Include="Assets\images\header5.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MLearning.Core\MLearning.Core.csproj">

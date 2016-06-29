@@ -2,55 +2,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  <LinearLayout
-      android:orientation ="vertical"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/mainLayoutNotasDetailsHeader"
-      android:layout_below="@+id/TaskDetailsHeader"
-    ></LinearLayout>
-  <TextView
-      android:id="@+id/NameLabel"
-      android:text="Titlo de la Nota:"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/mainLayoutNotasDetailsHeader" />
-  <EditText
-      android:id="@+id/NameText"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/NameLabel"
-      android:imeOptions="actionNext"
-      android:maxLines="1" />
-  <TextView
-      android:id="@+id/NotesLabel"
-      android:text="Notas:"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/NameText" />
-  <EditText
-      android:id="@+id/NotesText"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/NotesLabel"
-      android:maxLines="10"
-      android:imeOptions="actionDone" />
-  <CheckBox
-      android:id="@+id/chkDone"
-      android:layout_below="@+id/NotesText"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Listo" />
-  <Button
-      android:id="@+id/SaveButton"
-      android:text="Guardar"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/chkDone" />
-  <Button
-      android:id="@+id/CancelDeleteButton"
-      android:text="Cancelar"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/SaveButton" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainLayoutNotasDetailsHeader"
+        android:layout_below="@+id/TaskDetailsHeader" />
+    <TextView
+        android:id="@+id/NameLabel"
+        android:text="Titlo:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainLayoutNotasDetailsHeader" />
+    <EditText
+        android:id="@+id/NameText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NameLabel"
+        android:imeOptions="actionNext"
+        android:maxLines="1" />
+    <TextView
+        android:id="@+id/NotesLabel"
+        android:text="Notas:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NameText" />
+    <EditText
+        android:id="@+id/NotesText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NotesLabel"
+        android:maxLines="10"
+        android:imeOptions="actionDone" />
+    <CheckBox
+        android:id="@+id/chkDone"
+        android:layout_below="@+id/NotesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Realizado" />
+    <Button
+        android:id="@+id/SaveButton"
+        android:text="Guardar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkDone" />
+    <Button
+        android:id="@+id/CancelDeleteButton"
+        android:text="Cancelar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SaveButton" />
+    <Button
+        android:id="@+id/btn_ViewAllNotes"
+        android:text="Ver todas las notas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CancelDeleteButton" />
 </RelativeLayout>

@@ -3,6 +3,7 @@ using Tasky.Shared;
 using Android.Widget;
 using Android.App;
 using Android.OS;
+using Android.Content;
 
 namespace MLearning.Droid
 {
@@ -17,6 +18,7 @@ namespace MLearning.Droid
 		EditText notesTextEdit;
 		EditText nameTextEdit;
 		Button saveButton;
+		Button allNotesButton;
 		CheckBox doneCheckbox;
 
 		protected override void OnCreate (Bundle bundle)
@@ -33,6 +35,7 @@ namespace MLearning.Droid
 			nameTextEdit = FindViewById<EditText>(Resource.Id.NameText);
 			notesTextEdit = FindViewById<EditText>(Resource.Id.NotesText);
 			saveButton = FindViewById<Button>(Resource.Id.SaveButton);
+			allNotesButton = FindViewById<Button>(Resource.Id.btn_ViewAllNotes);
 
 			// TODO: find the Checkbox control and set the value
 			doneCheckbox = FindViewById<CheckBox>(Resource.Id.chkDone);
@@ -42,7 +45,7 @@ namespace MLearning.Droid
 			cancelDeleteButton = FindViewById<Button>(Resource.Id.CancelDeleteButton);
 
 			// set the cancel delete based on whether or not it's an existing task
-			cancelDeleteButton.Text = (task.ID == 0 ? "Cancel" : "Delete");
+			cancelDeleteButton.Text = (task.ID == 0 ? "Cancelar" : "Borrar");
 
 			nameTextEdit.Text = task.Name;
             nameTextEdit.Enabled = false;
@@ -60,6 +63,7 @@ namespace MLearning.Droid
             // button clicks 
             cancelDeleteButton.Click += (sender, e) => { CancelDelete(); };
 			saveButton.Click += (sender, e) => { Save(); };
+			allNotesButton.Click += (sender, e) => { ViewAllNotes(); };
 		}
 
 		void Save()
@@ -79,6 +83,14 @@ namespace MLearning.Droid
 				TodoItemManager.DeleteTask(task.ID);
 			}
 			Finish();
+		}
+
+		void ViewAllNotes(){
+			//Intent nos permite enlazar dos actividades
+			Intent intent = new Intent(this, typeof(NotasScreen));
+			//ejuta intent
+			StartActivity(intent );
+			Finish ();
 		}
 	}
 }

@@ -789,6 +789,26 @@ namespace MLearning.Droid
                 //ya existe esos hijos
             }
 
+			if(indexUnidad==3){
+				Toast.MakeText (context, "Favoritos...", ToastLength.Short).Show ();
+				//Sacar la lista de Favoritos
+				listFavorites = FavoritosItemManager.GetTasks();
+				int tam = listFavorites.Count;
+				_listUnidades.Clear ();
+				for(int i=0;i<tam;i++){
+					UnidadItem unItem = new UnidadItem();
+					unItem.Description = listFavorites [i].Descripcion;
+					unItem.Title = listFavorites [i].Titulo;
+					unItem.CurrentSection = listFavorites [i].Section_Index;
+					unItem.Id = listFavorites [i].Id_unidad;
+					unItem.LO_ID = listFavorites [i].Unit_Index;
+
+					_listUnidades.Add (unItem);
+				}
+				//-----------------------------
+				numUnidades = _listUnidades.Count;
+			}
+
             if (isNotas)
 			{
 				_mainSpace.RemoveAllViews();
@@ -861,6 +881,7 @@ namespace MLearning.Droid
 
 				if (indexCurso == 3) {
 					titleUnidad.SetTextSize (textFormat,Configuration.getHeight(55));
+
 				}
 
 				RelativeLayout linearContenido = new RelativeLayout (context);
@@ -915,7 +936,9 @@ namespace MLearning.Droid
 				linearUnidad.AddView (linearContenido);
 
 				if (indexCurso == 3) {
-					if (indexUnidad != 3) {
+					
+
+					if (indexUnidad != 4) {//Antes era 3, ahora no es necesario eso
 
 						/*ImageView info = new ImageView (context);
 						info.Tag = i;

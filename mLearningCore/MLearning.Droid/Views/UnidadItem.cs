@@ -13,6 +13,7 @@ namespace MLearning.Droid
 
 		public int PageID { get; set; }
 
+		public UnidadItem(){}
 
 	}
 }
