@@ -746,31 +746,31 @@ namespace MLearning.Droid.Views
 						layoutList = new RelativeLayout(this);
 						layoutList.LayoutParameters = new LinearLayout.LayoutParams(-2, -2);
 						//layoutList.Orientation = Android.Widget.Orientation.Vertical;
-						layoutList.SetBackgroundColor(Color.ParseColor("#FFC107"));
+						//layoutList.SetBackgroundColor(Color.ParseColor("#FFC107"));
 						//listView = (RadListView)FindViewById(Resource.Id.listView).JavaCast<RadListView>();
 						listView = new RadListView(this).JavaCast<RadListView>();
 						listView.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(600));
-						listView.SetBackgroundColor(Color.ParseColor("#FFC107"));
+						//listView.SetBackgroundColor(Color.ParseColor("#FFC107"));
 
 						//Añadimos botones previus and next
-						var btnImg= Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/atras.png"), Configuration.getWidth(30), Configuration.getWidth(30), true);
+						var btnImg= Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/atras.png"), Configuration.getWidth(25), Configuration.getWidth(25), true);
 						Drawable dr = new BitmapDrawable(btnImg);
 						Button previousBtn = new Button(this);
 						//previousBtn.Text = "<";
 						previousBtn.SetBackgroundDrawable(dr);
-						previousBtn.SetX(Configuration.getWidth(5));
+						previousBtn.SetX(Configuration.getWidth(0));
 						previousBtn.SetY(Configuration.getHeight(290));
 						previousBtn.Click += (object sender, EventArgs e) =>
 						{
 							slideLayoutManager.ScrollToPrevious();
 						};
 
-						var btnImg2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/adelante.png"), Configuration.getWidth(30), Configuration.getWidth(30), true);
+						var btnImg2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/adelante.png"), Configuration.getWidth(25), Configuration.getWidth(25), true);
 						Drawable dr2 = new BitmapDrawable(btnImg2);
 						Button nextBtn = new Button(this);
 						//nextBtn.Text = ">";
 						nextBtn.SetBackgroundDrawable(dr2);
-						nextBtn.SetX(Configuration.getWidth(570));
+						nextBtn.SetX(Configuration.getWidth(550));
 						nextBtn.SetY(Configuration.getHeight(290));
 						nextBtn.Click += (object sender, EventArgs e) =>
 						{
@@ -790,7 +790,7 @@ namespace MLearning.Droid.Views
 						slideLayoutManager = new SlideLayoutManager(this);
 						listView.SetLayoutManager(slideLayoutManager);
 
-						slideLayoutManager.TransitionMode = SlideLayoutManager.Transition.SlideOver;
+						//slideLayoutManager.TransitionMode = SlideLayoutManager.Transition.SlideOver;
 
 						linearScroll.AddView(layoutList);
 					}
