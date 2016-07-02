@@ -9,6 +9,7 @@ using Android.Widget;
 using System.Collections.Generic;
 using System.Text;
 using System.Globalization;
+using System.Collections;
 
 namespace DataSource
 {
@@ -18,6 +19,7 @@ namespace DataSource
 
 		Context context;
 		public String title_page;
+		public ImagenCamp imgCamp;
 
 		public LOSlideSource(Context context){
 			this.context = context;
@@ -204,6 +206,12 @@ namespace DataSource
 				plantilla.Contenido = eraseLastBR(_paragraph);;
 				plantilla.ColorTexto = _colorS;
 				//Console.WriteLine ("CREA PLANTILLAAAAAAAAA  111111");
+
+				//Añadimos las imagenes a un array para dibujarlas luego
+				imgCamp = new ImagenCamp();
+				imgCamp.Descripcion = plantilla.Contenido;
+				imgCamp.image = plantilla.ImageUrl;
+
 				return plantilla;
 
 			}

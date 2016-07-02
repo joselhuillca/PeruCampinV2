@@ -76,11 +76,11 @@ namespace MLearning.Droid
 			};
 
 
-			var registercheckfondo = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/toregister.png"), Configuration.getWidth(47), Configuration.getWidth(47), true);
+			var registercheckfondo = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/toregister.png"), Configuration.getWidth(30), Configuration.getWidth(30), true);
 			var regist = new ImageView(this);
 			regist.SetImageBitmap(registercheckfondo);
-			regist.SetX(Configuration.getWidth(73));
-			regist.SetY(Configuration.getHeight(786));
+			regist.SetX(Configuration.getWidth(82));
+			regist.SetY(Configuration.getHeight(793));
 
 			checkbox = new CheckBox (this);
 			checkbox.SetX (Configuration.getWidth(82));
@@ -146,7 +146,8 @@ namespace MLearning.Droid
 							//imgUser.SetImageBitmap (bm);
 							//txtvUserName.Text = profileName;
 							mainLayout.RemoveAllViews();
-							Toast.MakeText (this, "Presiona Back!!", ToastLength.Short).Show();
+							//Toast.MakeText (this, "Presiona Back!!", ToastLength.Short).Show();
+							Finish();
 						});
 
 						isLoggedIn = true;

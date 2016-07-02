@@ -25,12 +25,22 @@ using Android.Util;
 using Tasky.Shared;
 using Facebook;
 using Android.Preferences;
+using System.Collections;
+using Android.Support.V7.Widget;
+using Com.Telerik.Widget.List;
+using Android.Runtime;
 
 namespace MLearning.Droid.Views
 {
 	[Activity(Label = "View for LOViewModel", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class LOView : MvxActivity, VerticalScrollViewPager.ScrollViewListenerPager
 	{
+
+		public ArrayList source = new ArrayList();
+		RadListView listView;
+		SlideLayoutManager slideLayoutManager;
+		int orientation = OrientationHelper.Horizontal;
+		public LinearLayout layoutList;
 
 		LOViewModel vm; 
 		Bitmap bm_user;
@@ -709,14 +719,51 @@ namespace MLearning.Droid.Views
 
 								
 								slidesource.title_page = front.Title;
-								linearScroll.AddView (slidesource.getViewSlide ());//Toda la info menos la descripcion
+
+								var vista = slidesource.getViewSlide();
+								if (slidesource.imgCamp != null)
+								{
+									source.Add(slidesource.imgCamp);
+								}
+								else { 
+									linearScroll.AddView(vista);//Toda la info menos la descripcion
+								}
+										
+
 								if(slidesource.Title!=null){
 									if(slidesource.Title.Equals("Datos básicos")){
 										is50Campamentos = true;
 									}
 								}
 
-							} 
+							}
+
+					//Añadimos las imagenes del array source
+					if (source.Count > 0)
+					{
+						layoutList = new LinearLayout(this);
+						layoutList.LayoutParameters = new LinearLayout.LayoutParams(-2, -2);
+						layoutList.Orientation = Android.Widget.Orientation.Vertical;
+						layoutList.SetBackgroundColor(Color.ParseColor("#FFC107"));
+						//listView = (RadListView)FindViewById(Resource.Id.listView).JavaCast<RadListView>();
+						listView = new RadListView(this).JavaCast<RadListView>();
+						listView.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(600));
+						listView.SetBackgroundColor(Color.ParseColor("#FFC107"));
+
+						layoutList.AddView(listView);
+
+
+						ImageAdapterTelerik adapterT = new ImageAdapterTelerik(source);
+						adapterT.ctx = this;
+						listView.SetAdapter(adapterT);
+
+						slideLayoutManager = new SlideLayoutManager(this);
+						listView.SetLayoutManager(slideLayoutManager);
+
+						slideLayoutManager.TransitionMode = SlideLayoutManager.Transition.SlideOver;
+
+						linearScroll.AddView(layoutList);
+					}
 
 					if(!is50Campamentos){
 						linearScroll.RemoveView (misFavoritos);

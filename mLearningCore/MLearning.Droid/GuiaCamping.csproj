@@ -267,6 +267,7 @@
     <Compile Include="TodoDB\MisFavoritos\FavoritosItemRepositoryADO.cs" />
     <Compile Include="Views\FacebookLogin.cs" />
     <Compile Include="Views\FBWebViewAuthActivity.cs" />
+    <Compile Include="Views\ImagenCamp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -359,6 +360,7 @@
     <AndroidResource Include="Resources\layout\FavoritosListItem.xml" />
     <AndroidResource Include="Resources\layout\FavoritoScreen.xml" />
     <None Include="Assets\mapas\Playa_Colores.png" />
+    <AndroidResource Include="Resources\layout\example_list_view_deck_item_layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
