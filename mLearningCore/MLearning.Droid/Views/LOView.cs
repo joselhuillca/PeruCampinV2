@@ -40,7 +40,7 @@ namespace MLearning.Droid.Views
 		RadListView listView;
 		SlideLayoutManager slideLayoutManager;
 		int orientation = OrientationHelper.Horizontal;
-		public LinearLayout layoutList;
+		public RelativeLayout layoutList;
 
 		LOViewModel vm; 
 		Bitmap bm_user;
@@ -743,16 +743,44 @@ namespace MLearning.Droid.Views
 					//Añadimos las imagenes del array source
 					if (source.Count > 0)
 					{
-						layoutList = new LinearLayout(this);
+						layoutList = new RelativeLayout(this);
 						layoutList.LayoutParameters = new LinearLayout.LayoutParams(-2, -2);
-						layoutList.Orientation = Android.Widget.Orientation.Vertical;
+						//layoutList.Orientation = Android.Widget.Orientation.Vertical;
 						layoutList.SetBackgroundColor(Color.ParseColor("#FFC107"));
 						//listView = (RadListView)FindViewById(Resource.Id.listView).JavaCast<RadListView>();
 						listView = new RadListView(this).JavaCast<RadListView>();
 						listView.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(600));
 						listView.SetBackgroundColor(Color.ParseColor("#FFC107"));
 
+						//Añadimos botones previus and next
+						var btnImg= Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/atras.png"), Configuration.getWidth(30), Configuration.getWidth(30), true);
+						Drawable dr = new BitmapDrawable(btnImg);
+						Button previousBtn = new Button(this);
+						//previousBtn.Text = "<";
+						previousBtn.SetBackgroundDrawable(dr);
+						previousBtn.SetX(Configuration.getWidth(5));
+						previousBtn.SetY(Configuration.getHeight(290));
+						previousBtn.Click += (object sender, EventArgs e) =>
+						{
+							slideLayoutManager.ScrollToPrevious();
+						};
+
+						var btnImg2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/adelante.png"), Configuration.getWidth(30), Configuration.getWidth(30), true);
+						Drawable dr2 = new BitmapDrawable(btnImg2);
+						Button nextBtn = new Button(this);
+						//nextBtn.Text = ">";
+						nextBtn.SetBackgroundDrawable(dr2);
+						nextBtn.SetX(Configuration.getWidth(570));
+						nextBtn.SetY(Configuration.getHeight(290));
+						nextBtn.Click += (object sender, EventArgs e) =>
+						{
+							slideLayoutManager.ScrollToNext();
+						};
+
+
 						layoutList.AddView(listView);
+						layoutList.AddView(previousBtn);
+						layoutList.AddView(nextBtn);
 
 
 						ImageAdapterTelerik adapterT = new ImageAdapterTelerik(source);
