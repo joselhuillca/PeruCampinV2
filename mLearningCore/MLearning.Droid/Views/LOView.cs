@@ -720,20 +720,22 @@ namespace MLearning.Droid.Views
 								
 								slidesource.title_page = front.Title;
 
-								var vista = slidesource.getViewSlide();
-								if (slidesource.imgCamp != null)
-								{
-									source.Add(slidesource.imgCamp);
-								}
-								else { 
-									linearScroll.AddView(vista);//Toda la info menos la descripcion
-								}
+								
 										
 
 								if(slidesource.Title!=null){
 									if(slidesource.Title.Equals("Datos básicos")){
 										is50Campamentos = true;
 									}
+								}
+
+								var vista = slidesource.getViewSlide();
+								if (slidesource.imgCamp != null && is50Campamentos)
+								{
+									source.Add(slidesource.imgCamp);
+								}
+								else {
+									linearScroll.AddView(vista);//Toda la info menos la descripcion
 								}
 
 							}
