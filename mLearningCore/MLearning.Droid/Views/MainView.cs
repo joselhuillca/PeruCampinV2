@@ -195,6 +195,7 @@ namespace MLearning.Droid.Views
 			vm = this.ViewModel as MainViewModel;
 
 			lo = new WallView(this);
+			lo.vm = vm;
 			frontView = new frontView (this);
 			lector = new FrontContainerViewPager (this);
 			//map = new MapView (this);

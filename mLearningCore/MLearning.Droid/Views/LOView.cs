@@ -529,7 +529,8 @@ namespace MLearning.Droid.Views
 		
 			var s_listp = vm.LOsInCircle[vm._currentUnidad].stack.StacksList;
 				int indice = 0;
-
+		 
+					
 				if (s_listp != null) {
 
 
@@ -745,6 +746,7 @@ namespace MLearning.Droid.Views
 					{
 						layoutList = new RelativeLayout(this);
 						layoutList.LayoutParameters = new LinearLayout.LayoutParams(-2, -2);
+						//layoutList.SetGravity(GravityFlags.CenterHorizontal);
 						//layoutList.Orientation = Android.Widget.Orientation.Vertical;
 						//layoutList.SetBackgroundColor(Color.ParseColor("#FFC107"));
 						//listView = (RadListView)FindViewById(Resource.Id.listView).JavaCast<RadListView>();
@@ -753,7 +755,7 @@ namespace MLearning.Droid.Views
 						//listView.SetBackgroundColor(Color.ParseColor("#FFC107"));
 
 						//Añadimos botones previus and next
-						var btnImg= Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/atras.png"), Configuration.getWidth(25), Configuration.getWidth(25), true);
+						/*var btnImg= Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/atras.png"), Configuration.getWidth(25), Configuration.getWidth(25), true);
 						Drawable dr = new BitmapDrawable(btnImg);
 						Button previousBtn = new Button(this);
 						//previousBtn.Text = "<";
@@ -775,13 +777,41 @@ namespace MLearning.Droid.Views
 						nextBtn.Click += (object sender, EventArgs e) =>
 						{
 							slideLayoutManager.ScrollToNext();
-						};
+						};*/
 
 
 						layoutList.AddView(listView);
-						layoutList.AddView(previousBtn);
-						layoutList.AddView(nextBtn);
+						//layoutList.AddView(previousBtn);
+						//layoutList.AddView(nextBtn);
 
+
+						LinearLayout linearCirculos = new LinearLayout(this);
+						linearCirculos.LayoutParameters = new LinearLayout.LayoutParams(-2, -2);
+						linearCirculos.Orientation = Orientation.Horizontal;
+						linearCirculos.SetBackgroundColor(Color.ParseColor("#40000000"));
+
+						List<ImageView> listCirculos = new List<ImageView>();
+						int tamCirc = 25;
+						int tamS = source.Count;
+						linearCirculos.SetY(Configuration.getHeight(495));
+						linearCirculos.SetX(Configuration.getWidth(640 / 2) );
+
+						for (int i = 0; i < tamS; i++)
+						{
+
+							var circulo_ = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/circulo.png"), Configuration.getWidth(tamCirc), Configuration.getWidth(tamCirc), true);
+							Drawable dr = new BitmapDrawable(circulo_);
+							ImageView imgTemp = new ImageView(this);
+							imgTemp.SetBackgroundDrawable(dr);
+							//imgTemp.SetPadding(Configuration.getWidth(5), 0, Configuration.getWidth(5), 0);
+							//imgTemp.SetY(Configuration.getHeight(495));
+							//imgTemp.SetX(Configuration.getWidth(640 / 2 - (tamS * tamCirc) / 2) + i * tamCirc + 5);
+
+							listCirculos.Add(imgTemp);
+							//layoutList.AddView(imgTemp);
+							linearCirculos.AddView(imgTemp);
+						}
+						layoutList.AddView(linearCirculos);
 
 						ImageAdapterTelerik adapterT = new ImageAdapterTelerik(source);
 						adapterT.ctx = this;

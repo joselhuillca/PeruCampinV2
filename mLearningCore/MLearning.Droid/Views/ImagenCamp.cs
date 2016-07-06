@@ -61,7 +61,8 @@ namespace MLearning.Droid
 			// set image to ImageView
 			//vh.Imagen.SetImageDrawable(d);
 
-			//vh.Imagen.SetMinimumWidth(Configuration.getWidth(637));
+			vh.Imagen.SetMinimumWidth(Configuration.getWidth(640));
+			vh.Imagen.SetMinimumHeight(Configuration.getHeight(427));
 			Picasso.With(ctx).Load(item.image).Placeholder(ctx.Resources.GetDrawable(Resource.Drawable.progress_animation)).Resize(Configuration.getWidth(640), Configuration.getHeight(427)).CenterCrop().Into(vh.Imagen);
 
 

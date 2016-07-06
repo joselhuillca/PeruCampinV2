@@ -10,7 +10,7 @@
         android:layout_below="@+id/TaskDetailsHeader" />
     <TextView
         android:id="@+id/NameLabel"
-        android:text="Titlo:"
+        android:text="Título de la Nota:"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mainLayoutNotasDetailsHeader" />

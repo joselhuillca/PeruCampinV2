@@ -29,6 +29,7 @@ namespace MLearning.Droid
 		string Descripcion = "";
 		int Id_Unidad;
 		int Id_section;
+		public int Page_Id;
 
 		public int currentcurso;
 		public int currentunidad;
@@ -41,7 +42,7 @@ namespace MLearning.Droid
 		public ListView taskListView;
 
 
-		MainViewModel vm;
+		public MainViewModel vm;
 		public VerticalScrollView _scrollSpace;
 		public LinearLayout header;
 		public List<UnidadItem> _listUnidades = new List<UnidadItem>();
@@ -770,6 +771,7 @@ namespace MLearning.Droid
 
 		public void initUnidades(int indexCurso, int indexUnidad)
 		{
+			//this.isFavoritos = false;
 			var textFormat = Android.Util.ComplexUnitType.Px;
 			_spaceUnidades.RemoveAllViews ();
 			_listLinearUnidades.Clear ();
@@ -795,18 +797,43 @@ namespace MLearning.Droid
 				listFavorites = FavoritosItemManager.GetTasks();
 				int tam = listFavorites.Count;
 				_listUnidades.Clear ();
-				for(int i=0;i<tam;i++){
-					UnidadItem unItem = new UnidadItem();
-					unItem.Description = listFavorites [i].Descripcion;
-					unItem.Title = listFavorites [i].Titulo;
-					unItem.CurrentSection = listFavorites [i].Section_Index;
-					unItem.Id = listFavorites [i].Id_unidad;
-					unItem.LO_ID = listFavorites [i].Unit_Index;
 
-					_listUnidades.Add (unItem);
+				////// 
+				//MLearning.Core.ViewModels.MainViewModel.lo_by_circle_wrapper currentLearningObject = vm.LearningOjectsList[currentcurso];
+				//int circleID = currentLearningObject.lo.Circle_id;
+				var tasks = FavoritosItemManager.GetTasks();
+
+				List<int> items = new List<int>();
+				foreach (var task in tasks)
+				{
+					items.Add(task.Id_unidad);
 				}
+				for (int i = 0; i < tam; i++)
+				{
+					UnidadItem unItem = new UnidadItem();
+					unItem.Description = listFavorites[i].Descripcion;
+					unItem.Title = listFavorites[i].Titulo;
+					unItem.CurrentSection = listFavorites[i].Section_Index;
+					unItem.Id = listFavorites[i].Id_unidad;
+					unItem.LO_ID = listFavorites[i].Unit_Index; 
+					 
+
+					_listUnidades.Add(unItem);
+				}
+				//this.isFavoritos = true;
+					
+
+				vm.bookmarks = items;
+
+				//vm.OpenFavs.Execute(null);
+
+				//_mainSpace.RemoveAllViews();
+				//initUnidades(currentcurso, currentunidad);
+
 				//-----------------------------
 				numUnidades = _listUnidades.Count;
+
+				//return;
 			}
 
             if (isNotas)
@@ -1057,6 +1084,7 @@ namespace MLearning.Droid
 				Titulo = _listUnidades[id].Title;
 				Descripcion = _listUnidades[id].Description;
 				Id_Unidad = _listUnidades[id].Id;
+				Page_Id = _listUnidades[id].LO_ID;
 
 				fav.SetImageBitmap(iconFavorito);
 				SaveFav();
@@ -1115,7 +1143,7 @@ namespace MLearning.Droid
 			task.Descripcion = Descripcion;
 			task.Id_unidad = Id_Unidad;
 
-			task.Unit_Index = Id_Unidad;
+			task.Unit_Index = Page_Id;
 			task.Section_Index = Id_section;
 
 			FavoritosItemManager.SaveTask(task);

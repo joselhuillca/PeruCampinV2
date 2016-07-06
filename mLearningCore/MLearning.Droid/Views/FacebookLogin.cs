@@ -102,7 +102,7 @@ namespace MLearning.Droid
 			linearL.AddView (txt2);
 
 			mainLayout.AddView (loginFace);
-			mainLayout.AddView (regist);
+			//mainLayout.AddView (regist);
 			mainLayout.AddView (checkbox);
 			mainLayout.AddView (linearL);
 		}
