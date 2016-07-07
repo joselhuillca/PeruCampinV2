@@ -907,7 +907,7 @@ namespace MLearning.Droid.Views
 				} else {
                     //showRutas ();
                     showCifras();//SIERRA
-					Toast.MakeText (this, "Los mejors 50 campamentos", ToastLength.Short).Show();
+					Toast.MakeText (this, "Los mejores 50 campamentos", ToastLength.Short).Show();
                 }
 			}
 
@@ -922,7 +922,7 @@ namespace MLearning.Droid.Views
 				} else {
                     //showServicios ();
                     showFavoritos();//SELVA
-					Toast.MakeText (this, "Favoritos", ToastLength.Short).Show();
+					Toast.MakeText (this, "Mis mejores campamentos", ToastLength.Short).Show();
 				}
 			}
 			else if(e.Position == 1)//silvestre
@@ -1673,7 +1673,21 @@ namespace MLearning.Droid.Views
                     if (tam == 0 && this.lo.isFavoritos)
                     {
                         lo._mainSpace.RemoveAllViews();
+						lo._mainSpace.SetPadding(Configuration.getWidth(10), 0, Configuration.getWidth(10), 0);
                         Toast.MakeText(this, "Lista de favoritos vacia", ToastLength.Short).Show();
+						TextView txtTmp = new TextView(this);
+						txtTmp.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/ArcherMediumPro.otf");
+						txtTmp.Text = "Agrega tus mejores campamentos  dándole click a la estrella que aparece al lado de cada uno de los destinos que ya visitaste.";
+						txtTmp.TextSize = Configuration.getWidth(27);
+						lo._mainSpace.AddView(txtTmp);
+
+						TextView txtTmp2 = new TextView(this);
+						txtTmp2.Text = "¡No pares hasta completar los 50 mejores campamentos!";
+						txtTmp2.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/ArcherMediumPro.otf");
+						txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
+						txtTmp2.TextSize = Configuration.getHeight(38);
+						lo._mainSpace.AddView(txtTmp2);
+
                         return;
                     }
                     var tasks = FavoritosItemManager.GetTasks();

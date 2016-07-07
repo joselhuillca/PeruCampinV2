@@ -1,52 +1,29 @@
 ﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/ImagenCamp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/DataSource/LOSlideSource.cs">
     <Files>
-      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="213" Column="40" />
-      <File FileName="MLearning.Droid/Views/ImagenCamp.cs" Line="65" Column="6" />
+      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="281" Column="1" />
+      <File FileName="MLearning.Droid/Views/LOView.cs" Line="748" Column="8" />
+      <File FileName="MLearning.Droid/Views/ImagenCamp.cs" Line="57" Column="68" />
       <File FileName="MLearning.Droid/Views/ImageAdapter.cs" Line="11" Column="15" />
-      <File FileName="MLearning.Droid/Views/LOView.cs" Line="765" Column="8" />
       <File FileName="MLearning.Droid/Views/Template1.cs" Line="300" Column="123" />
       <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItem.cs" Line="5" Column="20" />
       <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItemManager.cs" Line="1" Column="1" />
       <File FileName="MLearning.Droid/Views/FavoritosItemListAdapter.cs" Line="12" Column="19" />
       <File FileName="MLearning.Droid/Views/FavoritosScreen.cs" Line="18" Column="3" />
-      <File FileName="MLearning.Droid/Views/WallView.cs" Line="826" Column="1" />
-      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1544" Column="1" />
-      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="775" Column="1" />
+      <File FileName="MLearning.Droid/Views/WallView.cs" Line="117" Column="55" />
+      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1678" Column="149" />
+      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="782" Column="1" />
+      <File FileName="MLearning.Droid/Views/FacebookLogin.cs" Line="105" Column="6" />
+      <File FileName="MLearning.Droid/Views/Configuration.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Droid/MvxActionBarEventSourceActivity.cs" Line="46" Column="1" />
+      <File FileName="MLearning.Droid/Views/LOViewAdapter.cs" Line="39" Column="1" />
+      <File FileName="MLearning.Droid/Views/VerticalScrollViewPager.cs" Line="26" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="MLearning" expanded="True">
-            <Node name="GuiaCamping" expanded="True">
-              <Node name="Assets" expanded="True">
-                <Node name="mapas" expanded="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="ImagenCamp.cs" selected="True" />
-              </Node>
-            </Node>
-            <Node name="MLearning.Core" expanded="True">
-              <Node name="ViewModels" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>this._currentCurso</Value>
-          <Value>this._currentUnidad</Value>
-          <Value>this._currentSection</Value>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/imacalex/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/WallView.cs" line="826" column="4" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.Nexus 4 (Marshmallow)" />
+  <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.Android_Accelerated_x86" />
 </Properties>

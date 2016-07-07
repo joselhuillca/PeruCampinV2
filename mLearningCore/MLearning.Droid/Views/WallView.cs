@@ -792,7 +792,7 @@ namespace MLearning.Droid
             }
 
 			if(indexUnidad==3){
-				Toast.MakeText (context, "Favoritos...", ToastLength.Short).Show ();
+				Toast.MakeText (context, "Mis mejores Campamentos", ToastLength.Short).Show ();
 				//Sacar la lista de Favoritos
 				listFavorites = FavoritosItemManager.GetTasks();
 				int tam = listFavorites.Count;
@@ -832,6 +832,22 @@ namespace MLearning.Droid
 
 				//-----------------------------
 				numUnidades = _listUnidades.Count;
+				if (numUnidades == 0)
+				{
+					Toast.MakeText(context, "Lista de favoritos vacia", ToastLength.Short).Show();
+					TextView txtTmp = new TextView(context);
+					txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+					txtTmp.Text = "Agrega tus mejores campamentos  dándole click a la estrella que aparece al lado de cada uno de los destinos que ya visitaste.";
+					txtTmp.TextSize = Configuration.getWidth(27);
+					_mainSpace.AddView(txtTmp);
+
+					TextView txtTmp2 = new TextView(context);
+					txtTmp2.Text = "¡No pares hasta completar los 50 mejores campamentos!";
+					txtTmp2.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+					txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
+					txtTmp2.TextSize = Configuration.getHeight(38);
+					_mainSpace.AddView(txtTmp2);
+				}
 
 				//return;
 			}
@@ -874,6 +890,11 @@ namespace MLearning.Droid
 				}
 				return;
 			}
+
+			/*if (isFavoritos && numUnidades == 0)
+			{
+				Toast.MakeText(context, "Mis mejores Campamentos VACIOO", ToastLength.Short).Show();
+			}*/
 
 			for (int i = 0; i < numUnidades; i++) 
 			{

@@ -51,7 +51,7 @@ namespace MLearning.Droid
 
 			var textFormat = Android.Util.ComplexUnitType.Px;
 			vh.txtDescription.TextFormatted = Html.FromHtml(item.Descripcion);
-			vh.txtDescription.SetTextColor(Color.White);
+			vh.txtDescription.SetTextColor(Color.Black);
 			vh.txtDescription.Typeface = Typeface.CreateFromAsset(ctx.Assets, "fonts/HelveticaNeue.ttf");
 			vh.txtDescription.SetTextSize(textFormat, Configuration.getHeight(24));
 			vh.txtDescription.SetBackgroundColor(Color.ParseColor("#40000000"));

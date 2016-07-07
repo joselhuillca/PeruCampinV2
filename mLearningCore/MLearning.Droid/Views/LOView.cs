@@ -675,62 +675,69 @@ namespace MLearning.Droid.Views
 				
 					bool is50Campamentos = false;
 
-							for (int m = 1; m < slides.Count; m++) {
-								LOSlideSource slidesource = new LOSlideSource (this);
+					for (int m = 1; m < slides.Count; m++)
+					{
+						LOSlideSource slidesource = new LOSlideSource(this);
 
-								var _id_ = vm.LOsInCircle [vm._currentUnidad].lo.color_id;
-								is_main = !is_main;
-
-
-								slidesource.ColorS = Configuration.ListaColores [indice % 6];
-
-								slidesource.Type = slides [m].lotype;
-								if (slides [m].lotitle != null)
-									slidesource.Title = slides [m].lotitle;
-								if (slides [m].loparagraph != null)
-									slidesource.Paragraph = slides [m].loparagraph;
-								if (slides [m].loimage != null)
-									slidesource.ImageUrl = slides [m].loimage;
-								if (slides [m].lotext != null)
-									slidesource.Paragraph = slides [m].lotext;
-								if (slides [m].loauthor != null)
-									slidesource.Author = slides [m].loauthor;
-								if (slides [m].lovideo != null)
-									slidesource.VideoUrl = slides [m].lovideo;
-					
-								var c_slide = slides [m];
-								if (c_slide.loitemize != null) {
-									slidesource.Itemize = new ObservableCollection<LOItemSource> ();
-									var items = c_slide.loitemize.loitem;
-
-									for (int n = 0; n < items.Count; n++) { 
-										LOItemSource item = new LOItemSource ();
-										if (items [n].loimage != null)
-											item.ImageUrl = items [n].loimage;
-										if (items [n].lotext != null)
-											item.Text = items [n].lotext;
+						var _id_ = vm.LOsInCircle[vm._currentUnidad].lo.color_id;
+						is_main = !is_main;
 
 
-										var c_item_ize = items [n];
-										
-										slidesource.Itemize.Add (item);
-									}
-								}
+						slidesource.ColorS = Configuration.ListaColores[indice % 6];
+
+						slidesource.Type = slides[m].lotype;
+						if (slides[m].lotitle != null)
+							slidesource.Title = slides[m].lotitle;
+						if (slides[m].loparagraph != null)
+							slidesource.Paragraph = slides[m].loparagraph;
+						if (slides[m].loimage != null)
+							slidesource.ImageUrl = slides[m].loimage;
+						if (slides[m].lotext != null)
+							slidesource.Paragraph = slides[m].lotext;
+						if (slides[m].loauthor != null)
+							slidesource.Author = slides[m].loauthor;
+						if (slides[m].lovideo != null)
+							slidesource.VideoUrl = slides[m].lovideo;
+
+						var c_slide = slides[m];
+						if (c_slide.loitemize != null)
+						{
+							slidesource.Itemize = new ObservableCollection<LOItemSource>();
+							var items = c_slide.loitemize.loitem;
+
+							for (int n = 0; n < items.Count; n++)
+							{
+								LOItemSource item = new LOItemSource();
+								if (items[n].loimage != null)
+									item.ImageUrl = items[n].loimage;
+								if (items[n].lotext != null)
+									item.Text = items[n].lotext;
 
 
-								
-								slidesource.title_page = front.Title;
+								var c_item_ize = items[n];
 
-								
-										
+								slidesource.Itemize.Add(item);
+							}
+						}
 
-								if(slidesource.Title!=null){
-									if(slidesource.Title.Equals("Datos básicos")){
-										is50Campamentos = true;
-									}
-								}
 
-								var vista = slidesource.getViewSlide();
+
+						slidesource.title_page = front.Title;
+
+
+
+
+						if (slidesource.Title != null)
+						{
+							if (slidesource.Title.Equals("Datos básicos"))
+							{
+								is50Campamentos = true;
+							}
+						}
+
+						var vista = slidesource.getViewSlide();
+						if (slidesource.Type != 5 )
+						{
 								if (slidesource.imgCamp != null && is50Campamentos)
 								{
 									source.Add(slidesource.imgCamp);
@@ -738,8 +745,8 @@ namespace MLearning.Droid.Views
 								else {
 									linearScroll.AddView(vista);//Toda la info menos la descripcion
 								}
-
-							}
+						}
+					}
 
 					//Añadimos las imagenes del array source
 					if (source.Count > 0)

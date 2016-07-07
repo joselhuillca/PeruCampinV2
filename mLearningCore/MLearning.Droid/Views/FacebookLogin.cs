@@ -25,6 +25,7 @@ namespace MLearning.Droid
 		public RelativeLayout mainLayout;
 		ImageView loginFace;
 		CheckBox checkbox;
+		Button loginFree;
 
 		// Replace here you own Facebook App Id, if you don't have one go to
 		// https://developers.facebook.com/apps
@@ -61,7 +62,7 @@ namespace MLearning.Droid
 			loginFace = new ImageView(this);
 			loginFace.SetImageBitmap(btnFace);
 			loginFace.SetX(Configuration.getWidth(74));
-			loginFace.SetY(Configuration.getHeight(874));
+			loginFace.SetY(Configuration.getHeight(794));
 			loginFace.Click += delegate {
 				if(checkbox.Checked){
 					//funcFavoritos(favorit_);
@@ -75,21 +76,34 @@ namespace MLearning.Droid
 
 			};
 
+			loginFree = new Button(this);
+			loginFree.Text = "Ingresa a Perú Camping";
+			loginFree.TextSize = Configuration.getHeight(22);
+			loginFree.SetTextColor(Color.White);
+			loginFree.SetBackgroundColor(Color.ParseColor("#2979FF"));
+			loginFree.LayoutParameters = new ViewGroup.LayoutParams(Configuration.getWidth(505), Configuration.getWidth(70));
+			loginFree.SetX(Configuration.getWidth(74));
+			loginFree.SetY(Configuration.getHeight(878));
+			loginFree.Click += delegate
+			{
+				Finish();
+			};
+
 
 			var registercheckfondo = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/toregister.png"), Configuration.getWidth(30), Configuration.getWidth(30), true);
 			var regist = new ImageView(this);
 			regist.SetImageBitmap(registercheckfondo);
 			regist.SetX(Configuration.getWidth(82));
-			regist.SetY(Configuration.getHeight(793));
+			regist.SetY(Configuration.getHeight(713));
 
 			checkbox = new CheckBox (this);
 			checkbox.SetX (Configuration.getWidth(82));
-			checkbox.SetY (Configuration.getHeight(793));
+			checkbox.SetY (Configuration.getHeight(713));
 			LinearLayout linearL = new LinearLayout (this);
 			linearL.LayoutParameters = new LinearLayout.LayoutParams (-2, -2);
 			linearL.Orientation = Orientation.Horizontal;
 			linearL.SetX (Configuration.getWidth(146));
-			linearL.SetY (Configuration.getHeight(802));
+			linearL.SetY (Configuration.getHeight(722));
 			TextView txt1 = new TextView (this);
 			txt1.Text  = "Registrar, acepto los ";
 			txt1.SetTextColor (Color.ParseColor("#ffffff"));
@@ -103,6 +117,7 @@ namespace MLearning.Droid
 
 			mainLayout.AddView (loginFace);
 			//mainLayout.AddView (regist);
+			mainLayout.AddView(loginFree);
 			mainLayout.AddView (checkbox);
 			mainLayout.AddView (linearL);
 		}

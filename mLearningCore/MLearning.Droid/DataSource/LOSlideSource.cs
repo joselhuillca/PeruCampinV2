@@ -20,6 +20,7 @@ namespace DataSource
 		Context context;
 		public String title_page;
 		public ImagenCamp imgCamp;
+		public bool tieneFondoTxt = false;
 
 		public LOSlideSource(Context context){
 			this.context = context;
@@ -220,6 +221,8 @@ namespace DataSource
 
 				if (_title == null)
 					_title = " ";
+
+				//String tituloTmp = _title;
 				List<string> elements = parseContent (_title);
 				//Console.WriteLine (String.Format("Holaaaa {0}",elements.Count));
 
@@ -228,10 +231,14 @@ namespace DataSource
 					plantilla.ColorBackgroundTemplate = elements [1];
 					plantilla.ColorTitle = elements [2];
 					plantilla.ColorDescription = elements [2];
+					//tieneFondoTxt = true;
+					/*if (_title.Equals("Cómo llegar ") || _title.Equals("A tener en cuenta"))
+					{
+						tieneFondoTxt = false;
+					}*/
 				} else {
 					plantilla.ColorTexto = _colorS;
 				}
-
 
 				plantilla.Title = _title;
 				plantilla.Contenido = eraseLastBR(_paragraph);
@@ -264,11 +271,7 @@ namespace DataSource
 			}
 			if (_type == 5) {
 				PhraseView plantilla = new PhraseView (context);
-				//plantilla.Author = _author;
 				plantilla.Phrase = _paragraph;
-				//plantilla.ImagenComilla = "icons/comillasa.png";
-				//plantilla.ImagenBarra = "icons/lineafraseamarilla.png";
-				//Console.WriteLine ("CREA PLANTILLAAAAAAAAA  5");
 				return plantilla;
 
 			}
