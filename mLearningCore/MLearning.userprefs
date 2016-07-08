@@ -1,47 +1,56 @@
 ﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/LOView.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="281" Column="1" />
-      <File FileName="MLearning.Droid/Views/LOView.cs" Line="561" Column="6" />
+      <File FileName="MLearning.Droid/Views/LOView.cs" Line="644" Column="41" />
       <File FileName="MLearning.Droid/Views/ImagenCamp.cs" Line="39" Column="3" />
       <File FileName="MLearning.Droid/Views/ImageAdapter.cs" Line="11" Column="15" />
       <File FileName="MLearning.Droid/Views/Template1.cs" Line="300" Column="123" />
-      <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItem.cs" Line="5" Column="20" />
+      <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItem.cs" Line="15" Column="16" />
       <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItemManager.cs" Line="1" Column="1" />
       <File FileName="MLearning.Droid/Views/FavoritosItemListAdapter.cs" Line="12" Column="19" />
       <File FileName="MLearning.Droid/Views/FavoritosScreen.cs" Line="18" Column="3" />
-      <File FileName="MLearning.Droid/Views/WallView.cs" Line="848" Column="53" />
-      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1662" Column="4" />
-      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="782" Column="1" />
-      <File FileName="MLearning.Droid/Views/FacebookLogin.cs" Line="89" Column="14" />
+      <File FileName="MLearning.Droid/Views/WallView.cs" Line="1125" Column="5" />
+      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1540" Column="7" />
+      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="768" Column="6" />
+      <File FileName="MLearning.Droid/Views/FacebookLogin.cs" Line="61" Column="2" />
       <File FileName="MLearning.Droid/Views/Configuration.cs" Line="1" Column="1" />
       <File FileName="MLearning.Droid/MvxActionBarEventSourceActivity.cs" Line="46" Column="1" />
       <File FileName="MLearning.Droid/Views/LOViewAdapter.cs" Line="39" Column="1" />
       <File FileName="MLearning.Droid/Views/VerticalScrollViewPager.cs" Line="26" Column="1" />
-      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="88" Column="1" />
+      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="56" Column="6" />
+      <File FileName="MLearning.Droid/Resources/values/styles.xml" Line="2" Column="1" />
+      <File FileName="MLearning.Droid/TodoDB/TodoItem.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Droid/Views/UnidadItem.cs" Line="12" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MLearning" expanded="True">
             <Node name="GuiaCamping" expanded="True">
-              <Node name="TodoDB" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="LOView.cs" selected="True" />
+                <Node name="MainView.cs" selected="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
+        <State>
+          <Value>this._currentCurso</Value>
+          <Value>this._currentUnidad</Value>
+          <Value>this._currentSection</Value>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/WallView.cs" line="1183" column="1" />
+      <Breakpoint file="/Users/aocsa/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/WallView.cs" line="1124" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GuiaCamping AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.GuiaCamping AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.LGH815547b5644" />
 </Properties>
