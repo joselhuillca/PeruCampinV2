@@ -1536,26 +1536,9 @@ namespace MLearning.Droid.Views
 				vm._currentCurso = _currentCurso;
 				vm._currentSection = indexSection;
 			}else {
-
-				int indexLO = -1;
-				for (int i = 0; i < vm.LearningOjectsList.Count; i++)
-				{
-					if (vm.LearningOjectsList[i].lo.id == item.content.LO_ID)
-					{
-						indexLO = i;
-					}
-				}
-
-				int indexSection = 0;
-				for (int i = 0; i < vm.LOsectionList.Count; i++)
-				{
-					if (vm.LOsectionList[i].id == item.content.CurrentSection)
-						indexSection = i;
-				}
-
-				vm._currentUnidad = indexLO;
+				vm._currentUnidad = _currentUnidad;
 				vm._currentCurso = _currentCurso;
-				vm._currentSection = indexSection;
+				vm._currentSection = item.index;
 
 			}
 

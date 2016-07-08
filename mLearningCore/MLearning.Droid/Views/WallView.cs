@@ -250,32 +250,6 @@ namespace MLearning.Droid
 			var imView = sender as ImageLOView;
 			currentLOImageIndex = imView.index;
 
-			/////////////////////////////////////////////////////
-
-
-			int indexLO = -1;
-			for (int i = 0; i < vm.LearningOjectsList.Count; i++)
-			{
-				if (vm.LearningOjectsList[i].lo.id == imView.Id)
-				{
-					indexLO = i;
-				}
-			}
-
-
-			int indexSection = 0;
-			for (int i = 0; i < vm.LOsectionList.Count; i++)
-			{
-				//if (vm.LOsectionList[i].id == item.content.CurrentSection)
-					indexSection = i;
-			}
-
-
-			vm._currentUnidad = indexLO;
-			//vm._currentCurso = _currentCurso;
-			vm._currentSection = indexSection;
-
-			/// ////////////////////////////////////////////////////
 			if (lastSelected != -1) {
 				_ListLOImages_S2 [lastSelected].RemoveView (selectLayout);
 			}
@@ -845,14 +819,13 @@ namespace MLearning.Droid
 					unItem.Title = listFavorites[i].Titulo;
 					unItem.CurrentSection = listFavorites[i].Section_Index;
 					unItem.Id = listFavorites[i].Id_unidad;
-
 					unItem.LO_ID = listFavorites[i].Unit_Index; 
+					 
 
 					_listUnidades.Add(unItem);
 				}
 				//this.isFavoritos = true;
-
-
+					
 
 				vm.bookmarks = items;
 
