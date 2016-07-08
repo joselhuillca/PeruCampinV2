@@ -817,9 +817,9 @@ namespace MLearning.Droid
 					UnidadItem unItem = new UnidadItem();
 					unItem.Description = listFavorites[i].Descripcion;
 					unItem.Title = listFavorites[i].Titulo;
-					unItem.CurrentSection = listFavorites[i].Section_Index;
+					unItem.CurrentSection = listFavorites[i].SectionID;
 					unItem.Id = listFavorites[i].Id_unidad;
-					unItem.LO_ID = listFavorites[i].Unit_Index; 
+					unItem.LO_ID = listFavorites[i].LOID; 
 					 
 
 					_listUnidades.Add(unItem);
@@ -1112,7 +1112,14 @@ namespace MLearning.Droid
 				Descripcion = _listUnidades[id].Description;
 				Id_Unidad = _listUnidades[id].Id;
 				Page_Id = _listUnidades[id].LO_ID;
+				int indexSection = -1;
+				for (int i = 0; i < vm.LOsectionList.Count; i++)
+				{
+					if (vm.LOsectionList[i].id == _listUnidades[id].CurrentSection )
+						indexSection = i;
+				}
 
+				Id_section = indexSection;
 				fav.SetImageBitmap(iconFavorito);
 				SaveFav();
 			}
@@ -1170,8 +1177,8 @@ namespace MLearning.Droid
 			task.Descripcion = Descripcion;
 			task.Id_unidad = Id_Unidad;
 
-			task.Unit_Index = Page_Id;
-			task.Section_Index = Id_section;
+			task.LOID = Page_Id;
+			task.SectionID = Id_section;
 
 			FavoritosItemManager.SaveTask(task);
 		}
