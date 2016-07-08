@@ -773,23 +773,27 @@ namespace MLearning.Droid
 		{
 			//this.isFavoritos = false;
 			var textFormat = Android.Util.ComplexUnitType.Px;
-			_spaceUnidades.RemoveAllViews ();
-			_listLinearUnidades.Clear ();
-			_listIconMap.Clear ();
-			_listIconVerMap.Clear ();
+			_spaceUnidades.RemoveAllViews();
+			_listLinearUnidades.Clear();
+			_listIconMap.Clear();
+			_listIconVerMap.Clear();
 			int numUnidades = _listUnidades.Count;
-			_mainSpace.SetY (Configuration.getHeight (0));
-            try
-            {
-                _mainSpace.RemoveAllViews();
-                _mainSpace.AddView(_fondo2);
-                _mainSpace.AddView(_contentScrollView_S2);
-                _mainSpace.AddView(_spaceUnidades);
-            }
-            catch (Exception e)
-            {
-                //ya existe esos hijos
-            }
+			_mainSpace.SetY(Configuration.getHeight(0));
+			try
+			{
+				_mainSpace.RemoveAllViews();
+				_mainSpace.AddView(_fondo2);
+				_mainSpace.AddView(_contentScrollView_S2);
+				_mainSpace.AddView(_spaceUnidades);
+			}
+			catch (Exception e)
+			{
+				//ya existe esos hijos
+			}
+			_mainSpace.SetPadding(0, 0, 0, 0);
+
+			//Color para los LoView
+			Configuration.colorGlobal = Configuration.ListaColores50Campamentos[indexUnidad];
 
 			if(indexUnidad==3){
 				Toast.MakeText (context, "Mis mejores Campamentos", ToastLength.Short).Show ();
@@ -834,18 +838,20 @@ namespace MLearning.Droid
 				numUnidades = _listUnidades.Count;
 				if (numUnidades == 0)
 				{
+					//_mainSpace.RemoveAllViews();
+					//_mainSpace.SetPadding(Configuration.getWidth(10), 0, Configuration.getWidth(10), 0);
 					Toast.MakeText(context, "Lista de favoritos vacia", ToastLength.Short).Show();
 					TextView txtTmp = new TextView(context);
 					txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp.Text = "Agrega tus mejores campamentos  dándole click a la estrella que aparece al lado de cada uno de los destinos que ya visitaste.";
-					txtTmp.TextSize = Configuration.getWidth(27);
+					txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(27));
 					_mainSpace.AddView(txtTmp);
 
 					TextView txtTmp2 = new TextView(context);
 					txtTmp2.Text = "¡No pares hasta completar los 50 mejores campamentos!";
 					txtTmp2.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
-					txtTmp2.TextSize = Configuration.getHeight(38);
+					txtTmp2.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(38));
 					_mainSpace.AddView(txtTmp2);
 				}
 

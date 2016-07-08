@@ -48,6 +48,8 @@ namespace MLearning.Droid.Views
 		Drawable drBack;
 
 		FacebookClient fb;
+		string accessToken;
+		bool isLoggedIn;
 
         IList<Tasky.Shared.TodoItem> listNotas;
 
@@ -490,6 +492,95 @@ namespace MLearning.Droid.Views
             return -1;
         }
 
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			base.OnActivityResult(requestCode, resultCode, data);
+
+			switch (resultCode)
+			{
+				case Result.Ok:
+
+					accessToken = data.GetStringExtra("AccessToken");
+					string userId = data.GetStringExtra("UserId");
+					string error = data.GetStringExtra("Exception");
+
+					fb = new FacebookClient(accessToken);
+
+					//ImageView imgUser = FindViewById<ImageView> (Resource.Id.imgUser);
+					//TextView txtvUserName = FindViewById<TextView> (Resource.Id.txtvUserName);
+
+					fb.GetTaskAsync("me").ContinueWith(t =>
+					{
+						if (!t.IsFaulted)
+						{
+
+							var result = (IDictionary<string, object>)t.Result;
+
+							// available picture types: square (50x50), small (50xvariable height), large (about 200x variable height) (all size in pixels)
+							// for more info visit http://developers.facebook.com/docs/reference/api
+							string profilePictureUrl = string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", userId, "square", accessToken);
+							var bm = BitmapFactory.DecodeStream(new Java.Net.URL(profilePictureUrl).OpenStream());
+							string profileName = (string)result["name"];
+
+							RunOnUiThread(() =>
+							{
+								//imgUser.SetImageBitmap (bm);
+								//txtvUserName.Text = profileName;
+								//Toast.MakeText (this, "Presiona Back!!", ToastLength.Short).Show();
+								//Finish();
+							});
+
+							isLoggedIn = true;
+
+							ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+							ISharedPreferencesEditor editor = prefs.Edit();
+							editor.PutBoolean("inicioSesion", true);
+							editor.PutString("AccessToken", accessToken);
+							editor.Apply();
+
+
+
+							/*StartActivity(typeof (MainView));
+							Finish ();*/
+
+						}
+						else {
+							Alert("Error al Iniciar Sesion", "Motivo: " + error, false, (res) => { });
+						}
+					});
+
+					break;
+				case Result.Canceled:
+					Alert("Error al Iniciar Sesion", "El usuario a cancelado", false, (res) => { });
+					break;
+				default:
+					break;
+			}
+		}
+
+		public void Alert(string title, string message, bool CancelButton, Action<Result> callback)
+		{
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.SetTitle(title);
+			builder.SetIcon(Resource.Drawable.Icon);
+			builder.SetMessage(message);
+
+			builder.SetPositiveButton("Ok", (sender, e) =>
+			{
+				callback(Result.Ok);
+			});
+
+			if (CancelButton)
+			{
+				builder.SetNegativeButton("Cancel", (sender, e) =>
+				{
+					callback(Result.Canceled);
+				});
+			}
+
+			builder.Show();
+		}
+
 		public void HandlePostHiToWall (String titulo)
 		{
 			
@@ -498,6 +589,14 @@ namespace MLearning.Droid.Views
 			if (mBool) {
 				Toast.MakeText (this, "Loading...", ToastLength.Short).Show();
 				String accessToken = prefs.GetString ("AccessToken",null);
+				if (accessToken == null) { 
+					Toast.MakeText(this, "Primero inicia sesiòn!!", ToastLength.Short).Show();
+					var webAuth = new Intent(this, typeof(FBWebViewAuthActivity));
+					webAuth.PutExtra("AppId", Configuration.AppId);
+					webAuth.PutExtra("ExtendedPermissions", Configuration.ExtendedPermissions);
+					StartActivityForResult(webAuth, 0);
+					return;
+				}
 				fb = new FacebookClient (accessToken);
 				fb.PostTaskAsync ("me/feed", new { message = "Vas a visitar " + titulo }).ContinueWith (t => {
 					if (!t.IsFaulted) {
@@ -516,6 +615,11 @@ namespace MLearning.Droid.Views
 			} else {
 				//Alert ("Not Logged In", "Please Log In First", false, (res) => { });
 				Toast.MakeText (this, "Primero inicia sesiòn!!", ToastLength.Short).Show();
+				var webAuth = new Intent(this, typeof(FBWebViewAuthActivity));
+				webAuth.PutExtra("AppId", Configuration.AppId);
+				webAuth.PutExtra("ExtendedPermissions", Configuration.ExtendedPermissions);
+				StartActivityForResult(webAuth, 0);
+				return;
 			}
 		}
 
@@ -574,7 +678,7 @@ namespace MLearning.Droid.Views
 							titulo_detalle.Text = "Descripción";
 							titulo_detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
 							titulo_detalle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight (38));
-							titulo_detalle.SetTextColor (Color.ParseColor (Configuration.ListaColores [indice % 6]));
+					        titulo_detalle.SetTextColor (Color.ParseColor (Configuration.colorGlobal));
 							titulo_detalle.SetPadding (0, 0, 0, space);
 							descriptionLayout.AddView (titulo_detalle);
 
@@ -732,7 +836,9 @@ namespace MLearning.Droid.Views
 							if (slidesource.Title.Equals("Datos básicos"))
 							{
 								is50Campamentos = true;
+
 							}
+
 						}
 
 						var vista = slidesource.getViewSlide();
@@ -746,6 +852,12 @@ namespace MLearning.Droid.Views
 									linearScroll.AddView(vista);//Toda la info menos la descripcion
 								}
 						}
+					}
+
+					//Solo los 50 campamentos pueden tener titulo de Descripcion
+					if (!is50Campamentos)
+					{
+						descriptionLayout.RemoveView(titulo_detalle);
 					}
 
 					//Añadimos las imagenes del array source
@@ -800,7 +912,7 @@ namespace MLearning.Droid.Views
 						List<ImageView> listCirculos = new List<ImageView>();
 						int tamCirc = 25;
 						int tamS = source.Count;
-						linearCirculos.SetY(Configuration.getHeight(495));
+						linearCirculos.SetY(Configuration.getHeight(402));
 						linearCirculos.SetX(Configuration.getWidth(640 / 2) );
 
 						for (int i = 0; i < tamS; i++)
@@ -832,8 +944,15 @@ namespace MLearning.Droid.Views
 						linearScroll.AddView(layoutList);
 					}
 
+
+
 					if(!is50Campamentos){
 						linearScroll.RemoveView (misFavoritos);
+						//Añadimos un espacio en blanco al final-para los epertos era necesario
+						LinearLayout linearTmp = new LinearLayout(this);
+						linearTmp.Orientation = Orientation.Vertical;
+						linearTmp.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(100));
+						linearScroll.AddView(linearTmp);
 					}
 
 

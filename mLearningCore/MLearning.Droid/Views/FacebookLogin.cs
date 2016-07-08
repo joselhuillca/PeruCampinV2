@@ -27,18 +27,12 @@ namespace MLearning.Droid
 		CheckBox checkbox;
 		Button loginFree;
 
-		// Replace here you own Facebook App Id, if you don't have one go to
-		// https://developers.facebook.com/apps
-		private const string AppId = "1070001599751830";
+
 
 		/// <summary>
 		/// Extended permissions is a comma separated list of permissions to ask the user.
 		/// </summary>
-		/// <remarks>
-		/// For extensive list of available extended permissions refer to 
-		/// https://developers.facebook.com/docs/reference/api/permissions/
-		/// </remarks>
-		private const string ExtendedPermissions = "user_about_me,publish_actions";
+
 
 		FacebookClient fb;
 		string accessToken;
@@ -62,13 +56,13 @@ namespace MLearning.Droid
 			loginFace = new ImageView(this);
 			loginFace.SetImageBitmap(btnFace);
 			loginFace.SetX(Configuration.getWidth(74));
-			loginFace.SetY(Configuration.getHeight(794));
+			loginFace.SetY(Configuration.getHeight(784));
 			loginFace.Click += delegate {
 				if(checkbox.Checked){
 					//funcFavoritos(favorit_);
 					var webAuth = new Intent (this, typeof (FBWebViewAuthActivity));
-					webAuth.PutExtra ("AppId", AppId);
-					webAuth.PutExtra ("ExtendedPermissions", ExtendedPermissions);
+					webAuth.PutExtra ("AppId", Configuration.AppId);
+					webAuth.PutExtra ("ExtendedPermissions", Configuration.ExtendedPermissions);
 					StartActivityForResult (webAuth, 0);
 				}else{
 					Toast.MakeText (this, "Acepta los Terminos!!", ToastLength.Short).Show();
@@ -77,8 +71,9 @@ namespace MLearning.Droid
 			};
 
 			loginFree = new Button(this);
-			loginFree.Text = "Ingresa a Perú Camping";
-			loginFree.TextSize = Configuration.getHeight(22);
+			loginFree.Text = "Ingresar a Perú Camping";
+			loginFree.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
+			loginFree.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(22));
 			loginFree.SetTextColor(Color.White);
 			loginFree.SetBackgroundColor(Color.ParseColor("#2979FF"));
 			loginFree.LayoutParameters = new ViewGroup.LayoutParams(Configuration.getWidth(505), Configuration.getWidth(70));
@@ -86,6 +81,10 @@ namespace MLearning.Droid
 			loginFree.SetY(Configuration.getHeight(878));
 			loginFree.Click += delegate
 			{
+				ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+				ISharedPreferencesEditor editor = prefs.Edit();
+				editor.PutBoolean("inicioSesion", true);
+				editor.Apply();
 				Finish();
 			};
 
@@ -106,11 +105,13 @@ namespace MLearning.Droid
 			linearL.SetY (Configuration.getHeight(722));
 			TextView txt1 = new TextView (this);
 			txt1.Text  = "Registrar, acepto los ";
+			txt1.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
 			txt1.SetTextColor (Color.ParseColor("#ffffff"));
 			txt1.SetTextSize (ComplexUnitType.Fraction,Configuration.getWidth (22));
 			TextView txt2 = new TextView (this);
 			txt2.Text = "terminos de uso ";
 			txt2.SetTextColor (Color.ParseColor("#00BCD4"));
+			txt2.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
 			txt2.SetTextSize (ComplexUnitType.Fraction,Configuration.getWidth (22));
 			linearL.AddView (txt1);
 			linearL.AddView (txt2);

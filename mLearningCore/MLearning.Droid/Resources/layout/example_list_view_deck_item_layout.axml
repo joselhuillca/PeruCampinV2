@@ -4,10 +4,10 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="3dp">
     <ImageView
         android:id="@+id/ImagenTelerik"
-        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
@@ -15,5 +15,6 @@
         android:layout_margin="0dp"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ImagenTelerik" />
 </RelativeLayout>

@@ -3,6 +3,7 @@ using System.Collections;
 using Android.Content;
 using Android.Graphics;
 using Android.Text;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Com.Telerik.Widget.List;
@@ -49,12 +50,11 @@ namespace MLearning.Droid
 			ImageViewHolder vh = (ImageViewHolder)holder;
 			ImagenCamp item = (ImagenCamp)GetItem(position);
 
-			var textFormat = Android.Util.ComplexUnitType.Px;
 			vh.txtDescription.TextFormatted = Html.FromHtml(item.Descripcion);
-			vh.txtDescription.SetTextColor(Color.Black);
-			vh.txtDescription.Typeface = Typeface.CreateFromAsset(ctx.Assets, "fonts/HelveticaNeue.ttf");
-			vh.txtDescription.SetTextSize(textFormat, Configuration.getHeight(24));
-			vh.txtDescription.SetBackgroundColor(Color.ParseColor("#40000000"));
+			vh.txtDescription.SetTextColor(Color.ParseColor("#616161"));
+			vh.txtDescription.Typeface = Typeface.CreateFromAsset(ctx.Assets, "fonts/ArcherMediumPro.otf");
+			vh.txtDescription.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(32));
+			//vh.txtDescription.SetBackgroundColor(Color.ParseColor("#E6E6E6"));
 
 			// load image as Drawable
 			//Drawable d = new BitmapDrawable(getBitmapFromAssets(item.image));

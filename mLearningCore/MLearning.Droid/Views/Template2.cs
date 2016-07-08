@@ -212,7 +212,7 @@ namespace MLearning.Droid
 		public Bitmap Image{
 			get{return _imageBitmap; }
 			set{_imageBitmap = value;
-				imgMapa.SetImageBitmap (Bitmap.CreateScaledBitmap (_imageBitmap,Configuration.getWidth (200), Configuration.getHeight (300),true));
+				imgMapa.SetImageBitmap (Bitmap.CreateScaledBitmap (_imageBitmap,Configuration.getWidth (170), Configuration.getHeight (238),true));
 
 			}
 		}

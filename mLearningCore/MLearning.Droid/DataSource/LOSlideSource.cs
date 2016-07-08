@@ -228,14 +228,20 @@ namespace DataSource
 
 
 				if (elements.Count != 0 && elements [0] == "@") {//Console.WriteLine (elements.ToString());
-					plantilla.ColorBackgroundTemplate = elements [1];
-					plantilla.ColorTitle = elements [2];
-					plantilla.ColorDescription = elements [2];
+
 					//tieneFondoTxt = true;
-					/*if (_title.Equals("Cómo llegar ") || _title.Equals("A tener en cuenta"))
+					if (_title.Equals("A tener en cuenta "))
 					{
-						tieneFondoTxt = false;
-					}*/
+						//tieneFondoTxt = false;
+						plantilla.ColorBackgroundTemplate = "#ffffff";
+						plantilla.ColorTitle = "#757575";
+						plantilla.ColorDescription = "#757575";
+					}
+					else {
+						plantilla.ColorBackgroundTemplate = elements[1];
+						plantilla.ColorTitle = elements[2];
+						plantilla.ColorDescription = elements[2];
+					}
 				} else {
 					plantilla.ColorTexto = _colorS;
 				}
@@ -249,6 +255,8 @@ namespace DataSource
 					string pathImg = "mapas/" + replaceForImages (title_page) + ".png";
 					plantilla.Image = getBitmapFromAsset(pathImg);
 					Console.WriteLine (pathImg);
+					plantilla.ColorTitle = Configuration.colorGlobal;
+
 				}
 
 				return plantilla;

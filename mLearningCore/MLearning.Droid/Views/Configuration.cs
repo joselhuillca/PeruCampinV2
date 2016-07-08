@@ -20,6 +20,14 @@ namespace MLearning.Droid
 
 		public static int IndiceActual=0;
 
+		// Replace here you own Facebook App Id, if you don't have one go to
+		// https://developers.facebook.com/apps
+		public static String AppId = "1070001599751830";
+		// For extensive list of available extended permissions refer to 
+		// https://developers.facebook.com/docs/reference/api/permissions/
+		//</remarks>
+		public static string ExtendedPermissions = "user_about_me,publish_actions";
+
 		public static String azul= "#00c6ff";
 		public static String lila = "#de2ef6";
 		public static String verde ="#65c921";
@@ -30,6 +38,8 @@ namespace MLearning.Droid
 		public static List<Bitmap> adds;
 
 		public static String[] ListaColores = {azul,lila,verde,amarillo,naranja,rosa};
+		public static String[] ListaColores50Campamentos = { "#E98300", "#97233F", "#5B8F22",azul };
+		public static String colorGlobal = azul;
 
 		public static int TYPE_TEXT = 1;
 		public static int TYPE_IMAGE = 2;

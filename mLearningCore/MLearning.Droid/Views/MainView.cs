@@ -31,6 +31,7 @@ using Com.Telerik.Widget.List;
 using Android.Support.V7.App;
 using Tasky.Shared;
 using Android.Preferences;
+using Android.Util;
 
 namespace MLearning.Droid.Views
 {
@@ -902,13 +903,13 @@ namespace MLearning.Droid.Views
 			}
 			else if(e.Position == 1)//rutas
 			{
-				if (_currentCurso == 0) {
+				//if (_currentCurso == 0) {
 					mDrawerLayout.CloseDrawer (mLeftDrawer);
-				} else {
+				//} else {
                     //showRutas ();
                     showCifras();//SIERRA
 					Toast.MakeText (this, "Los mejores 50 campamentos", ToastLength.Short).Show();
-                }
+                //}
 			}
 
 		}
@@ -1678,14 +1679,14 @@ namespace MLearning.Droid.Views
 						TextView txtTmp = new TextView(this);
 						txtTmp.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/ArcherMediumPro.otf");
 						txtTmp.Text = "Agrega tus mejores campamentos  dándole click a la estrella que aparece al lado de cada uno de los destinos que ya visitaste.";
-						txtTmp.TextSize = Configuration.getWidth(27);
+						txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(27));
 						lo._mainSpace.AddView(txtTmp);
 
 						TextView txtTmp2 = new TextView(this);
 						txtTmp2.Text = "¡No pares hasta completar los 50 mejores campamentos!";
 						txtTmp2.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/ArcherMediumPro.otf");
 						txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
-						txtTmp2.TextSize = Configuration.getHeight(38);
+						txtTmp2.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(38));
 						lo._mainSpace.AddView(txtTmp2);
 
                         return;
