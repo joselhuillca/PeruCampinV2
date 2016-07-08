@@ -12,9 +12,9 @@ namespace Tasky.Shared
 		public string Descripcion { get; set; }
 		public int Id_unidad { get; set; }	// TODO: add this field to the user-interface
 
-		public int Unit_Index { get; set; }  // TODO: add this field to the user-interface
+		public int LOID { get; set; }  // TODO: add this field to the user-interface
 
-		public int Section_Index { get; set; }  // TODO: add this field to the user-interface
+		public int SectionID { get; set; }  // TODO: add this field to the user-interface
 
 	}
 }

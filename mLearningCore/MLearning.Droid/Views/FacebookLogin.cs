@@ -71,7 +71,7 @@ namespace MLearning.Droid
 			};
 
 			loginFree = new Button(this);
-			loginFree.Text = "Ingresar a Perú Camping";
+			loginFree.Text = "Ingresar sin registrarse";
 			loginFree.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
 			loginFree.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(22));
 			loginFree.SetTextColor(Color.White);
