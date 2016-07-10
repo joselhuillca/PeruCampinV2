@@ -41,6 +41,7 @@ namespace MLearning.Droid.Views
 		SlideLayoutManager slideLayoutManager;
 		int orientation = OrientationHelper.Horizontal;
 		public RelativeLayout layoutList;
+		TextView titulo_detalle;
 
 		LOViewModel vm; 
 		Bitmap bm_user;
@@ -674,7 +675,7 @@ namespace MLearning.Droid.Views
 							descriptionLayout.SetPadding (space, 0, space, space);
 							descriptionLayout.Orientation = Orientation.Vertical;
 
-							TextView titulo_detalle = new TextView (this);
+							titulo_detalle = new TextView (this);
 							titulo_detalle.Text = "Descripción";
 							titulo_detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
 							titulo_detalle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight (38));
@@ -833,7 +834,7 @@ namespace MLearning.Droid.Views
 
 						if (slidesource.Title != null)
 						{
-							if (slidesource.Title.Equals("Datos básicos"))
+							if (slidesource.Title.Equals("@ #E98300 #NONE Datos básicos") || slidesource.Title.Equals("@ #97233F #NONE Datos básicos") || slidesource.Title.Equals("@ #5B8F22 #NONE Datos básicos"))
 							{
 								is50Campamentos = true;
 
@@ -842,6 +843,7 @@ namespace MLearning.Droid.Views
 						}
 
 						var vista = slidesource.getViewSlide();
+						titulo_detalle.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
 						if (slidesource.Type != 5 )
 						{
 								if (slidesource.imgCamp != null && is50Campamentos)

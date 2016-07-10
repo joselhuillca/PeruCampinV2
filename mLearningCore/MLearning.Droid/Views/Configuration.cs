@@ -40,6 +40,9 @@ namespace MLearning.Droid
 		public static String[] ListaColores = {azul,lila,verde,amarillo,naranja,rosa};
 		public static String[] ListaColores50Campamentos = { "#E98300", "#97233F", "#5B8F22",azul };
 		public static String colorGlobal = azul;
+		public static String colorPartida = "#AA272F";
+		public static String colorCalzado = "#6AADE4";
+		public static String colorExpertos = "#00549F";
 
 		public static int TYPE_TEXT = 1;
 		public static int TYPE_IMAGE = 2;

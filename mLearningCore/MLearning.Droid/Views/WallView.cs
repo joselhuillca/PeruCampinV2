@@ -30,6 +30,10 @@ namespace MLearning.Droid
 		int Id_Unidad;
 		int Id_section;
 		public int Page_Id;
+		public LinearLayout mensajeFavoritos;
+
+		//Para saber de donde pertenece del navigator Drawer
+		public int indice_navigator = 1;
 
 		public int currentcurso;
 		public int currentunidad;
@@ -269,7 +273,13 @@ namespace MLearning.Droid
 			_fondo2.SetVerticalGravity (Android.Views.GravityFlags.Start);
 			_fondo2.RemoveAllViews();
 
-			infoCursoUnidad.RemoveAllViews ();
+			infoCursoUnidad.RemoveAllViews (); 			//Eliminando los subtitulos innecesarios 			if (!_txtCursoN.Text.ToString().Equals("Los 50 mejores campamentos")) { 				_txtUnidadN.Text = _txtCursoN.Text; 				_txtCursoN.Text = "   "; 				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
+ 			}else{
+				if (_txtUnidadN.Text.ToString().Equals("Mis mejores campamentos"))
+				{
+					_txtCursoN.Text = " ";
+				}
+			}
 			infoCursoUnidad.AddView (_txtCursoN);
 			infoCursoUnidad.AddView (_txtUnidadN);
 
@@ -682,6 +692,14 @@ namespace MLearning.Droid
 			_mainSpace.AddView (_listViewUnidades);
 			*/
 
+			//Solo para los Favoritos
+			mensajeFavoritos = new LinearLayout(context);
+			mensajeFavoritos.LayoutParameters = new LinearLayout.LayoutParams(-1, -2);
+			mensajeFavoritos.SetPadding(Configuration.getWidth(100),Configuration.getHeight(0),Configuration.getWidth(100),Configuration.getHeight(0));
+			mensajeFavoritos.Orientation = Orientation.Vertical;
+			mensajeFavoritos.SetBackgroundColor(Color.ParseColor("#FFE0B2"));
+			_mainSpace.AddView(mensajeFavoritos);
+
 			_spaceUnidades = new LinearLayout (context);
 			_spaceUnidades.LayoutParameters = new LinearLayout.LayoutParams (-1, -2);
 			_spaceUnidades.Orientation = Orientation.Vertical;
@@ -784,6 +802,7 @@ namespace MLearning.Droid
 				_mainSpace.RemoveAllViews();
 				_mainSpace.AddView(_fondo2);
 				_mainSpace.AddView(_contentScrollView_S2);
+				_mainSpace.AddView(mensajeFavoritos);
 				_mainSpace.AddView(_spaceUnidades);
 			}
 			catch (Exception e)
@@ -793,9 +812,14 @@ namespace MLearning.Droid
 			_mainSpace.SetPadding(0, 0, 0, 0);
 
 			//Color para los LoView
-			Configuration.colorGlobal = Configuration.ListaColores50Campamentos[indexUnidad];
+			if (indice_navigator == 0) { Configuration.colorGlobal = Configuration.colorPartida; }//La Partida
+			if (indice_navigator == 1) {Configuration.colorGlobal = Configuration.ListaColores50Campamentos[indexUnidad]; }//50 campamentos
+			if (indice_navigator == 2) { Configuration.colorGlobal = Configuration.azul; }//Mejores campamentos
+			if (indice_navigator == 3) { Configuration.colorGlobal = Configuration.colorExpertos;}//Expertos
 
-			if(indexUnidad==3){
+			mensajeFavoritos.RemoveAllViews();
+			if(indexUnidad==3 || isFavoritos){
+				
 				Toast.MakeText (context, "Mis mejores Campamentos", ToastLength.Short).Show ();
 				//Sacar la lista de Favoritos
 				listFavorites = FavoritosItemManager.GetTasks();
@@ -836,24 +860,28 @@ namespace MLearning.Droid
 
 				//-----------------------------
 				numUnidades = _listUnidades.Count;
-				if (numUnidades == 0)
-				{
+
+
+				//if (numUnidades == 0)
+				//{
 					//_mainSpace.RemoveAllViews();
 					//_mainSpace.SetPadding(Configuration.getWidth(10), 0, Configuration.getWidth(10), 0);
 					Toast.MakeText(context, "Lista de favoritos vacia", ToastLength.Short).Show();
 					TextView txtTmp = new TextView(context);
 					txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp.Text = "Agrega tus mejores campamentos  dándole click a la estrella que aparece al lado de cada uno de los destinos que ya visitaste.";
-					txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(27));
-					_mainSpace.AddView(txtTmp);
+					txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(34));
+					mensajeFavoritos.AddView(txtTmp);
 
 					TextView txtTmp2 = new TextView(context);
 					txtTmp2.Text = "¡No pares hasta completar los 50 mejores campamentos!";
 					txtTmp2.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
 					txtTmp2.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(38));
-					_mainSpace.AddView(txtTmp2);
-				}
+					mensajeFavoritos.AddView(txtTmp2);
+
+
+				//}
 
 				//return;
 			}
@@ -934,6 +962,7 @@ namespace MLearning.Droid
 				} */
 
 				if (indexCurso == 3) {
+					
 					titleUnidad.SetTextSize (textFormat,Configuration.getHeight(55));
 
 				}
@@ -947,7 +976,15 @@ namespace MLearning.Droid
 				//TextView titleUnidad = new TextView(context);
 				//titleUnidad.Text = _listUnidades [i].Title;
 				titleUnidad.TextFormatted = Html.FromHtml (_listUnidades [i].Title);
-				titleUnidad.SetTextColor(Color.ParseColor (Configuration.ListaColores [i % 6]));
+				titleUnidad.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+				if (indice_navigator == 0)
+				{
+					if (titleUnidad.Text.Equals("Calzado"))
+					{
+						titleUnidad.SetTextColor(Color.ParseColor(Configuration.colorCalzado));
+					}
+				}
+
 				titleUnidad.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 
@@ -1031,6 +1068,7 @@ namespace MLearning.Droid
 							_mainSpace.RemoveAllViews ();
                             favorit_.SetImageBitmap(iconFavorito);
 							linearContenido.AddView (favorit_);
+							_mainSpace.AddView(mensajeFavoritos);
 							_mainSpace.AddView (_spaceUnidades);
 							removido = false;
 						}
@@ -1039,7 +1077,9 @@ namespace MLearning.Droid
 								_mainSpace.RemoveAllViews ();
 								_mainSpace.AddView (_fondo2);
 								_mainSpace.AddView (_contentScrollView_S2);
+								_mainSpace.AddView (mensajeFavoritos);
 								_mainSpace.AddView (_spaceUnidades);
+
 							}catch(Exception e){
 								//ya existe esos hijos
 							}
