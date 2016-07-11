@@ -24,10 +24,10 @@ namespace MLearning.Droid
 	public class Template2 : RelativeLayout
 	{
 		RelativeLayout mainLayout;
-		LinearLayout contenLayout;
+		public LinearLayout contenLayout;
 
 		ImageView imgMapa;//----
-		TextView titleHeader;
+		public TextView titleHeader;
 		TextView content;
 
 		int widthInDp;

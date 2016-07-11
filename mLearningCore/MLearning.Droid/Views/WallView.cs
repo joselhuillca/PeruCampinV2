@@ -869,7 +869,7 @@ namespace MLearning.Droid
 					Toast.MakeText(context, "Lista de favoritos vacia", ToastLength.Short).Show();
 					TextView txtTmp = new TextView(context);
 					txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
-					txtTmp.Text = "Agrega tus mejores campamentos  dándole click a la estrella que aparece al lado de cada uno de los destinos que ya visitaste.";
+					txtTmp.Text = "Agrega tus mejores campamentos  dándole click al check que aparece al lado de cada uno de los destinos que ya visitaste.";
 					txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(34));
 					mensajeFavoritos.AddView(txtTmp);
 

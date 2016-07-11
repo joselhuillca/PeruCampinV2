@@ -42,6 +42,8 @@ namespace MLearning.Droid.Views
 		int orientation = OrientationHelper.Horizontal;
 		public RelativeLayout layoutList;
 		TextView titulo_detalle;
+		bool isCalzado=false;
+		TextView detalle;
 
 		LOViewModel vm; 
 		Bitmap bm_user;
@@ -683,7 +685,7 @@ namespace MLearning.Droid.Views
 							titulo_detalle.SetPadding (0, 0, 0, space);
 							descriptionLayout.AddView (titulo_detalle);
 
-							TextView detalle = new TextView (this);
+							detalle = new TextView (this);
 							detalle.TextFormatted = Html.FromHtml (slides [0].loparagraph);
 							detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
 							detalle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight (32));
@@ -839,7 +841,13 @@ namespace MLearning.Droid.Views
 								is50Campamentos = true;
 
 							}
-
+							else {
+								if (slidesource.title_page.Equals("Calzado"))
+								{
+									isCalzado = true;
+								}
+								else { isCalzado = false; }
+							}
 						}
 
 						var vista = slidesource.getViewSlide();
@@ -860,6 +868,15 @@ namespace MLearning.Droid.Views
 					if (!is50Campamentos)
 					{
 						descriptionLayout.RemoveView(titulo_detalle);
+						linearScroll.RemoveView(separationLinear);
+						if (isCalzado)
+						{
+							detalle.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(38));
+							detalle.SetTextColor(Color.ParseColor(Configuration.colorCalzado));
+						}
+						else {
+							descriptionLayout.RemoveView(detalle);
+						}
 					}
 
 					//Añadimos las imagenes del array source
@@ -912,7 +929,7 @@ namespace MLearning.Droid.Views
 						linearCirculos.SetBackgroundColor(Color.ParseColor("#40000000"));
 
 						List<ImageView> listCirculos = new List<ImageView>();
-						int tamCirc = 25;
+						int tamCirc = 28;
 						int tamS = source.Count;
 						linearCirculos.SetY(Configuration.getHeight(402));
 						linearCirculos.SetX(Configuration.getWidth(640 / 2) );

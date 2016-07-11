@@ -202,10 +202,15 @@ namespace DataSource
 
 				//Añdimos las imagenes a un array para dibujarlas luego
 				imgCamp = new ImagenCamp(); 				imgCamp.Descripcion = plantilla.Contenido; 				imgCamp.image = plantilla.ImageUrl;  				//Console.WriteLine ("CREA PLANTILLAAAAAAAAA  111111"); 				return plantilla;  			}
-			if (_type == 2) { 				Template2 plantilla = new Template2 (context);  				if (_title == null) 					_title = " "; 				List<string> elements = parseContent (_title); 				//Console.WriteLine (String.Format("Holaaaa {0}",elements.Count));   				if (elements.Count != 0 && elements [0] == "@") {//Console.WriteLine (elements.ToString()); 					  					if (!elements[2].Equals("#NONE")) 					{ 						plantilla.ColorDescription = elements[2]; 						plantilla.ColorTitle = elements[2]; 						plantilla.ColorBackgroundTemplate = elements[1]; 					} 					else {  						plantilla.ColorTitle = elements[1]; 					}  				}  else { 					plantilla.ColorTexto = _colorS; 				}   				plantilla.Title = _title; 				plantilla.Contenido = eraseLastBR(_paragraph);  				/*Datos báicos*/ 				if(_title.Equals("Datos básicos ")){ 					Configuration.colorGlobal = elements[1];
+			if (_type == 2) { 				Template2 plantilla = new Template2 (context);  				if (_title == null) 					_title = ""; 				List<string> elements = parseContent (_title); 				//Console.WriteLine (String.Format("Holaaaa {0}",elements.Count));   				if (elements.Count != 0 && elements [0] == "@") {//Console.WriteLine (elements.ToString()); 					  					if (!elements[2].Equals("#NONE")) 					{ 						plantilla.ColorDescription = elements[2]; 						plantilla.ColorTitle = elements[2]; 						plantilla.ColorBackgroundTemplate = elements[1]; 					} 					else {  						plantilla.ColorTitle = elements[1]; 					}  				}  else { 					plantilla.ColorTexto = _colorS; 				}   				plantilla.Title = _title; 				plantilla.Contenido = eraseLastBR(_paragraph);  				/*Datos báicos*/ 				if(_title.Equals("Datos básicos ")){ 					Configuration.colorGlobal = elements[1];
 
-					//plantilla.ColorBackgroundTemplate = elements[1];
- 					string pathImg = "mapas/" + replaceForImages (title_page) + ".png"; 					plantilla.Image = getBitmapFromAsset(pathImg); 					Console.WriteLine (pathImg); 				}  				return plantilla;  			}
+					//plantilla.ColorBackgroundTemplate = elements[1];//Si el titulo esta vacio quitarlo en LoView
+ 					string pathImg = "mapas/" + replaceForImages (title_page) + ".png"; 					plantilla.Image = getBitmapFromAsset(pathImg); 					Console.WriteLine (pathImg); 				}
+
+				if (_title.Equals(""))
+				{
+					plantilla.contenLayout.RemoveView(plantilla.titleHeader);
+				}  				return plantilla;  			}
 			if (_type == 3) {
 				Template3 plantilla = new Template3 (context);
 				plantilla.Title = _title;
