@@ -411,6 +411,12 @@
     <AndroidAsset Include="Assets\mapas\Wakama.png" />
     <AndroidAsset Include="Assets\mapas\Yumaque.png" />
     <AndroidAsset Include="Assets\icons\circulo.png" />
+    <AndroidAsset Include="Assets\icons\facebookcosta.png" />
+    <AndroidAsset Include="Assets\icons\facebookselva.png" />
+    <AndroidAsset Include="Assets\icons\facebooksierra.png" />
+    <AndroidAsset Include="Assets\icons\notacosta.png" />
+    <AndroidAsset Include="Assets\icons\notaselva.png" />
+    <AndroidAsset Include="Assets\icons\notasierra.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

@@ -820,7 +820,7 @@ namespace MLearning.Droid
 			mensajeFavoritos.RemoveAllViews();
 			if(indexUnidad==3 || isFavoritos){
 				
-				Toast.MakeText (context, "Mis mejores Campamentos", ToastLength.Short).Show ();
+
 				//Sacar la lista de Favoritos
 				listFavorites = FavoritosItemManager.GetTasks();
 				int tam = listFavorites.Count;
@@ -864,9 +864,14 @@ namespace MLearning.Droid
 
 				//if (numUnidades == 0)
 				//{
-					//_mainSpace.RemoveAllViews();
-					//_mainSpace.SetPadding(Configuration.getWidth(10), 0, Configuration.getWidth(10), 0);
-					Toast.MakeText(context, "Lista de favoritos vacia", ToastLength.Short).Show();
+				//_mainSpace.RemoveAllViews();
+				//_mainSpace.SetPadding(Configuration.getWidth(10), 0, Configuration.getWidth(10), 0);
+				//
+
+
+				if (numUnidades == 0) { Toast.MakeText(context, "Lista de Mis mejores campamentos vacía", ToastLength.Short).Show(); }
+				else { Toast.MakeText(context, "Mis mejores Campamentos", ToastLength.Short).Show(); }
+
 					TextView txtTmp = new TextView(context);
 					txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp.Text = "Agrega tus mejores campamentos  dándole click al check que aparece al lado de cada uno de los destinos que ya visitaste.";
@@ -1127,7 +1132,7 @@ namespace MLearning.Droid
 			//popupBuilder.SetTitle("Mis Favoritos");
 			//popupBuilder.SetCancelable(false);
 			//popupBuilder.SetMessage("Se añadio a mis favoritos!");
-			String mensaje = "Se añadio a mis favoritos!";
+			String mensaje = "Se añadió a Mis mejores campamentos";
 			//popupBuilder.SetNeutralButton("Volver", delegate {  });
 			//popupBuilder.Show();
 
@@ -1167,7 +1172,7 @@ namespace MLearning.Droid
 			{
 				FavoritosItemManager.DeleteTask(id_auto);
 				//popupBuilder.SetMessage("Se elimino de Favoritos!");
-				mensaje = "Se elimino de Favoritos!";
+				mensaje = "Se eliminó de Mis mejores campamentos";
 				if(isFavoritos){
 					
 					try{

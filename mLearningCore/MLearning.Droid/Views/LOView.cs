@@ -63,7 +63,12 @@ namespace MLearning.Droid.Views
 		RelativeLayout mainLayoutPages;
 
 		public Bitmap iconFavorito;
-		private ImageView favorit;
+		public Bitmap iconFace;
+		//private ImageView favorit;
+		public ImageView favorit_;
+		public ImageView faceicon;
+		public TextView shared_face;
+		public TextView tomar_notas;
 
 		int widthInDp;
 		int heightInDp;
@@ -593,11 +598,12 @@ namespace MLearning.Droid.Views
 				Toast.MakeText (this, "Loading...", ToastLength.Short).Show();
 				String accessToken = prefs.GetString ("AccessToken",null);
 				if (accessToken == null) { 
-					Toast.MakeText(this, "Primero inicia sesiòn!!", ToastLength.Short).Show();
+					
 					var webAuth = new Intent(this, typeof(FBWebViewAuthActivity));
 					webAuth.PutExtra("AppId", Configuration.AppId);
 					webAuth.PutExtra("ExtendedPermissions", Configuration.ExtendedPermissions);
 					StartActivityForResult(webAuth, 0);
+					Toast.MakeText(this, "Primero inicia sesión!", ToastLength.Short).Show();
 					return;
 				}
 				fb = new FacebookClient (accessToken);
@@ -617,11 +623,12 @@ namespace MLearning.Droid.Views
 				});
 			} else {
 				//Alert ("Not Logged In", "Please Log In First", false, (res) => { });
-				Toast.MakeText (this, "Primero inicia sesiòn!!", ToastLength.Short).Show();
+				//Toast.MakeText (this, "Primero inicia sesión!!", ToastLength.Short).Show();
 				var webAuth = new Intent(this, typeof(FBWebViewAuthActivity));
 				webAuth.PutExtra("AppId", Configuration.AppId);
 				webAuth.PutExtra("ExtendedPermissions", Configuration.ExtendedPermissions);
 				StartActivityForResult(webAuth, 0);
+				Toast.MakeText(this, "Primero inicia sesión!", ToastLength.Short).Show();
 				return;
 			}
 		}
@@ -710,43 +717,45 @@ namespace MLearning.Droid.Views
 							//separationLinear.SetPadding (0,0,0,50);
 
 					//Añadir mis-Favoritos-----------------------------------------------------------
-					iconFavorito = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/notas.png"), Configuration.getWidth (52), Configuration.getWidth (42), true);
+					iconFavorito = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/notacosta.png"), Configuration.getWidth (40), Configuration.getWidth (40), true);
 					//Colocando icono de Favoritos
-					ImageView favorit_ = new ImageView (this);
+					favorit_ = new ImageView (this);
 					favorit_.Tag = j;
 					favorit_.SetImageBitmap (iconFavorito);
 					favorit_.SetX (Configuration.getWidth(5));
 					favorit_.SetY (Configuration.getHeight (55));
 					//favorit_.Click += delegate{funcFavoritos(favorit_);};
 
-                    var iconFace = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/face_icon.jpg"), Configuration.getWidth(30), Configuration.getWidth(30), true);
+                    iconFace = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/facebookcosta.png"), Configuration.getWidth(40), Configuration.getWidth(40), true);
                     //Colocando icono de Favoritos
-                    ImageView faceicon = new ImageView(this);
+                    faceicon = new ImageView(this);
                     faceicon.Tag = j;
                     faceicon.SetImageBitmap(iconFace);
-                    faceicon.SetX(Configuration.getWidth(15));
+                    faceicon.SetX(Configuration.getWidth(5));
                     faceicon.SetY(Configuration.getHeight(0));
                     //favorit_.Click += delegate { funcFavoritos(favorit_); };
 
-                    TextView shared_face = new TextView(this);
+                    shared_face = new TextView(this);
                     shared_face.Text = "Comparte tu experiencia!";
 					//shared_face.LayoutParameters = new LinearLayout.LayoutParams (Configuration.getWidth (580), LinearLayout.LayoutParams.WrapContent);
                     shared_face.SetTextColor(Color.ParseColor("#1A237E"));
                     shared_face.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(30));
-                    shared_face.SetX(Configuration.getWidth(48));
+                    shared_face.SetX(Configuration.getWidth(50));
+					shared_face.Typeface = Typeface.DefaultBold;
 					//shared_face.Gravity = GravityFlags.Right;
-                    shared_face.SetY(Configuration.getHeight(-11));
+					shared_face.SetY(Configuration.getHeight(-7));
 					shared_face.Click += delegate
 					{
 						HandlePostHiToWall( front.Title);
 					};
 
 
-                    TextView tomar_notas = new TextView(this);
+                    tomar_notas = new TextView(this);
                     tomar_notas.Text = "Toma notas";
                     tomar_notas.SetTextColor(Color.ParseColor("#E65100"));
                     tomar_notas.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(30));
-                    tomar_notas.SetX(Configuration.getWidth(48));
+					tomar_notas.Typeface = Typeface.DefaultBold;
+                    tomar_notas.SetX(Configuration.getWidth(50));
                     tomar_notas.SetY(Configuration.getHeight(55));
                     tomar_notas.Click += delegate
                     {
@@ -852,6 +861,39 @@ namespace MLearning.Droid.Views
 
 						var vista = slidesource.getViewSlide();
 						titulo_detalle.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+						//CAMBIAR LOS ICONOS DE FACEBOOK Y NOTAS
+						if (is50Campamentos) {
+							if (Configuration.colorGlobal.Equals("#E98300")) { //COSTA
+								var iconFavorito2= Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/notacosta.png"), Configuration.getWidth(40), Configuration.getWidth(40), true);
+								var iconFace2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/facebookcosta.png"), Configuration.getWidth(40), Configuration.getWidth(40), true);
+								faceicon.SetImageBitmap(iconFace2);
+								favorit_.SetImageBitmap(iconFavorito2);
+
+								shared_face.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+								tomar_notas.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+							}
+							if (Configuration.colorGlobal.Equals("#97233F"))
+							{ //SIERRA
+								var iconFavorito2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/notasierra.png"), Configuration.getWidth(40), Configuration.getWidth(40), true);
+								var iconFace2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/facebooksierra.png"), Configuration.getWidth(40), Configuration.getWidth(40), true);
+								faceicon.SetImageBitmap(iconFace2);
+								favorit_.SetImageBitmap(iconFavorito2);
+
+								shared_face.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+								tomar_notas.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+							}
+							if (Configuration.colorGlobal.Equals("#5B8F22"))
+							{ //SELVA
+								var iconFavorito2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/notaselva.png"), Configuration.getWidth(40), Configuration.getWidth(40), true);
+								var iconFace2 = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/facebookselva.png"), Configuration.getWidth(40), Configuration.getWidth(40), true);
+								faceicon.SetImageBitmap(iconFace2);
+								favorit_.SetImageBitmap(iconFavorito2);
+
+								shared_face.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+								tomar_notas.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
+							}
+						}
+						//------------ FIN CAMBIAR LOS ICONOS DE FACEBOOK Y NOTAS ----------------------
 						if (slidesource.Type != 5 )
 						{
 								if (slidesource.imgCamp != null && is50Campamentos)

@@ -7,6 +7,7 @@ using Android.Views;
 using System.Collections.Generic;
 using Android.Content;
 using Android.Preferences;
+using Android.Widget;
 
 namespace MLearning.Droid
 {
@@ -146,7 +147,7 @@ namespace MLearning.Droid
 			{
 				mParentActivity.Title = string.Format("Loading {0}%", newProgress);
 				mParentActivity.SetProgress(newProgress * 100);
-
+				//Toast.MakeText(mParentActivity, "Loadingggg", ToastLength.Short).Show();
 				if (newProgress == 100) {
 					mParentActivity.Title = view.Url;
 				}
