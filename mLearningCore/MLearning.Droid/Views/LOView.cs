@@ -686,7 +686,7 @@ namespace MLearning.Droid.Views
 
 							titulo_detalle = new TextView (this);
 							titulo_detalle.Text = "Descripción";
-							titulo_detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
+							//titulo_detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
 							titulo_detalle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight (38));
 					        titulo_detalle.SetTextColor (Color.ParseColor (Configuration.colorGlobal));
 							titulo_detalle.SetPadding (0, 0, 0, space);
@@ -694,7 +694,7 @@ namespace MLearning.Droid.Views
 
 							detalle = new TextView (this);
 							detalle.TextFormatted = Html.FromHtml (slides [0].loparagraph);
-							detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
+							//detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
 							detalle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight (32));
 							descriptionLayout.AddView (detalle);
 

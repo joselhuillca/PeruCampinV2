@@ -74,7 +74,7 @@ namespace MLearning.Droid
 			linearContainerFisrst.Orientation = Orientation.Vertical;
 
 			txtTitle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(40));
-			txtTitle.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+			//txtTitle.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 			txtDescription.SetTextColor (Color.ParseColor("#ffffff"));
 			txtTitle.SetTextColor (Color.ParseColor("#ffffff"));

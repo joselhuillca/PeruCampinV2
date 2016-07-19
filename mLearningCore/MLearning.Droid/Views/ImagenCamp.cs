@@ -52,7 +52,7 @@ namespace MLearning.Droid
 
 			vh.txtDescription.TextFormatted = Html.FromHtml(item.Descripcion);
 			vh.txtDescription.SetTextColor(Color.ParseColor("#616161"));
-			vh.txtDescription.Typeface = Typeface.CreateFromAsset(ctx.Assets, "fonts/ArcherMediumPro.otf");
+			//vh.txtDescription.Typeface = Typeface.CreateFromAsset(ctx.Assets, "fonts/ArcherMediumPro.otf");
 			vh.txtDescription.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(32));
 			//vh.txtDescription.SetBackgroundColor(Color.ParseColor("#E6E6E6"));
 

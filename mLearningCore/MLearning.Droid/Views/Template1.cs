@@ -89,10 +89,10 @@ namespace MLearning.Droid
 			content.LayoutParameters = new LinearLayout.LayoutParams (-2, -2);
 
 			titleHeader.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(38));
-			titleHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+			//titleHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 			content.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(32));
-			content.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+			//content.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 			contentLinearLayout.AddView (titleHeader);
 			contentLinearLayout.AddView (imHeader);
@@ -126,9 +126,9 @@ namespace MLearning.Droid
 			AutorHeader = new TextView (context);
 			content = new TextView (context);
 
-			titleHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
-			AutorHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
-			content.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+			//titleHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+			//AutorHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+			//content.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
 
 
 			mainLinearLayout.LayoutParameters = new LinearLayout.LayoutParams (-1, -2);

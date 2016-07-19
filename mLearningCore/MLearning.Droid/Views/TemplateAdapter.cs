@@ -49,7 +49,7 @@ namespace MLearning.Droid
 			TextView txtName = new TextView (context);
 			ImageView imgIcon = new ImageView (context);
 
-			txtName.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+			//txtName.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
 
 			txtName.Text = item.content;
 			txtName.SetPadding (30, 0, 0, 0);

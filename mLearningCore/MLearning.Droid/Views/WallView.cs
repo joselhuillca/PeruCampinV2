@@ -290,10 +290,10 @@ namespace MLearning.Droid
 			_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(50));
 
 			_txtCursoN.SetTextColor (Color.ParseColor("#ffffff"));
-			_txtCursoN.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+			//_txtCursoN.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 			_txtUnidadN.SetTextColor (Color.ParseColor("#ffffff"));
-			_txtUnidadN.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+			//_txtUnidadN.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 			_txtCursoN.Gravity = Android.Views.GravityFlags.Right;
 			_txtUnidadN.Gravity = Android.Views.GravityFlags.Right;
 			//_txtCursoN.TextAlignment = Android.Views.TextAlignment.Gravity;
@@ -600,7 +600,7 @@ namespace MLearning.Droid
 				_txtItem_S1.Add (new TextView (context));
 				_txtItem_S1 [i].Text = "0";
 				_txtItem_S1 [i].SetTextColor (Color.ParseColor ("#2E9AFE"));
-				_txtItem_S1[i].Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+				//_txtItem_S1[i].Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
 				_txtItem_S1[i].SetTextSize (textFormat,Configuration.getHeight(30));
 				//_mainLayout.AddView (_txtItem_S1 [i]);
 				_txtItem_S1 [i].SetX (inixItemTXT+(i*crecTXT));_txtItem_S1 [i].SetY (Configuration.getHeight(640));
@@ -653,9 +653,9 @@ namespace MLearning.Droid
 			_txtInfo3_S3.Gravity = Android.Views.GravityFlags.CenterHorizontal;
 
 
-			_txtInfo1_S3.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
-			_txtInfo2_S3.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
-			_txtInfo3_S3.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+			//_txtInfo1_S3.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+			//_txtInfo2_S3.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
+			//_txtInfo3_S3.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/HelveticaNeue.ttf");
 
 			_txtInfo1_S3.SetTextSize (textFormat,Configuration.getHeight(30));
 			_txtInfo2_S3.SetTextSize (textFormat,Configuration.getHeight(30));
@@ -873,14 +873,14 @@ namespace MLearning.Droid
 				else { Toast.MakeText(context, "Mis mejores Campamentos", ToastLength.Short).Show(); }
 
 					TextView txtTmp = new TextView(context);
-					txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+					//txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp.Text = "Agrega tus mejores campamentos  dándole click al check que aparece al lado de cada uno de los destinos que ya visitaste.";
 					txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(34));
 					mensajeFavoritos.AddView(txtTmp);
 
 					TextView txtTmp2 = new TextView(context);
 					txtTmp2.Text = "¡No pares hasta completar los 50 mejores campamentos!";
-					txtTmp2.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+					//txtTmp2.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
 					txtTmp2.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(38));
 					mensajeFavoritos.AddView(txtTmp2);
@@ -990,7 +990,7 @@ namespace MLearning.Droid
 					}
 				}
 
-				titleUnidad.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+				//titleUnidad.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 
 				TextView descriptionUnidad = new TextView(context);
@@ -999,7 +999,7 @@ namespace MLearning.Droid
 
 				descriptionUnidad.TextFormatted = Html.FromHtml (_listUnidades [i].Description);
 				//descriptionUnidad.Text = _listUnidades [i].Description;
-				descriptionUnidad.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+				//descriptionUnidad.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 				descriptionUnidad.SetTextSize (textFormat,Configuration.getHeight(28));
 				Linkify.AddLinks (descriptionUnidad, MatchOptions.All);
 				//descriptionUnidad.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;

@@ -187,7 +187,7 @@ namespace MLearning.Droid
 				TextView itemTitle = new TextView (context);
 				itemTitle.Text = title [i];
 				itemTitle.SetTextColor (Color.ParseColor("#ffffff"));
-				itemTitle.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+				//itemTitle.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 				itemTitle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(45));
 
 				LinearLayout linearTitle = new LinearLayout (context);
@@ -218,14 +218,14 @@ namespace MLearning.Droid
 
 				TextView txtnumType = new TextView (context);
 				txtnumType.Text = numTypes[i];
-				txtnumType.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+				//txtnumType.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 				txtnumType.TextSize = Configuration.getHeight (15);
 				txtnumType.Gravity = GravityFlags.CenterHorizontal;
 				txtnumType.SetTextColor (Color.ParseColor ("#ffffff"));
 
 				TextView txtType = new TextView (context);
 				txtType.Text = type[i];
-				txtType.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+				//txtType.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 				txtType.TextSize = Configuration.getHeight (15);
 				txtType.Gravity = GravityFlags.CenterHorizontal;
 				txtType.SetTextColor (Color.ParseColor ("#ffffff"));

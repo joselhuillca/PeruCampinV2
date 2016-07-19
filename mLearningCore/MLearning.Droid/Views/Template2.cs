@@ -135,8 +135,8 @@ namespace MLearning.Droid
 			titleHeader = new TextView (context);
 			content = new TextView (context);
 
-			titleHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
-			content.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+			//titleHeader.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
+			//content.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 			titleHeader.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(38));
 			content.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(32));

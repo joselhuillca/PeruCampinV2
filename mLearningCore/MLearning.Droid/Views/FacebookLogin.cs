@@ -72,7 +72,7 @@ namespace MLearning.Droid
 
 			loginFree = new Button(this);
 			loginFree.Text = "Ingresar sin registrarse";
-			loginFree.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
+			//loginFree.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
 			loginFree.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(22));
 			loginFree.SetTextColor(Color.White);
 			loginFree.SetBackgroundColor(Color.ParseColor("#2979FF"));
@@ -105,13 +105,13 @@ namespace MLearning.Droid
 			linearL.SetY (Configuration.getHeight(722));
 			TextView txt1 = new TextView (this);
 			txt1.Text  = "Registrar, acepto los ";
-			txt1.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
+			//txt1.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
 			txt1.SetTextColor (Color.ParseColor("#ffffff"));
 			txt1.SetTextSize (ComplexUnitType.Fraction,Configuration.getWidth (22));
 			TextView txt2 = new TextView (this);
 			txt2.Text = "terminos de uso ";
 			txt2.SetTextColor (Color.ParseColor("#00BCD4"));
-			txt2.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
+			//txt2.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
 			txt2.SetTextSize (ComplexUnitType.Fraction,Configuration.getWidth (22));
 			linearL.AddView (txt1);
 			linearL.AddView (txt2);
