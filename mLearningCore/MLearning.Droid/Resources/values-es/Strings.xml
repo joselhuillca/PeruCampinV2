@@ -20,5 +20,7 @@
 	<string name="tomaNotas">Toma Notas</string>
 	<string name="descripcion">Descripción</string>
 	<string name="mejorescampametos50">Los 50 mejores campamentos</string>
+
+	<string name="cursosDescargando">El curso se esta descargando</string>
 </resources>
 

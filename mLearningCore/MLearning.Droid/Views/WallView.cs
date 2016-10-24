@@ -273,7 +273,7 @@ namespace MLearning.Droid
 			_fondo2.SetVerticalGravity (Android.Views.GravityFlags.Start);
 			_fondo2.RemoveAllViews();
 
-			infoCursoUnidad.RemoveAllViews (); 			//Eliminando los subtitulos innecesarios 			if (!_txtCursoN.Text.ToString().Equals("Los 50 mejores campamentos")) { 				_txtUnidadN.Text = _txtCursoN.Text; 				_txtCursoN.Text = "   "; 				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
+			infoCursoUnidad.RemoveAllViews (); 			//Eliminando los subtitulos innecesarios 			if (!_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.mejorescampametos50))) { 				_txtUnidadN.Text = _txtCursoN.Text; 				_txtCursoN.Text = "   "; 				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
  			}else{
 				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.mismejoresCampamentos)))
 				{
