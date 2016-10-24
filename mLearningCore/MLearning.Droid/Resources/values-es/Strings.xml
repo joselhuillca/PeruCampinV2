@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="Hello">Hola Mundo, haz Click!</string>
+    <string name="ApplicationName">MLearning.Droid</string>
+    <string name="openDrawer">Drawer Abierto</string>
+	<string name="closeDrawer">Drawer cerrado</string>
+	
+	<string name="mejores50campamentos">Los mejores 50 campamentos</string>
+	<string name="preparandoPartida">Preparando la partida</string>
+	<string name="palabraExpertos">La palabra del experto</string>
+	<string name="mismejoresCampamentos">Mis mejores campamentos</string>
+	<string name="seAniadiomismejoresCampamentos">Se añadió a Mis mejores campamentos</string>
+	<string name="seEliminomismejoresCampamentos">Se eliminó de Mis mejores campamentos</string>
+	<string name="listaVaciamismejoresCampamentos">Lista de Mis mejores campamentos vacía</string>
+	<string name="agregaCampamentos">Agrega tus mejores campamentos  dándole click al check que aparece al lado de cada uno de los destinos que ya visitaste.</string>
+	<string name="completalosCampamentos">¡No pares hasta completar los 50 mejores campamentos!</string>
+
+	<string name="aniadirNota">Añadir Nota</string>
+	<string name="comparteTuExperiencia">Comparte tu experiencia</string>
+	<string name="tomaNotas">Toma Notas</string>
+	<string name="descripcion">Descripción</string>
+	<string name="mejorescampametos50">Los 50 mejores campamentos</string>
+</resources>
+

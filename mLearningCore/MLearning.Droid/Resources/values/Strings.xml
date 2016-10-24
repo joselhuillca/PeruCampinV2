@@ -4,4 +4,20 @@
     <string name="ApplicationName">MLearning.Droid</string>
     <string name="openDrawer">Drawer Open</string>
 	<string name="closeDrawer">Drawer Closed</string>
+
+	<string name="mejores50campamentos">The 50 best camping sites</string>
+	<string name="preparandoPartida">Preparing Your Trip</string>
+	<string name="palabraExpertos">Advice from the Expert</string>
+	<string name="mismejoresCampamentos">My best camps</string>
+	<string name="seAniadiomismejoresCampamentos">Was first added to my best camps</string>
+	<string name="seEliminomismejoresCampamentos">Was deleted of my best camps</string>
+	<string name="listaVaciamismejoresCampamentos">List of my best camps are null</string>
+	<string name="agregaCampamentos">Added your best camps giving click to check that appears next to each of the destinations already visited.</string>
+	<string name="completalosCampamentos">Do not stop until completing the 50 best camps!</string>
+
+	<string name="aniadirNota">Add Note</string>
+	<string name="comparteTuExperiencia">Share your experiences!</string>
+	<string name="tomaNotas">Take Notes</string>
+	<string name="descripcion">Description</string>
+	<string name="mejorescampametos50">The 50 best camping sites</string>
 </resources>

@@ -275,7 +275,7 @@ namespace MLearning.Droid
 
 			infoCursoUnidad.RemoveAllViews (); 			//Eliminando los subtitulos innecesarios 			if (!_txtCursoN.Text.ToString().Equals("Los 50 mejores campamentos")) { 				_txtUnidadN.Text = _txtCursoN.Text; 				_txtCursoN.Text = "   "; 				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
  			}else{
-				if (_txtUnidadN.Text.ToString().Equals("Mis mejores campamentos"))
+				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.mismejoresCampamentos)))
 				{
 					_txtCursoN.Text = " ";
 				}
@@ -869,17 +869,17 @@ namespace MLearning.Droid
 				//
 
 
-				if (numUnidades == 0) { Toast.MakeText(context, "Lista de Mis mejores campamentos vacía", ToastLength.Short).Show(); }
-				else { Toast.MakeText(context, "Mis mejores Campamentos", ToastLength.Short).Show(); }
+				if (numUnidades == 0) { Toast.MakeText(context, Resources.GetText(Resource.String.listaVaciamismejoresCampamentos), ToastLength.Short).Show(); }
+				else { Toast.MakeText(context, Resources.GetText(Resource.String.mismejoresCampamentos), ToastLength.Short).Show(); }
 
 					TextView txtTmp = new TextView(context);
 					//txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
-					txtTmp.Text = "Agrega tus mejores campamentos  dándole click al check que aparece al lado de cada uno de los destinos que ya visitaste.";
+				txtTmp.Text = Resources.GetText(Resource.String.agregaCampamentos);
 					txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(34));
 					mensajeFavoritos.AddView(txtTmp);
 
 					TextView txtTmp2 = new TextView(context);
-					txtTmp2.Text = "¡No pares hasta completar los 50 mejores campamentos!";
+				txtTmp2.Text = Resources.GetText(Resource.String.completalosCampamentos);
 					//txtTmp2.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 					txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
 					txtTmp2.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(38));
@@ -898,7 +898,7 @@ namespace MLearning.Droid
 				taskListView.LayoutParameters = new LinearLayout.LayoutParams(-1, Configuration.getHeight(850));
 
 				addTaskButton = new Button(context);
-				addTaskButton.Text = "Añadir Nota";
+				addTaskButton.Text = Resources.GetText(Resource.String.aniadirNota);
 				addTaskButton.LayoutParameters = new LinearLayout.LayoutParams(-1, -2);
 
 				_mainSpace.SetY (Configuration.getHeight (20));
@@ -1132,7 +1132,7 @@ namespace MLearning.Droid
 			//popupBuilder.SetTitle("Mis Favoritos");
 			//popupBuilder.SetCancelable(false);
 			//popupBuilder.SetMessage("Se añadio a mis favoritos!");
-			String mensaje = "Se añadió a Mis mejores campamentos";
+			String mensaje = Resources.GetText(Resource.String.seAniadiomismejoresCampamentos);
 			//popupBuilder.SetNeutralButton("Volver", delegate {  });
 			//popupBuilder.Show();
 
@@ -1172,7 +1172,7 @@ namespace MLearning.Droid
 			{
 				FavoritosItemManager.DeleteTask(id_auto);
 				//popupBuilder.SetMessage("Se elimino de Favoritos!");
-				mensaje = "Se eliminó de Mis mejores campamentos";
+				mensaje = Resources.GetText(Resource.String.seEliminomismejoresCampamentos);
 				if(isFavoritos){
 					
 					try{

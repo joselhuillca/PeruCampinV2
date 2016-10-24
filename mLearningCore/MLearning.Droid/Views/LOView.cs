@@ -736,7 +736,7 @@ namespace MLearning.Droid.Views
                     //favorit_.Click += delegate { funcFavoritos(favorit_); };
 
                     shared_face = new TextView(this);
-                    shared_face.Text = "Comparte tu experiencia!";
+					shared_face.Text = Resources.GetText(Resource.String.comparteTuExperiencia);
 					//shared_face.LayoutParameters = new LinearLayout.LayoutParams (Configuration.getWidth (580), LinearLayout.LayoutParams.WrapContent);
                     shared_face.SetTextColor(Color.ParseColor("#1A237E"));
                     shared_face.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(30));
@@ -751,7 +751,7 @@ namespace MLearning.Droid.Views
 
 
                     tomar_notas = new TextView(this);
-                    tomar_notas.Text = "Toma notas";
+					tomar_notas.Text = Resources.GetText(Resource.String.tomaNotas);
                     tomar_notas.SetTextColor(Color.ParseColor("#E65100"));
                     tomar_notas.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(30));
 					tomar_notas.Typeface = Typeface.DefaultBold;

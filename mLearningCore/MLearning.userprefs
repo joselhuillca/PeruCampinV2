@@ -1,7 +1,7 @@
 ﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="261" Column="17" />
+      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="253" Column="6" />
       <File FileName="MLearning.Droid/Views/LOView.cs" Line="626" Column="5" />
       <File FileName="MLearning.Droid/Views/ImagenCamp.cs" Line="39" Column="3" />
       <File FileName="MLearning.Droid/Views/ImageAdapter.cs" Line="11" Column="15" />
@@ -18,9 +18,7 @@
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.GuiaCamping AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Nexus 4 (Marshmallow)" />
 </Properties>
