@@ -21,4 +21,8 @@
 	<string name="descripcion">Description</string>
 	<string name="mejorescampametos50">The 50 best camping sites</string>
 	<string name="cursosDescargando">This course is downloading</string>
+
+	<string name="datosbasicos">Data </string>
+	
+	<string name="LOGIN_USER">pcamping</string>
 </resources>

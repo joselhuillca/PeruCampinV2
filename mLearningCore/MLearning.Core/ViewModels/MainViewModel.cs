@@ -1370,7 +1370,7 @@ namespace MLearning.Core.ViewModels
             if (LearningOjectsList != null)
                 LearningOjectsList.Clear();
 
-            var list = await _mLearningService.GetLOByCircleAndUser(circle_id,UserID);
+            var list = await _mLearningService.GetLOByCircleAndUser(circle_id, UserID);
 
             int circleIndex = CirclesList.IndexOf(CirclesList.Where(c => c.id == circle_id).First());
 

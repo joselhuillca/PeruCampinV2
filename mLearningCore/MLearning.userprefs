@@ -1,5 +1,5 @@
 ﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/MainView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Resources/values/Strings.xml">
     <Files>
       <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="253" Column="6" />
       <File FileName="MLearning.Droid/Views/LOView.cs" Line="1" Column="1" />
@@ -10,12 +10,23 @@
       <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItemManager.cs" Line="1" Column="1" />
       <File FileName="MLearning.Droid/Views/FavoritosItemListAdapter.cs" Line="12" Column="19" />
       <File FileName="MLearning.Droid/Views/FavoritosScreen.cs" Line="18" Column="3" />
-      <File FileName="MLearning.Droid/Views/WallView.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1077" Column="11" />
+      <File FileName="MLearning.Droid/Views/WallView.cs" Line="878" Column="97" />
+      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1295" Column="4" />
       <File FileName="MLearning.Droid/Views/Configuration.cs" Line="45" Column="50" />
       <File FileName="MLearning.Droid/Views/FacebookLogin.cs" Line="58" Column="47" />
-      <File FileName="MLearning.Droid/Resources/values-es/Strings.xml" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Resources/values/Strings.xml" Line="1" Column="1" />
+      <File FileName="MLearning.Droid/Resources/values/Strings.xml" Line="24" Column="36" />
+      <File FileName="MLearning.Droid/Resources/values-es/Strings.xml" Line="25" Column="33" />
+      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="91" Column="1" />
+      <File FileName="MLearning.Core/App.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Core/Repositories/WAMSRepositoryService.cs" Line="452" Column="4" />
+      <File FileName="MLearning.Core/Repositories/IRepositoryService.cs" Line="20" Column="2" />
+      <File FileName="MLearning.Core/Services/MLearningAzureService.cs" Line="213" Column="155" />
+      <File FileName="MLearning.Core/ViewModels/IUserInfo.cs" Line="5" Column="2" />
+      <File FileName="MLearning.Core/ViewModels/LoginViewModel.cs" Line="51" Column="4" />
+      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="1374" Column="3" />
+      <File FileName="MLearning.Droid/Setup.cs" Line="22" Column="76" />
+      <File FileName="MLearning.Droid/UserInfo.cs" Line="28" Column="2" />
+      <File FileName="MLearning.Droid/Views/ManageCirclesView.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

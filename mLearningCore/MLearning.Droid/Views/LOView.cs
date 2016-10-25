@@ -685,7 +685,7 @@ namespace MLearning.Droid.Views
 							descriptionLayout.Orientation = Orientation.Vertical;
 
 							titulo_detalle = new TextView (this);
-							titulo_detalle.Text = "Descripción";
+							titulo_detalle.Text = Resources.GetText(Resource.String.descripcion);
 							//titulo_detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
 							titulo_detalle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight (38));
 					        titulo_detalle.SetTextColor (Color.ParseColor (Configuration.colorGlobal));
@@ -845,7 +845,8 @@ namespace MLearning.Droid.Views
 
 						if (slidesource.Title != null)
 						{
-							if (slidesource.Title.Equals("@ #E98300 #NONE Datos básicos") || slidesource.Title.Equals("@ #97233F #NONE Datos básicos") || slidesource.Title.Equals("@ #5B8F22 #NONE Datos básicos"))
+							if (slidesource.Title.Equals("@ #E98300 #NONE Datos básicos") || slidesource.Title.Equals("@ #97233F #NONE Datos básicos") || slidesource.Title.Equals("@ #5B8F22 #NONE Datos básicos")
+							   || slidesource.Title.Equals("@ #E98300 #NONE Data") || slidesource.Title.Equals("@ #97233F #NONE Data") || slidesource.Title.Equals("@ #5B8F22 #NONE Data"))
 							{
 								is50Campamentos = true;
 

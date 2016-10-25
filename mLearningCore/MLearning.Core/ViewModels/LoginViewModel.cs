@@ -47,8 +47,9 @@ namespace Core.ViewModels
             _mLearningService = mLearningService;
 
             
-            Username = "hitec";
-            Password = "1";
+            IUserInfo info = Mvx.Resolve<IUserInfo>();
+			Username = info.user();
+			Password = info.pass();
 
 
             _maxPixelDimension = 300;

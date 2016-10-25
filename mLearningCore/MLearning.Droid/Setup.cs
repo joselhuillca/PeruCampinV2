@@ -5,6 +5,7 @@ using Cirrious.MvvmCross.Droid.Platform;
 using Cirrious.MvvmCross.ViewModels;
 using MLearning.Core.File;
 using MLearning.Droid.AsyncStorage;
+using MLearning.Core;
 
 namespace MLearning.Droid
 {
@@ -18,6 +19,7 @@ namespace MLearning.Droid
 
         protected override IMvxApplication CreateApp()
         {
+			Mvx.RegisterSingleton<IUserInfo>(new UserInfo(this.ApplicationContext));
             return new Core.App();
         }
 		

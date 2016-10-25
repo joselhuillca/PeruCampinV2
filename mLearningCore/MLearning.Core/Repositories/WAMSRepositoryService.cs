@@ -390,6 +390,66 @@ namespace Core.Repositories
 
 		// My IMPLEMENTATION
 
+		//If cacheResult is true, save the results in localDB and use synchronization 
+		public async Task<List<T>> SearchForAsync<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate, Func<T, DateTime> getLastUpdate, Func<T, int> getID, Expression<Func<T, int>> sortExpr, bool cacheResult) where T : new()
+		{
+			List<T> result;
+
+			try
+			{
+
+				//If want to cache result
+
+				if (cacheResult)
+				{
+
+					//Check synchronization dates
+					DateTime lastSync = await TableHasUpdate<T>();
+
+					if (lastSync != DateTime.MaxValue)
+					{
+						//Have Update
+						//Get results from lastSyncDate and save them to DB if cacheResult its true
+						//TODO: Filter with predicate
+						await SyncLocalTable<T>(lastSync, getID);
+
+
+					}
+
+
+					//No Update, use local
+					result = SearchForLocalTable<T>(predicate);
+
+				}
+				else
+				{
+					result = await MobileService.GetTable<T>().Take(_takeNRows).Where(predicate).OrderBy(sortExpr).ToListAsync();
+
+
+				}
+
+
+
+
+			}
+			catch (WebException e)
+			{
+				if (UseLocalDBWhenOffline)
+				{
+					result = SearchForLocalTable<T>(predicate);
+				}
+				else
+				{
+					throw e;
+				}
+			}
+
+
+			return result;
+
+
+
+		}
 
 		public async Task<List<T>> SearchForAsync<T> (Expression<Func<T, bool>> predicate, Dictionary<string, string> parameters, Func<T, int> getID, bool cacheResult) where T : new()
 		{
