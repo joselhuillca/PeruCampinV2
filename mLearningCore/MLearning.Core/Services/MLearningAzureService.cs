@@ -183,7 +183,7 @@ namespace MLearning.Core.Services
              #if (WEB)
                           return await _repositoryService.SearchForAsync<Circle>(c => c.owner_id == user_id, c => c.updated_at, c => c.id, false);
             #else
-                        return await _repositoryService.SearchForAsync<Circle>(c => c.owner_id == user_id, c => c.updated_at, c => c.id, false);
+                        return await _repositoryService.SearchForAsync<Circle>(c => c.owner_id == user_id, c => c.updated_at, c => c.id, true);
             #endif
         }
 
@@ -201,7 +201,7 @@ namespace MLearning.Core.Services
             #if (WEB)
                return await _repositoryService.SearchForAsync<lo_by_circle>(l => l.Circle_id == circleid && l.User_id==userid, l => l.updated_at, l => l.id, false);
             #else
-               return await _repositoryService.SearchForAsync<lo_by_circle>(l => l.Circle_id == circleid && l.User_id==userid, l => l.updated_at, l => l.id, true);
+               return await _repositoryService.SearchForAsync<lo_by_circle>(l => l.Circle_id == circleid && l.User_id==userid, l => l.updated_at, l => l.id, false);
             #endif
         }
 
@@ -210,7 +210,7 @@ namespace MLearning.Core.Services
             #if (WEB)
             var list =  await _repositoryService.SearchForAsync<lo_in_circle>(l => l.Circle_id == circleid, l => l.updated_at, l => l.id, false);
             #else
-            var list =  await _repositoryService.SearchForAsync<lo_in_circle>(l => l.Circle_id == circleid, l => l.updated_at, l => l.id, true);
+            var list =  await _repositoryService.SearchForAsync<lo_in_circle>(l => l.Circle_id == circleid, l => l.updated_at, l => l.id, o => o.id, false);
             #endif
 
             return list.GroupBy(l => l.title).Select(g => g.First()).ToList();
