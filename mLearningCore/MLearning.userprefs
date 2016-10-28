@@ -1,5 +1,5 @@
 ﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Core/Services/MLearningAzureService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/MainView.cs">
     <Files>
       <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="273" Column="63" />
       <File FileName="MLearning.Droid/Views/LOView.cs" Line="849" Column="164" />
