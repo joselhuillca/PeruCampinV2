@@ -25,5 +25,6 @@
 	<string name="datosbasicos">Datos básicos </string>
 	
 	<string name="LOGIN_USER">hitec</string>
+	<string name="splash">localizacionsplash</string>
 </resources>
 

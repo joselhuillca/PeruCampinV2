@@ -420,6 +420,9 @@
     <AndroidAsset Include="Assets\icons\notaselva.png" />
     <AndroidAsset Include="Assets\icons\notasierra.png" />
     <AndroidResource Include="Resources\values-es\Strings.xml" />
+    <AndroidResource Include="Resources\values-es\SplashStyle.xml" />
+    <AndroidResource Include="Resources\values-es\styles.xml" />
+    <AndroidResource Include="Resources\drawable\splashEn.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

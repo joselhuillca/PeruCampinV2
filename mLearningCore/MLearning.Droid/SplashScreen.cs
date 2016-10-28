@@ -25,7 +25,6 @@ namespace MLearning.Droid
 			//this.Window.AddFlags(WindowManagerFlags.Fullscreen);
 
 
-
         }
 
 

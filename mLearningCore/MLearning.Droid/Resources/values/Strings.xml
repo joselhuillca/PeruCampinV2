@@ -25,4 +25,6 @@
 	<string name="datosbasicos">Data </string>
 	
 	<string name="LOGIN_USER">pcamping</string>
+
+	<string name="splash">localizacionsplash</string>
 </resources>
