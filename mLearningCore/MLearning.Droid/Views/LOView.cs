@@ -553,13 +553,13 @@ namespace MLearning.Droid.Views
 
 						}
 						else {
-							Alert("Error al Iniciar Sesion", "Motivo: " + error, false, (res) => { });
+							Alert(Resources.GetText(Resource.String.errorLogin), " " + error, false, (res) => { });
 						}
 					});
 
 					break;
 				case Result.Canceled:
-					Alert("Error al Iniciar Sesion", "El usuario a cancelado", false, (res) => { });
+					Alert(Resources.GetText(Resource.String.errorLogin), Resources.GetText(Resource.String.loginCancelado), false, (res) => { });
 					break;
 				default:
 					break;
@@ -861,6 +861,7 @@ namespace MLearning.Droid.Views
 						}
 
 						var vista = slidesource.getViewSlide();
+
 						titulo_detalle.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
 						//CAMBIAR LOS ICONOS DE FACEBOOK Y NOTAS
 						if (is50Campamentos) {

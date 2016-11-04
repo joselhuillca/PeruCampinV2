@@ -22,6 +22,10 @@
 	<string name="mejorescampametos50">Los 50 mejores campamentos</string>
 	<string name="cursosDescargando">El curso se esta descargando</string>
 
+	<string name="errorLogin">Error al iniciar Sesión</string>
+	<string name="loginCancelado">El usuario ha cancelado</string>
+	<string name="login">Iniciar Sesión</string>
+	
 	<string name="datosbasicos">Datos básicos </string>
 	
 	<string name="LOGIN_USER">hitec</string>

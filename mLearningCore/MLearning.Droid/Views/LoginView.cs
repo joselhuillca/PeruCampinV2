@@ -423,7 +423,7 @@ namespace MLearning.Droid.Views
 			txtLogin_b.SetTextSize (txtFormat, Configuration.getHeight (30));
 
 
-			txtInicioSesion.Text = "Iniciar Sesión";
+			txtInicioSesion.Text = Resources.GetText(Resource.String.login);
 			txtInicioSesion.Typeface =  Typeface.CreateFromAsset(this.Assets, "fonts/HelveticaNeue.ttf");
 			txtInicioSesion.SetTextColor (Color.ParseColor("#ffffff"));
 			txtInicioSesion.SetTextSize (Android.Util.ComplexUnitType.Px, Configuration.getHeight (36));

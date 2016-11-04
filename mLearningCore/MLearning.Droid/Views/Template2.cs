@@ -26,7 +26,7 @@ namespace MLearning.Droid
 		RelativeLayout mainLayout;
 		public LinearLayout contenLayout;
 
-		ImageView imgMapa;//----
+		public ImageView imgMapa;//----
 		public TextView titleHeader;
 		TextView content;
 

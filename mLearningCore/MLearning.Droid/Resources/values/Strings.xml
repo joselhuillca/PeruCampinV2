@@ -22,6 +22,10 @@
 	<string name="mejorescampametos50">The 50 best camping sites</string>
 	<string name="cursosDescargando">This course is downloading</string>
 
+	<string name="errorLogin">Failed to login</string>
+	<string name="loginCancelado">The user canceled</string>
+	<string name="login">Log in</string>
+
 	<string name="datosbasicos">Data </string>
 	
 	<string name="LOGIN_USER">pcamping</string>

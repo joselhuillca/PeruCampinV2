@@ -1188,14 +1188,18 @@ namespace MLearning.Droid
 						vm.OpenFavs.Execute(  currentLearningObject  );
 						_mainSpace.RemoveAllViews ();
 						initUnidades (currentcurso,currentunidad);
+
+
 					}catch(Exception e){
 						//
 					}
 
 				}
 				//_spaceUnidades.RemoveAllViews ();
-
 				fav.SetImageBitmap(iconFavorito_BN);
+
+				//aqui se tiene que actualizar
+				//initUnidades(currentcurso, currentunidad);
 			}
 			//Dialog------------------------------------------
 			/*Dialog dial = popupBuilder.Create ();
