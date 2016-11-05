@@ -870,7 +870,7 @@ namespace MLearning.Droid
 
 
 				if (numUnidades == 0) { Toast.MakeText(context, Resources.GetText(Resource.String.listaVaciamismejoresCampamentos), ToastLength.Short).Show(); }
-				else { Toast.MakeText(context, Resources.GetText(Resource.String.mismejoresCampamentos), ToastLength.Short).Show(); }
+				else { /*Toast.MakeText(context, Resources.GetText(Resource.String.mismejoresCampamentos), ToastLength.Short).Show();*/ }
 
 					TextView txtTmp = new TextView(context);
 					//txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
@@ -1047,7 +1047,7 @@ namespace MLearning.Droid
 						favorit_.SetX(Configuration.getWidth(450));
 						favorit_.SetY(Configuration.getHeight(50));
 						favorit_.Click += delegate {
-							funcFavoritos(favorit_);
+							funcFavoritos(favorit_,indexCurso,indexUnidad);
 						};
 						//Colocando icono de Favoritos
 						if(!isFavoritos){
@@ -1126,7 +1126,7 @@ namespace MLearning.Droid
 			}
 		}
 
-		public void funcFavoritos(ImageView fav)
+		public void funcFavoritos(ImageView fav,int idCurso,int idUnidad)
 		{
 			//AlertDialog.Builder popupBuilder = new AlertDialog.Builder(context);
 			//popupBuilder.SetTitle("Mis Favoritos");
@@ -1187,7 +1187,7 @@ namespace MLearning.Droid
 						vm.bookmarks = items;
 						vm.OpenFavs.Execute(  currentLearningObject  );
 						_mainSpace.RemoveAllViews ();
-						initUnidades (currentcurso,currentunidad);
+						//initUnidades (currentcurso,currentunidad);
 
 
 					}catch(Exception e){
@@ -1199,7 +1199,37 @@ namespace MLearning.Droid
 				fav.SetImageBitmap(iconFavorito_BN);
 
 				//aqui se tiene que actualizar
-				//initUnidades(currentcurso, currentunidad);
+				//isFavoritos = true;
+				if (idCurso==3 && idUnidad==3)
+				{
+					initUnidades(idCurso, idUnidad);
+				}
+				if (isFavoritos && idCurso == 3 && idUnidad == 0)
+				{
+					if (listFavorites.Count == 0)
+					{
+						_mainSpace.RemoveAllViews();
+						mensajeFavoritos.RemoveAllViews();
+						Toast.MakeText(context, Resources.GetText(Resource.String.listaVaciamismejoresCampamentos), ToastLength.Short).Show();
+						TextView txtTmp = new TextView(context);
+						//txtTmp.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/ArcherMediumPro.otf");
+						txtTmp.Text = Resources.GetText(Resource.String.agregaCampamentos);
+						txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(34));
+						mensajeFavoritos.AddView(txtTmp);
+
+						TextView txtTmp2 = new TextView(context);
+						txtTmp2.Text = Resources.GetText(Resource.String.completalosCampamentos);
+						//txtTmp2.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/ArcherMediumPro.otf");
+						txtTmp2.SetTextColor(Color.ParseColor(Configuration.ListaColores[0 % 6]));
+						txtTmp2.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(38));
+						mensajeFavoritos.AddView(txtTmp2);
+
+						_mainSpace.AddView(mensajeFavoritos);
+					}
+					else {
+						initUnidades(idCurso, idUnidad);
+					}
+				}
 			}
 			//Dialog------------------------------------------
 			/*Dialog dial = popupBuilder.Create ();

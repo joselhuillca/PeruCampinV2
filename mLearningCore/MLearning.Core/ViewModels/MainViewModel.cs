@@ -1552,7 +1552,7 @@ namespace MLearning.Core.ViewModels
 
 
 
-		public int _currentCurso = 0;
+		public int _currentCurso = 3;
 		public int _currentUnidad = 0;
 		public int _currentSection = 0;
 

@@ -1,37 +1,5 @@
 ﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/MainView.cs">
-    <Files>
-      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="273" Column="63" />
-      <File FileName="MLearning.Droid/Views/LOView.cs" Line="849" Column="164" />
-      <File FileName="MLearning.Droid/Views/ImagenCamp.cs" Line="39" Column="3" />
-      <File FileName="MLearning.Droid/Views/ImageAdapter.cs" Line="11" Column="15" />
-      <File FileName="MLearning.Droid/Views/Template1.cs" Line="266" Column="7" />
-      <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItem.cs" Line="17" Column="23" />
-      <File FileName="MLearning.Droid/TodoDB/MisFavoritos/FavoritosItemManager.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Views/FavoritosItemListAdapter.cs" Line="12" Column="19" />
-      <File FileName="MLearning.Droid/Views/FavoritosScreen.cs" Line="18" Column="3" />
-      <File FileName="MLearning.Droid/Views/WallView.cs" Line="120" Column="1" />
-      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1136" Column="43" />
-      <File FileName="MLearning.Droid/Views/Configuration.cs" Line="45" Column="50" />
-      <File FileName="MLearning.Droid/Views/FacebookLogin.cs" Line="58" Column="47" />
-      <File FileName="MLearning.Droid/Resources/values/Strings.xml" Line="17" Column="2" />
-      <File FileName="MLearning.Droid/Resources/values-es/Strings.xml" Line="25" Column="44" />
-      <File FileName="MLearning.Droid/TodoDB/TodoDatabaseADO.cs" Line="91" Column="1" />
-      <File FileName="MLearning.Core/App.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core/Repositories/WAMSRepositoryService.cs" Line="157" Column="1" />
-      <File FileName="MLearning.Core/Repositories/IRepositoryService.cs" Line="20" Column="2" />
-      <File FileName="MLearning.Core/Services/MLearningAzureService.cs" Line="216" Column="79" />
-      <File FileName="MLearning.Core/ViewModels/IUserInfo.cs" Line="5" Column="2" />
-      <File FileName="MLearning.Core/ViewModels/LoginViewModel.cs" Line="434" Column="1" />
-      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="1373" Column="48" />
-      <File FileName="MLearning.Droid/Setup.cs" Line="22" Column="76" />
-      <File FileName="MLearning.Droid/UserInfo.cs" Line="28" Column="2" />
-      <File FileName="MLearning.Droid/Views/ManageCirclesView.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Resources/Resource.Designer.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/MvxActionBarEventSourceActivity.cs" Line="52" Column="1" />
-      <File FileName="MLearning.Droid/Views/TaskAdapter.cs" Line="47" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
