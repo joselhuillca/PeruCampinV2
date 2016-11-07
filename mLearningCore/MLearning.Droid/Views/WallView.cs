@@ -984,7 +984,7 @@ namespace MLearning.Droid
 				titleUnidad.SetTextColor(Color.ParseColor(Configuration.colorGlobal));
 				if (indice_navigator == 0)
 				{
-					if (titleUnidad.Text.Equals("Calzado"))
+					if (titleUnidad.Text.Equals("Calzado") || titleUnidad.Text.Equals("Footwear"))
 					{
 						titleUnidad.SetTextColor(Color.ParseColor(Configuration.colorCalzado));
 					}

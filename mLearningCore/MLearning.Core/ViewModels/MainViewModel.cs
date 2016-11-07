@@ -1286,9 +1286,9 @@ namespace MLearning.Core.ViewModels
 
             _tmpCirclesList = CirclesList;
 
-            //Default: load first circle
+			//Default: load first circle
 
-            var firstCircle = CirclesList.FirstOrDefault();
+			var firstCircle = CirclesList[3];//CirclesList.FirstOrDefault();
 
             if (firstCircle != null)
                 await DoSelectCircleCommand(firstCircle);
@@ -1372,7 +1372,7 @@ namespace MLearning.Core.ViewModels
 
             var list = await _mLearningService.GetLOByCircle(circle_id);
 
-            int circleIndex = CirclesList.IndexOf(CirclesList.Where(c => c.id == circle_id).First());
+		int circleIndex = CirclesList.IndexOf(CirclesList.Where(c => c.id == circle_id).First());
 
             var circleLOList = new List<lo_by_circle_wrapper>();
            
@@ -1552,7 +1552,7 @@ namespace MLearning.Core.ViewModels
 
 
 
-		public int _currentCurso = 3;
+		public int _currentCurso = 0;
 		public int _currentUnidad = 0;
 		public int _currentSection = 0;
 

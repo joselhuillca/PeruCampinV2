@@ -852,7 +852,7 @@ namespace MLearning.Droid.Views
 
 							}
 							else {
-								if (slidesource.title_page.Equals("Calzado"))
+								if (slidesource.title_page.Equals("Calzado") || slidesource.title_page.Equals("Footwear"))
 								{
 									isCalzado = true;
 								}
