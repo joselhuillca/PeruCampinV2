@@ -269,11 +269,51 @@ namespace MLearning.Droid
 			test.DrawingCacheEnabled = true;
 			test.LayoutParameters = new LinearLayout.LayoutParams (-1, -1);
 
-			Picasso.With (context).Load (imView.sBackgoundUrl).Resize(Configuration.getWidth(640),Configuration.getWidth(640)).CenterCrop().Into (test);
+			//Picasso.With (context).Load (imView.sBackgoundUrl).Resize(Configuration.getWidth(640),Configuration.getWidth(640)).CenterCrop().Into (test);
 			_fondo2.SetVerticalGravity (Android.Views.GravityFlags.Start);
 			_fondo2.RemoveAllViews();
 
-			infoCursoUnidad.RemoveAllViews (); 			//Eliminando los subtitulos innecesarios 			if (!_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.mejorescampametos50))) { 				_txtUnidadN.Text = _txtCursoN.Text; 				_txtCursoN.Text = "   "; 				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
+			infoCursoUnidad.RemoveAllViews ();
+
+			//Colocando los fondos
+			if (_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.mejorescampametos50)))
+			{
+				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.Costa)))
+				{
+					Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/costa.jpg"));
+					_fondo2.SetBackgroundDrawable(dr1);
+				}
+				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.Sierra)))
+				{
+					Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/sierra.jpg"));
+					_fondo2.SetBackgroundDrawable(dr1);
+				}
+				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.Selva)))
+				{
+					Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/selva.jpg"));
+					_fondo2.SetBackgroundDrawable(dr1);
+				}
+				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.mismejoresCampamentos)))
+				{
+					Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/mismejcamp.jpeg"));
+					_fondo2.SetBackgroundDrawable(dr1);
+				}
+
+			}
+			if (_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.palabraExpertos)))
+			{
+				Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/experto.jpg"));
+				_fondo2.SetBackgroundDrawable(dr1);
+			}
+			if (_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.preparandoPartida)))
+			{
+				Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/partida.png"));
+				_fondo2.SetBackgroundDrawable(dr1);
+			}
+
+				//Eliminando los subtitulos innecesarios
+				if (!_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.mejorescampametos50))) { 				_txtUnidadN.Text = _txtCursoN.Text; 				_txtCursoN.Text = "   "; 				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
+
  			}else{
 				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.mismejoresCampamentos)))
 				{
@@ -403,6 +443,7 @@ namespace MLearning.Droid
 			var textFormat = Android.Util.ComplexUnitType.Px;
 
 			_mainLayout.LayoutParameters = new RelativeLayout.LayoutParams (-1, -1);
+			_mainLayout.SetBackgroundColor(Color.White);
 
 			_scrollSpace = new VerticalScrollView (context);
 			_scrollSpace.LayoutParameters = new VerticalScrollView.LayoutParams (-1, Configuration.getHeight(1015-85));
@@ -446,7 +487,7 @@ namespace MLearning.Droid
 			_fondo2.LayoutParameters = new RelativeLayout.LayoutParams (-1, Configuration.getWidth (640));
 			_fondo2.SetY (Configuration.getHeight (0));
 
-			Drawable dr1 = new BitmapDrawable (getBitmapFromAsset("icons/fondoselec.png"));
+			Drawable dr1 = new BitmapDrawable (getBitmapFromAsset("icons/costa.jpg"));
 			_fondo2.SetBackgroundDrawable (dr1);
 			dr1 = null;
 			_mainSpace.AddView (_fondo2);
@@ -876,6 +917,7 @@ namespace MLearning.Droid
 					//txtTmp.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 				txtTmp.Text = Resources.GetText(Resource.String.agregaCampamentos);
 					txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(34));
+				txtTmp.SetTextColor(Color.ParseColor("#616161"));
 					mensajeFavoritos.AddView(txtTmp);
 
 					TextView txtTmp2 = new TextView(context);
@@ -1001,6 +1043,7 @@ namespace MLearning.Droid
 				//descriptionUnidad.Text = _listUnidades [i].Description;
 				//descriptionUnidad.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 				descriptionUnidad.SetTextSize (textFormat,Configuration.getHeight(28));
+				descriptionUnidad.SetTextColor(Color.ParseColor("#616161"));
 				Linkify.AddLinks (descriptionUnidad, MatchOptions.All);
 				//descriptionUnidad.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 				//descriptionUnidad.LinksClickable = true;
@@ -1215,6 +1258,7 @@ namespace MLearning.Droid
 						//txtTmp.Typeface = Typeface.CreateFromAsset(this.Assets, "fonts/ArcherMediumPro.otf");
 						txtTmp.Text = Resources.GetText(Resource.String.agregaCampamentos);
 						txtTmp.SetTextSize(ComplexUnitType.Fraction, Configuration.getWidth(34));
+						txtTmp.SetTextColor(Color.ParseColor("#616161"));
 						mensajeFavoritos.AddView(txtTmp);
 
 						TextView txtTmp2 = new TextView(context);
@@ -1265,6 +1309,8 @@ namespace MLearning.Droid
 		//Verificar si esta en la lista de favoritos
 		public int isListFavorites(int _id)
 		{
+			listFavorites.Clear();
+			listFavorites = FavoritosItemManager.GetTasks();
 			int tam = listFavorites.Count;
 			for (int i = 0; i < tam; i++)
 			{

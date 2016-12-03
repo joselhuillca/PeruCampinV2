@@ -23,6 +23,7 @@ namespace DataSource
 		public String title_page;
 		public ImagenCamp imgCamp;
 		public bool tieneFondoTxt = false;
+		private String colorContent = "#616161";
 
 		public LOSlideSource(Context context){
 			this.context = context;
@@ -200,11 +201,21 @@ namespace DataSource
 
 		public RelativeLayout getViewSlide(){
 
-			if (_type == 1) { 				Template1 plantilla = new Template1 (context);  				plantilla.Author = _author;  				if (_title == null) { _title = ""; }  				if (!_title.Equals("")) 				{ 					List<string> elements = parseContent(_title); 					//Console.WriteLine (String.Format("Holaaaa {0}",elements.Count));   					if (elements.Count != 0 && elements[0] == "@") 					{//Console.WriteLine (elements.ToString());   						if (elements[2].Equals("#NONE")) 						{ 							plantilla.ColorTexto = elements[1]; 						} 						else { 							plantilla.ColorTexto = _colorS; 						} 					} 				 				} 				plantilla.Title = _title;  				plantilla.ImageUrl = _imageurl;//<----------HUILLCA 				plantilla.Contenido = eraseLastBR(_paragraph);;
+			if (_type == 1) { 				Template1 plantilla = new Template1 (context);  				plantilla.Author = _author;  				if (_title == null) { _title = ""; }  				if (!_title.Equals("")) 				{ 					List<string> elements = parseContent(_title); 					//Console.WriteLine (String.Format("Holaaaa {0}",elements.Count));   					if (elements.Count != 0 && elements[0] == "@") 					{//Console.WriteLine (elements.ToString());   						if (elements[2].Equals("#NONE")) 						{ 							plantilla.ColorTexto = elements[1];
+							plantilla.ColorContent = colorContent; 						} 						else { 							plantilla.ColorTexto = _colorS;
+							plantilla.ColorContent = colorContent; 						} 					} 				 				}else {
+					plantilla.ColorContent = colorContent;
+				}
+
+				plantilla.Title = _title;  				plantilla.ImageUrl = _imageurl;//<----------HUILLCA 				plantilla.Contenido = eraseLastBR(_paragraph);;
 
 				//Añdimos las imagenes a un array para dibujarlas luego
 				imgCamp = new ImagenCamp(); 				imgCamp.Descripcion = plantilla.Contenido; 				imgCamp.image = plantilla.ImageUrl;  				//Console.WriteLine ("CREA PLANTILLAAAAAAAAA  111111"); 				return plantilla;  			}
-			if (_type == 2) { 				Template2 plantilla = new Template2 (context);  				if (_title == null) 					_title = ""; 				List<string> elements = parseContent (_title); 				//Console.WriteLine (String.Format("Holaaaa {0}",elements.Count));   				if (elements.Count != 0 && elements [0] == "@") {//Console.WriteLine (elements.ToString()); 					  					if (!elements[2].Equals("#NONE")) 					{ 						plantilla.ColorDescription = elements[2]; 						plantilla.ColorTitle = elements[2]; 						plantilla.ColorBackgroundTemplate = elements[1]; 					} 					else {  						plantilla.ColorTitle = elements[1]; 					}  				}  else { 					plantilla.ColorTexto = _colorS; 				}   				plantilla.Title = _title; 				plantilla.Contenido = eraseLastBR(_paragraph);  				/*Datos báicos*/ 				if(_title.Equals("Datos básicos ") || _title.Equals("Data ")){ 					Configuration.colorGlobal = elements[1];
+			if (_type == 2) { 				Template2 plantilla = new Template2 (context);  				if (_title == null) 					_title = ""; 				List<string> elements = parseContent (_title); 				//Console.WriteLine (String.Format("Holaaaa {0}",elements.Count));   				if (elements.Count != 0 && elements [0] == "@") {//Console.WriteLine (elements.ToString()); 					  					if (!elements[2].Equals("#NONE")) 					{ 						plantilla.ColorDescription = elements[2]; 						plantilla.ColorTitle = elements[2]; 						plantilla.ColorBackgroundTemplate = elements[1]; 					} 					else {  						plantilla.ColorTitle = elements[1];
+						plantilla.ColorDescription = colorContent; 					}  				}  else { 					plantilla.ColorTexto = _colorS;
+					plantilla.ColorDescription = colorContent; 				}   				plantilla.Title = _title; 				plantilla.Contenido = eraseLastBR(_paragraph);
+
+				//plantilla.ColorBackgroundTemplate = "#000000";  				/*Datos báicos*/ 				if(_title.Equals("Datos básicos ") || _title.Equals("Data ")){ 					Configuration.colorGlobal = elements[1];
 
 					//plantilla.ColorBackgroundTemplate = elements[1];//Si el titulo esta vacio quitarlo en LoView
  					string pathImg = "mapas/" + replaceForImages (title_page) + ".png"; 					plantilla.Image = getBitmapFromAsset(pathImg);
@@ -212,7 +223,8 @@ namespace DataSource
 					//plantilla.contenLayout.LayoutParameters = new LinearLayout.LayoutParams(Configuration.getWidth(370), 200);
 					//plantilla.contenLayout.SetBackgroundColor(Color.Aqua);
 
-					//Para poder cambiar las dimensiones del contenLayout 					LinearLayout contenLayout = new LinearLayout(context); 					contenLayout.LayoutParameters = new LinearLayout.LayoutParams(Configuration.getWidth(390), -2); 					contenLayout.Orientation = Orientation.Vertical; 					contenLayout.SetMinimumHeight(Configuration.getHeight(238)); 					//contenLayout.SetBackgroundColor(Color.Aqua);  					TextView titleHeader = new TextView(context); 					TextView content = new TextView(context); 					titleHeader.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(38)); 					content.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(32));  					plantilla.Title = Configuration.quitarErrorTildes(plantilla.Title); 					titleHeader.TextFormatted = Html.FromHtml(plantilla.Title);  					plantilla.Contenido = Configuration.quitarErrorTildes(plantilla.Contenido); 					content.TextFormatted = Html.FromHtml(plantilla.Contenido);
+					//Para poder cambiar las dimensiones del contenLayout 					LinearLayout contenLayout = new LinearLayout(context); 					contenLayout.LayoutParameters = new LinearLayout.LayoutParams(Configuration.getWidth(390), -2); 					contenLayout.Orientation = Orientation.Vertical; 					contenLayout.SetMinimumHeight(Configuration.getHeight(238)); 					//contenLayout.SetBackgroundColor(Color.Aqua);  					TextView titleHeader = new TextView(context); 					TextView content = new TextView(context); 					titleHeader.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(38)); 					content.SetTextSize(ComplexUnitType.Fraction, Configuration.getHeight(32));
+					content.SetTextColor(Color.ParseColor(colorContent));  					plantilla.Title = Configuration.quitarErrorTildes(plantilla.Title); 					titleHeader.TextFormatted = Html.FromHtml(plantilla.Title);  					plantilla.Contenido = Configuration.quitarErrorTildes(plantilla.Contenido); 					content.TextFormatted = Html.FromHtml(plantilla.Contenido);
 
 					titleHeader.SetTextColor(Color.ParseColor(plantilla.ColorTitle));
 					//content.SetTextColor(Color.ParseColor(plantilla.ColorDescription));  					contenLayout.AddView(titleHeader); 					contenLayout.AddView(content);  					plantilla.contenLayout.RemoveAllViews(); 					plantilla.contenLayout.AddView(contenLayout);  				}

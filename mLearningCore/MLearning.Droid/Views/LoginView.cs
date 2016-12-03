@@ -93,10 +93,10 @@ namespace MLearning.Droid.Views
 		
 
 
-			LinearLayout test = new LinearLayout (this);
+			/*LinearLayout test = new LinearLayout (this);
 			test.LayoutParameters = new LinearLayout.LayoutParams (-1, -1);
 			test.SetBackgroundResource (Resource.Drawable.splash);
-			SetContentView (test);
+			SetContentView (test);*/
 
 
 			var com = ((LoginViewModel)this.DataContext).LoginCommand;

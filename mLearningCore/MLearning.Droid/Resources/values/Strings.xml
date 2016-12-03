@@ -27,6 +27,10 @@
 	<string name="login">Log in</string>
 
 	<string name="datosbasicos">Data </string>
+
+	<string name="Costa">Coast</string>
+	<string name="Sierra">Sierra</string>
+	<string name="Selva">Jungle</string>
 	
 	<string name="LOGIN_USER">pcamping</string>
 

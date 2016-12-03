@@ -27,6 +27,11 @@
 	<string name="login">Iniciar Sesión</string>
 	
 	<string name="datosbasicos">Datos básicos </string>
+
+	<string name="Costa">Costa</string>
+	<string name="Sierra">Sierra</string>
+	<string name="Selva">Selva</string>
+	
 	
 	<string name="LOGIN_USER">hitec</string>
 	<string name="splash">localizacionsplash</string>

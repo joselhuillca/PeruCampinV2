@@ -423,6 +423,13 @@
     <AndroidResource Include="Resources\values-es\SplashStyle.xml" />
     <AndroidResource Include="Resources\values-es\styles.xml" />
     <AndroidResource Include="Resources\drawable\splashEn.png" />
+    <AndroidAsset Include="Assets\Fondos\costa.jpg" />
+    <AndroidAsset Include="Assets\Fondos\experto.jpg" />
+    <AndroidAsset Include="Assets\Fondos\partida.png" />
+    <AndroidAsset Include="Assets\Fondos\selva.jpg" />
+    <AndroidAsset Include="Assets\Fondos\sierra.jpg" />
+    <AndroidAsset Include="Assets\icons\costa.jpg" />
+    <AndroidAsset Include="Assets\Fondos\mismejcamp.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

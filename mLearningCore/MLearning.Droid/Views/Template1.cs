@@ -250,6 +250,18 @@ namespace MLearning.Droid
 
 		}
 
+		private string _colorContent;
+		public string ColorContent
+		{
+			get { return _colorContent; }
+			set
+			{
+				_colorContent = value;
+				content.SetTextColor(Color.ParseColor(_colorContent));
+			}
+
+		}
+
 		private string _content;
 		public string Contenido{
 			get{return _content; }

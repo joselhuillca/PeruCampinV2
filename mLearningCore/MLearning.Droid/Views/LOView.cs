@@ -696,6 +696,7 @@ namespace MLearning.Droid.Views
 							detalle.TextFormatted = Html.FromHtml (slides [0].loparagraph);
 							//detalle.Typeface = Typeface.CreateFromAsset (this.Assets, "fonts/ArcherMediumPro.otf");
 							detalle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight (32));
+					detalle.SetTextColor(Color.ParseColor("#616161"));
 							descriptionLayout.AddView (detalle);
 
 							ViewTreeObserver vto = detalle.ViewTreeObserver;
