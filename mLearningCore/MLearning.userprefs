@@ -1,26 +1,11 @@
-﻿<Properties StartupItem="MLearning.Droid/GuiaCamping.csproj">
+﻿<Properties StartupConfiguration="{328AE02E-C12E-4720-BDB6-37891AAB4CE8}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/WallView.cs">
     <Files>
-      <File FileName="MLearning.Droid/Views/WallView.cs" Line="1140" Column="4" />
-      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1731" Column="55" />
-      <File FileName="MLearning.Droid/Views/VerticalScrollView.cs" Line="38" Column="1" />
-      <File FileName="MLearning.Droid/Resources/values/Strings.xml" Line="8" Column="36" />
-      <File FileName="MLearning.Droid/Resources/values-es/Strings.xml" Line="8" Column="36" />
+      <File FileName="MLearning.Droid/Views/WallView.cs" Line="288" Column="81" />
       <File FileName="MLearning.Droid/Resources/Resource.Designer.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/MvxActionBarEventSourceActivity.cs" Line="52" Column="1" />
-      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid/Views/LOView.cs" Line="700" Column="44" />
-      <File FileName="MLearning.Core/ViewModels/LOMapViewModel.cs" Line="42" Column="15" />
-      <File FileName="MLearning.Core/ViewModels/LOViewModel.cs" Line="514" Column="11" />
-      <File FileName="MLearning.Core/Push/NotificationHandler.cs" Line="21" Column="23" />
-      <File FileName="MLearning.Core/Entities/circle_by_user.cs" Line="16" Column="26" />
-      <File FileName="MLearning.Droid/DataSource/LOSlideSource.cs" Line="336" Column="1" />
-      <File FileName="MLearning.Droid/Views/Template2.cs" Line="82" Column="63" />
-      <File FileName="MLearning.Droid/Views/Template1.cs" Line="274" Column="54" />
-      <File FileName="MLearning.Droid/Views/Configuration.cs" Line="42" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/imacalex/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1606" column="35" />

@@ -295,7 +295,7 @@ namespace MLearning.Droid
 				}
 				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.mismejoresCampamentos)))
 				{
-					Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/mismejcamp.jpeg"));
+					Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/mismejcamp.jpg"));
 					_fondo2.SetBackgroundDrawable(dr1);
 				}
 
@@ -307,7 +307,7 @@ namespace MLearning.Droid
 			}
 			if (_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.preparandoPartida)))
 			{
-				Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/partida.png"));
+				Drawable dr1 = new BitmapDrawable(getBitmapFromAsset("Fondos/partida.jpg"));
 				_fondo2.SetBackgroundDrawable(dr1);
 			}
 
