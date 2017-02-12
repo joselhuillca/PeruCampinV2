@@ -1,26 +1,16 @@
 ﻿<Properties StartupConfiguration="{328AE02E-C12E-4720-BDB6-37891AAB4CE8}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Core/Session/Marcadores.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid/Views/WallView.cs">
     <Files>
-      <File FileName="MLearning.Droid/Views/WallView.cs" Line="722" Column="4" />
-      <File FileName="MLearning.Core/ViewModels/MainViewModel.cs" Line="1286" Column="3" />
-      <File FileName="MLearning.Core/Repositories/WAMSRepositoryService.cs" Line="32" Column="2" />
-      <File FileName="MLearning.Droid/Views/LoginView.cs" Line="143" Column="4" />
-      <File FileName="MLearning.Droid/Views/MainView.cs" Line="1064" Column="62" />
-      <File FileName="MLearning.Core/Services/IMLearningService.cs" Line="300" Column="20" />
-      <File FileName="MLearning.Core/Services/MLearningAzureService.cs" Line="45" Column="10" />
-      <File FileName="MLearning.Core/ViewModels/LoginViewModel.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core/DownloadCache/CacheService.cs" Line="15" Column="24" />
-      <File FileName="MLearning.Core/Entities/available_lo_by_user.cs" Line="11" Column="22" />
-      <File FileName="MLearning.Core/Session/Marcadores.cs" Line="9" Column="1" />
+      <File FileName="MLearning.Droid/Views/WallView.cs" Line="288" Column="81" />
+      <File FileName="MLearning.Droid/Resources/Resource.Designer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/imacalex/gitProjects/PeruCampinV2/mLearningCore/MLearning.Droid/Views/MainView.cs" line="1606" column="35" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.GuiaCamping PreferredExecutionTarget="Android.ZY223CF2CZ" />
 </Properties>
