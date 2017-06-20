@@ -291,7 +291,7 @@ namespace MLearning.Droid
 			_dialogDownload.SetCancelable (false);
 			_dialogDownload.SetMessage ("Descargando Mapa");
 			_dialogDownload.Show ();
-			CacheService cache = CacheService.Init(SessionService.GetCredentialFileName(), "user_pref", "cache.db");
+			CacheService cache = CacheService.Init(SessionService.GetCredentialFileName(), "user_pref", "perucamping.sqlite");
 			var bytesAndPath = await cache.tryGetResource(url);
 
 			_currentCurso = c;

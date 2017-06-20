@@ -1681,7 +1681,7 @@ namespace MLearning.Droid.Views
 			_dialogDownload.SetCancelable (false);		
 			_dialogDownload.SetMessage ("Descargando Audio");		
 			_dialogDownload.Show ();		
-			CacheService cache = CacheService.Init(SessionService.GetCredentialFileName(), "user_pref", "cache.db");
+			CacheService cache = CacheService.Init(SessionService.GetCredentialFileName(), "user_pref", "perucamping.sqlite");
 
 			if (player == null) {
 				player = new Android.Media.MediaPlayer();

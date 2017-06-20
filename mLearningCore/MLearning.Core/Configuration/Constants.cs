@@ -37,7 +37,7 @@ namespace MLearning.Core.Configuration
 		
 		 public static string PreferencesFileName = "user_pref";
 		 
-		  public static string LocalDbName = "cache.db";
+		  public static string LocalDbName = "perucamping.sqlite";
 
           public static string UserFirstNameKey = "first_name";
           public static string UserLastNameKey = "last_name";

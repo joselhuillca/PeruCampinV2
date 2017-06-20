@@ -29,7 +29,7 @@ namespace Tasky.Shared
 		{
 			get 
 			{ 
-				var sqliteFilename = "cache.db";
+				var sqliteFilename = "perucamping.sqlite";
 				#if NETFX_CORE
 				var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, sqliteFilename);
 				#else

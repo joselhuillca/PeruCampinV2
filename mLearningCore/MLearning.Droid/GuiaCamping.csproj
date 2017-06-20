@@ -22,7 +22,7 @@
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
+    <DebugSymbols>False</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
@@ -32,11 +32,10 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <BundleAssemblies>False</BundleAssemblies>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <Debugger>Xamarin</Debugger>
     <AotAssemblies>False</AotAssemblies>
     <EnableLLVM>False</EnableLLVM>
     <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
@@ -292,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <AndroidAsset Include="Assets\database\perucamping.sqlite" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -510,7 +510,6 @@
     <AndroidAsset Include="Assets\images\header4.png" />
     <AndroidAsset Include="Assets\images\mapa.png" />
     <AndroidAsset Include="Assets\images\footerad.jpg" />
-    <AndroidAsset Include="Assets\database\cache.db" />
     <AndroidAsset Include="Assets\images\4header.png" />
     <AndroidAsset Include="Assets\images\3header.png" />
     <AndroidAsset Include="Assets\images\2header.png" />

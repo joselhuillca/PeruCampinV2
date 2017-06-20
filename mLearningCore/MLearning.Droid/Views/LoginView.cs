@@ -110,10 +110,9 @@ namespace MLearning.Droid.Views
 		private void copyDataBase()
 		{
 
-			Stream iStream = Assets.Open("database/cache.db");
-			string dbPath = "/data/data/camping.Droid/files/cache.db";
-			    	//path  "/data/data/camping.Droid/files/cache.db"   
-
+			Stream iStream = Assets.Open("database/perucamping.sqlite");
+			string dbPath = "/data/data/camping.Droid/files/perucamping.sqlite";
+			     
 			var oStream = new FileOutputStream (dbPath);
 
 			bool exists = System.IO.File.Exists(dbPath);
