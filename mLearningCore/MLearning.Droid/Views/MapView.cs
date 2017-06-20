@@ -379,7 +379,16 @@ namespace MLearning.Droid
 
 			_publicidadLayout = new LinearLayout (context);
 			_publicidadLayout.LayoutParameters = new LinearLayout.LayoutParams (-1, Configuration.getHeight (85));
-			Drawable drp = new BitmapDrawable (getBitmapFromAsset ("images/footerad.jpg"));
+
+		    int val = Resource.String.LOGIN_USER;
+
+            String footerPath = "";
+		    if (this.context.Resources.GetText(val).Equals("hitec")) //spanish
+		        footerPath = "images/footerad.jpg";
+		    else
+		        footerPath = "images/footerad_en.jpg";
+
+		    Drawable drp = new BitmapDrawable(getBitmapFromAsset(footerPath));
 			_publicidadLayout.SetBackgroundDrawable (drp);
 			_publicidadLayout.SetY (Configuration.getHeight(1136-85));
 			_mainLayout.AddView (_publicidadLayout);

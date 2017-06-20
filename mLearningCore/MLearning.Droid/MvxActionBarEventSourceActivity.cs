@@ -65,8 +65,16 @@ namespace MLearning.Droid
 
 	    public override void StartActivityForResult(Intent intent, int requestCode)
 	    {
-	        StartActivityForResultCalled.Raise(this, new MvxStartActivityForResultParameters(intent, requestCode));
-	        base.StartActivityForResult(intent, requestCode);
+	        try
+	        {
+	            StartActivityForResultCalled.Raise(this, new MvxStartActivityForResultParameters(intent, requestCode));
+	            base.StartActivityForResult(intent, requestCode);
+            }
+            catch (Exception e)
+	        {
+	            Console.WriteLine(e);
+	            //throw;
+	        }
 	    }
 
 	    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

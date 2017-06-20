@@ -22,7 +22,7 @@ namespace MLearning.Droid
 
 		// Replace here you own Facebook App Id, if you don't have one go to
 		// https://developers.facebook.com/apps
-		public static String AppId = "1070001599751830";
+		public static String AppId = "1907663736182060";
 		// For extensive list of available extended permissions refer to 
 		// https://developers.facebook.com/docs/reference/api/permissions/
 		//</remarks>

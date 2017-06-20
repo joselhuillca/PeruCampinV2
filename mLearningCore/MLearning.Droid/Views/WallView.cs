@@ -312,9 +312,13 @@ namespace MLearning.Droid
 			}
 
 				//Eliminando los subtitulos innecesarios
-				if (!_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.mejorescampametos50))) { 				_txtUnidadN.Text = _txtCursoN.Text; 				_txtCursoN.Text = "   "; 				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
+				if (!_txtCursoN.Text.ToString().Equals(Resources.GetText(Resource.String.mejorescampametos50))) {
+				_txtUnidadN.Text = _txtCursoN.Text;
+				_txtCursoN.Text = "   ";
+				_txtUnidadN.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(55));
 
- 			}else{
+
+			}else{
 				if (_txtUnidadN.Text.ToString().Equals(Resources.GetText(Resource.String.mismejoresCampamentos)))
 				{
 					_txtCursoN.Text = " ";
@@ -383,10 +387,14 @@ namespace MLearning.Droid
 			Configuration.setWidthPixel (widthInDp);
 			Configuration.setHeigthPixel (heightInDp);
 
-			adsImagesPath = AddResources.Instance.addList;
+		    int val = Resource.String.LOGIN_USER;
+		    if ( this.context.Resources.GetText(val).Equals("hitec")  ) //spanish
+                adsImagesPath = AddResources.Instance.addList;
+            else
+		        adsImagesPath = AddResources.Instance.addListEN;
 
-			//iconMap = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/iconmap.png"), Configuration.getWidth (60), Configuration.getWidth (80), true);
-			iconPlay = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/playc.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
+            //iconMap = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/iconmap.png"), Configuration.getWidth (60), Configuration.getWidth (80), true);
+            iconPlay = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/playc.png"), Configuration.getWidth (60), Configuration.getWidth (60), true);
 			iconInfo = Bitmap.CreateScaledBitmap (getBitmapFromAsset ("icons/info.png"), Configuration.getWidth (50), Configuration.getWidth (50), true);
 			iconFavorito_BN = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos_BN.png"), Configuration.getWidth(70), Configuration.getWidth(70), true);
 			iconFavorito = Bitmap.CreateScaledBitmap(getBitmapFromAsset("icons/favoritos.png"), Configuration.getWidth(70), Configuration.getWidth(70), true);
@@ -417,7 +425,17 @@ namespace MLearning.Droid
 			_mainLayout.AddView (_adLayout);
 
 			_adLayout.Click += delegate {
-				context.StartActivity(Configuration.getOpenFacebookIntent(context,"fb://page/114091405281757","http://www.hi-tec.com/pe/"));
+			    try
+			    {
+			        context.StartActivity(Configuration.getOpenFacebookIntent(context, "fb://page/114091405281757",
+			            "http://www.hi-tec.com/pe/"));
+			    }
+			    catch (Exception ex) // catch exception
+			    {
+			        var uri = Android.Net.Uri.Parse("http://www.hi-tec.com/pe/");
+			        var intent = new Intent(Intent.ActionView, uri);
+			        context.StartActivity(intent);
+                }
 			};
 		}
 
@@ -454,7 +472,16 @@ namespace MLearning.Droid
 
 			_publicidadLayout = new LinearLayout (context);
 			_publicidadLayout.LayoutParameters = new LinearLayout.LayoutParams (-1, Configuration.getHeight (85));
-			Drawable dr = new BitmapDrawable (getBitmapFromAsset ("images/footerad.jpg"));
+
+		    int val = Resource.String.LOGIN_USER;
+
+		    String footerPath = "";
+		    if (this.context.Resources.GetText(val).Equals("hitec")) //spanish
+		        footerPath = "images/footerad.jpg";
+		    else
+		        footerPath = "images/footerad_en.jpg";
+
+		    Drawable dr = new BitmapDrawable (getBitmapFromAsset (footerPath));
 			_publicidadLayout.SetBackgroundDrawable (dr);
 			_publicidadLayout.SetY (Configuration.getHeight(1136-85));
 			_mainLayout.AddView (_publicidadLayout);

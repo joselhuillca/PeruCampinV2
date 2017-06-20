@@ -15,7 +15,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>dd1dafb8</NuGetPackageImportStamp>
     <ReleaseVersion>1.0</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
@@ -455,6 +455,12 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\images\aden1.jpg" />
+    <AndroidAsset Include="Assets\images\aden2.jpg" />
+    <AndroidAsset Include="Assets\images\aden3.jpg" />
+    <AndroidAsset Include="Assets\images\aden4.jpg" />
+    <AndroidAsset Include="Assets\icons\fondo_en.png" />
+    <AndroidAsset Include="Assets\images\footerad_en.jpg" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
     <AndroidResource Include="Resources\values\MvxBindingAttributes.xml" />
@@ -553,9 +559,6 @@
       <Project>{5A3B79A2-507C-489B-9DEB-4710A75677F3}</Project>
       <Name>MLearning.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\cache.db" />
   </ItemGroup>
   <ItemGroup />
 </Project>

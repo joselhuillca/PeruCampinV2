@@ -65,9 +65,14 @@ namespace MLearning.Droid
 			Configuration.setWidthPixel (widthInDp);
 			Configuration.setHeigthPixel (heightInDp);
 
-			adsImagesPath = AddResources.Instance.addList;
+ 
+		    int val = Resource.String.LOGIN_USER;
+		    if (this.context.Resources.GetText(val).Equals("hitec")) //spanish
+		        adsImagesPath = AddResources.Instance.addList;
+		    else
+		        adsImagesPath = AddResources.Instance.addListEN;
 
-			initUi ();
+            initUi ();
 			this.AddView (_mainLayout);
 		}
 
@@ -114,7 +119,15 @@ namespace MLearning.Droid
 			_mainLayout.AddView (_scrollItems);
 			_publicidadLayout = new LinearLayout (context);
 			_publicidadLayout.LayoutParameters = new LinearLayout.LayoutParams (-1, Configuration.getHeight (85));
-			Drawable dr = new BitmapDrawable (getBitmapFromAsset ("images/footerad.jpg"));
+
+		    int val = Resource.String.LOGIN_USER;
+		    String footerPath = "";
+		    if (this.context.Resources.GetText(val).Equals("hitec")) //spanish
+		        footerPath = "images/footerad.jpg";
+		    else
+		        footerPath = "images/footerad_en.jpg";
+
+            Drawable dr = new BitmapDrawable (getBitmapFromAsset (footerPath));
 			_publicidadLayout.SetBackgroundDrawable (dr);
 			_publicidadLayout.SetY (Configuration.getHeight(1136-85));
 			_mainLayout.AddView (_publicidadLayout);

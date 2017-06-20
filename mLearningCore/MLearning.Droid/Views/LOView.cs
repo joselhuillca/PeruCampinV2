@@ -121,10 +121,14 @@ namespace MLearning.Droid.Views
 			_dialogDownload.SetCancelable (false);
 			_dialogDownload.SetMessage ("Cargando");
 			_dialogDownload.Show ();
+             
+		    int val = Resource.String.LOGIN_USER;
+		    if (this.ApplicationContext.Resources.GetText(val).Equals("hitec")) //spanish
+		        adsImagesPath = AddResources.Instance.addList;
+		    else
+		        adsImagesPath = AddResources.Instance.addListEN;
 
-			adsImagesPath = AddResources.Instance.addList;
-
-			await ini();
+            await ini();
 			//LoadPagesDataSource ();
 
 			SetContentView (_mainLayout);
@@ -607,7 +611,7 @@ namespace MLearning.Droid.Views
 					return;
 				}
 				fb = new FacebookClient (accessToken);
-				fb.PostTaskAsync ("me/feed", new { message = "Vas a visitar " + titulo }).ContinueWith (t => {
+				fb.PostTaskAsync ("me/feed", new { message = "@HI-TEC PERÚ, Vas a visitar " + titulo }).ContinueWith (t => {
 					if (!t.IsFaulted) {
 
 						var result = (IDictionary<string, object>)t.Result;
@@ -1046,7 +1050,14 @@ namespace MLearning.Droid.Views
 
 			_publicidadLayout = new LinearLayout (this);
 			_publicidadLayout.LayoutParameters = new LinearLayout.LayoutParams (-1, Configuration.getHeight (85));
-			Drawable drp = new BitmapDrawable (getBitmapFromAsset ("images/footerad.jpg"));
+		    int val = Resource.String.LOGIN_USER;
+		    String footerPath = "";
+		    if (this.ApplicationContext.Resources.GetText(val).Equals("hitec")) //spanish
+		        footerPath = "images/footerad.jpg";
+		    else
+		        footerPath = "images/footerad_en.jpg";
+             
+            Drawable drp = new BitmapDrawable (getBitmapFromAsset (footerPath));
 			_publicidadLayout.SetBackgroundDrawable (drp);
 			_publicidadLayout.SetY (Configuration.getHeight(1136-85));
 			_mainLayout.AddView (_publicidadLayout);

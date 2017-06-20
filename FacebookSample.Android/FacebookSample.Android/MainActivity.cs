@@ -17,7 +17,7 @@ namespace FacebookSample.Android
 	{
 		// Replace here you own Facebook App Id, if you don't have one go to
 		// https://developers.facebook.com/apps
-		private const string AppId = "1070001599751830";
+		private const string AppId = "1907663736182060";
 		
 		/// <summary>
 		/// Extended permissions is a comma separated list of permissions to ask the user.
@@ -59,7 +59,7 @@ namespace FacebookSample.Android
 			btnGraphSample.Click += HandleGraphApiSample;
 			btnFQLSample.Click += HandleFqlSample;
 
-			if (AppId != "1070001599751830") {
+			if (AppId != "1907663736182060") {
 				
 				string msg ="Please visit \n https://developers.facebook.com/ \n " +
 					"to get one or replace \"AppId\" Constant inside \"Activity1\" " +
