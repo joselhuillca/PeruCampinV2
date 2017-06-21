@@ -4,6 +4,7 @@
     <string name="ApplicationName">MLearning.Droid</string>
     <string name="openDrawer">Drawer Abierto</string>
 	<string name="closeDrawer">Drawer cerrado</string>
+  <string name="facebook_app_id">1907663736182060</string>
 	
 	<string name="mejores50campamentos">Los 50 mejores campamentos</string>
 	<string name="preparandoPartida">Preparando la partida</string>

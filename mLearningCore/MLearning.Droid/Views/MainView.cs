@@ -33,6 +33,7 @@ using Android.Support.V7.App;
 using Tasky.Shared;
 using Android.Preferences;
 using Android.Util;
+using Xamarin.Facebook;
 
 namespace MLearning.Droid.Views
 {
@@ -175,7 +176,9 @@ namespace MLearning.Droid.Views
 			this.Window.AddFlags(WindowManagerFlags.Fullscreen);
 			base.OnCreate(bundle);
 
-			SetContentView(Resource.Layout.MainView);
+            FacebookSdk.SdkInitialize(this.Application);
+
+            SetContentView(Resource.Layout.MainView);
 
 
 

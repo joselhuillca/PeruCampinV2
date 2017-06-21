@@ -29,6 +29,9 @@ using System.Collections;
 using Android.Support.V7.Widget;
 using Com.Telerik.Widget.List;
 using Android.Runtime;
+using Xamarin.Facebook.Share.Widget;
+using Xamarin.Facebook;
+using Xamarin.Facebook.Share.Model;
 
 namespace MLearning.Droid.Views
 {
@@ -68,7 +71,10 @@ namespace MLearning.Droid.Views
 		public ImageView favorit_;
 		public ImageView faceicon;
 		public TextView shared_face;
-		public TextView tomar_notas;
+        ShareButton mBtnShared;
+        private ICallbackManager mCallBackManager;
+        public string url_share;
+        public TextView tomar_notas;
 
 		int widthInDp;
 		int heightInDp;
@@ -94,6 +100,7 @@ namespace MLearning.Droid.Views
 
 		async protected  override  void OnCreate(Bundle bundle)
 		{
+            mCallBackManager = CallbackManagerFactory.Create();
 
             //Sacar la lista de Favoritos
             listNotas = TodoItemManager.GetTasks();
@@ -248,7 +255,8 @@ namespace MLearning.Droid.Views
 					front.Like = "10";
 					front.ImageChapter = lobycircle.lo.url_background;
 
-					listFront.Add (front);
+
+                    listFront.Add (front);
 					listFront [i].setBack (drBack,bmLike);
 
 					lobycircle.PropertyChanged += (s1, e1) =>
@@ -257,7 +265,7 @@ namespace MLearning.Droid.Views
 						{
 							front.ImageChapter = lobycircle.lo.url_background;
 
-						}
+                        }
 					};								
 
 					linearScroll.AddView (front);
@@ -348,7 +356,7 @@ namespace MLearning.Droid.Views
 					front.Like = "10";
 					front.ImageChapter = vm.LOsInCircle [i].lo.url_background;
 
-					listFront.Add (front);
+                    listFront.Add (front);
 					listFront [i].setBack (drBack,bmLike);
 
 
@@ -506,71 +514,12 @@ namespace MLearning.Droid.Views
 
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
-			base.OnActivityResult(requestCode, resultCode, data);
+            base.OnActivityResult(requestCode, resultCode, data);
+            mCallBackManager.OnActivityResult(requestCode, (int)resultCode, data);
 
-			switch (resultCode)
-			{
-				case Result.Ok:
+        }
 
-					accessToken = data.GetStringExtra("AccessToken");
-					string userId = data.GetStringExtra("UserId");
-					string error = data.GetStringExtra("Exception");
-
-					fb = new FacebookClient(accessToken);
-
-					//ImageView imgUser = FindViewById<ImageView> (Resource.Id.imgUser);
-					//TextView txtvUserName = FindViewById<TextView> (Resource.Id.txtvUserName);
-
-					fb.GetTaskAsync("me").ContinueWith(t =>
-					{
-						if (!t.IsFaulted)
-						{
-
-							var result = (IDictionary<string, object>)t.Result;
-
-							// available picture types: square (50x50), small (50xvariable height), large (about 200x variable height) (all size in pixels)
-							// for more info visit http://developers.facebook.com/docs/reference/api
-							string profilePictureUrl = string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", userId, "square", accessToken);
-							var bm = BitmapFactory.DecodeStream(new Java.Net.URL(profilePictureUrl).OpenStream());
-							string profileName = (string)result["name"];
-
-							RunOnUiThread(() =>
-							{
-								//imgUser.SetImageBitmap (bm);
-								//txtvUserName.Text = profileName;
-								//Toast.MakeText (this, "Presiona Back!!", ToastLength.Short).Show();
-								//Finish();
-							});
-
-							isLoggedIn = true;
-
-							ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-							ISharedPreferencesEditor editor = prefs.Edit();
-							editor.PutBoolean("inicioSesion", true);
-							editor.PutString("AccessToken", accessToken);
-							editor.Apply();
-
-
-
-							/*StartActivity(typeof (MainView));
-							Finish ();*/
-
-						}
-						else {
-							Alert(Resources.GetText(Resource.String.errorLogin), " " + error, false, (res) => { });
-						}
-					});
-
-					break;
-				case Result.Canceled:
-					Alert(Resources.GetText(Resource.String.errorLogin), Resources.GetText(Resource.String.loginCancelado), false, (res) => { });
-					break;
-				default:
-					break;
-			}
-		}
-
-		public void Alert(string title, string message, bool CancelButton, Action<Result> callback)
+        public void Alert(string title, string message, bool CancelButton, Action<Result> callback)
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.SetTitle(title);
@@ -671,9 +620,9 @@ namespace MLearning.Droid.Views
 
 
 							front.ImageChapter = s_listp [j].PagesList [k].page.url_img;
+                            url_share = s_listp[j].PagesList[k].page.url_img;// Aqui esta la url del imagen de portada
 
-
-							front.Title = s_listp [j].PagesList [k].page.title;
+                    front.Title = s_listp [j].PagesList [k].page.title;
 							front.Description = s_listp [j].PagesList [k].page.description;
 
 
@@ -740,7 +689,22 @@ namespace MLearning.Droid.Views
                     faceicon.SetY(Configuration.getHeight(0));
                     //favorit_.Click += delegate { funcFavoritos(favorit_); };
 
+                    //Boton Share FACEBOOK SDK
+                    mBtnShared = new ShareButton(this);
+                    mBtnShared.Text = Resources.GetText(Resource.String.comparteTuExperiencia);
+                    mBtnShared.SetX(Configuration.getWidth(0)); //antes era 50
+                    mBtnShared.SetY(Configuration.getHeight(-7));
+                    //URL que se compartira (AQUI la imagen url_share : pero solo es descargable )
+                    // es mejor poner una página de Peru camping
+                    Android.Net.Uri uri = Android.Net.Uri.Parse("https://www.facebook.com/HiTecPe/");
+                    ShareLinkContent.Builder shareLinkContentBuilder = new ShareLinkContent.Builder().
+                            SetContentDescription(front.Title).
+                            SetContentTitle(Resources.GetText(Resource.String.comparteTuExperiencia));
+                    shareLinkContentBuilder.SetContentUrl(uri);
+                    ShareLinkContent content_faceShare = shareLinkContentBuilder.Build();
+                    mBtnShared.ShareContent = content_faceShare;
                     shared_face = new TextView(this);
+                    //Esto ya no servira
 					shared_face.Text = Resources.GetText(Resource.String.comparteTuExperiencia);
 					//shared_face.LayoutParameters = new LinearLayout.LayoutParams (Configuration.getWidth (580), LinearLayout.LayoutParams.WrapContent);
                     shared_face.SetTextColor(Color.ParseColor("#1A237E"));
@@ -781,9 +745,10 @@ namespace MLearning.Droid.Views
 					misFavoritos.SetX (Configuration.getWidth(0));
 					misFavoritos.SetY (Configuration.getHeight (0));
                     misFavoritos.AddView(tomar_notas);
-                    misFavoritos.AddView (shared_face);
+                    //misFavoritos.AddView (shared_face);
+                    misFavoritos.AddView(mBtnShared);
                     misFavoritos.AddView(favorit_);
-                    misFavoritos.AddView(faceicon);
+                    //misFavoritos.AddView(faceicon);
                     linearScroll.AddView (misFavoritos);
 					//FIN FAVoritos-----------------------------------------------------------
 							linearScroll.AddView (descriptionLayout);
